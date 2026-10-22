@@ -3,635 +3,194 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FLEURÉ — Floral Atelier</title>
-<meta name="description" content="FLEURÉ Floral Atelier — Flowers, thoughtfully arranged.">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLEURÉ | Floral Atelier</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-
 <style>
 :root {
-  --ivory: #FAF7F0;
-  --blush: #EBCFD2;
-  --sage: #A8B7A0;
-  --champagne: #D9C3A1;
-  --olive: #35483D;
-  --ink: #30362F;
+  --ivory:#FAF7F0;
+  --blush:#EBCFD2;
+  --sage:#A8B7A0;
+  --champagne:#D9C3A1;
+  --olive:#35483D;
 }
-
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--ivory);
-  color: var(--ink);
-  font-family: 'DM Sans', sans-serif;
-}
-a { color: inherit; text-decoration: none; }
-button, input, textarea { font: inherit; }
-button { cursor: pointer; }
-img { width: 100%; display: block; object-fit: cover; }
-h1, h2, h3, .logo {
-  font-family: 'Playfair Display', serif;
-  font-weight: 400;
-}
-h2 {
-  font-size: clamp(32px, 4vw, 55px);
-  line-height: 1.2;
-  margin: 12px 0 20px;
-}
-.eyebrow {
-  font-size: 11px;
-  letter-spacing: .23em;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-.btn {
-  display: inline-block;
-  background: var(--sage);
-  color: var(--olive);
-  border: 1px solid var(--sage);
-  padding: 16px 30px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  transition: .3s;
-}
-.btn:hover {
-  background: var(--ivory);
-  border-color: var(--ivory);
-}
-
-/* ANNOUNCEMENT */
-
-.announcement {
-  background: var(--olive);
-  color: white;
-  text-align: center;
-  padding: 12px;
-  font-size: 11px;
-  letter-spacing: .14em;
-}
-
-/* HEADER */
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: rgba(250,247,240,.98);
-  border-bottom: 1px solid #e7dfd5;
-}
-.header-inner {
-  max-width: 1450px;
-  margin: auto;
-  padding: 18px 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-.logo {
-  font-size: 31px;
-  color: var(--olive);
-  letter-spacing: .12em;
-  line-height: 1;
-}
-.logo small {
-  display: block;
-  text-align: center;
-  font: 9px 'DM Sans', sans-serif;
-  letter-spacing: .35em;
-  margin-top: 8px;
-}
-nav {
-  display: flex;
-  gap: 25px;
-  font-size: 11px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-nav a:hover { color: #aa7e87; }
-.bag-button {
-  background: none;
-  color: var(--olive);
-  border: 1px solid var(--olive);
-  padding: 11px 17px;
-}
-.menu-button {
-  display: none;
-  border: 0;
-  background: none;
-  font-size: 26px;
-}
+* {box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {margin:0;background:var(--ivory);color:var(--olive);font-family:'DM Sans',sans-serif}
+h1,h2,h3,.logo {font-family:'Playfair Display',serif;font-weight:400}
+h2 {font-size:clamp(32px,4vw,56px);margin:12px 0}
+a {color:inherit;text-decoration:none}
+button,input,textarea {font:inherit}
+button {cursor:pointer}
+img {display:block;width:100%;object-fit:cover}
+.eyebrow {font-size:11px;letter-spacing:3px;text-transform:uppercase}
+.section {max-width:1450px;margin:auto;padding:85px 5%}
+.heading {text-align:center;margin-bottom:42px}
+.heading p {color:#788075;line-height:1.8}
+.btn {display:inline-block;background:var(--olive);color:white;border:1px solid var(--olive);padding:16px 30px;font-size:11px;letter-spacing:2px;text-transform:uppercase;transition:.3s}
+.btn:hover {background:var(--sage);color:var(--olive);transform:translateY(-3px)}
+.announcement {background:var(--olive);color:white;text-align:center;padding:12px;font-size:11px;letter-spacing:2px}
+header {position:sticky;top:0;z-index:20;background:var(--ivory);border-bottom:1px solid #e5ded3}
+.header-inner {max-width:1450px;margin:auto;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo {font-size:30px;letter-spacing:4px}
+.logo small {display:block;font:9px 'DM Sans',sans-serif;letter-spacing:4px;text-align:center;margin-top:7px}
+nav {display:flex;gap:24px;font-size:11px;letter-spacing:1px;text-transform:uppercase}
+nav a {transition:color .2s}
+nav a:hover {color:#b37b88}
+.bag {border:1px solid var(--olive);background:transparent;padding:11px 15px}
+.menu {display:none;background:none;border:0;font-size:25px}
 
 /* ORIGINAL VIDEO HOMEPAGE */
-
-.hero {
-  position: relative;
-  height: 95vh;
-  min-height: 620px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow: hidden;
-  background: var(--olive);
-}
-.hero-fallback,
-.hero-video,
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-.hero-fallback {
-  background: url('https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=1800') center / cover;
-}
-.hero-video {
-  z-index: 1;
-  object-fit: cover;
-}
-.hero-overlay {
-  z-index: 2;
-  background: rgba(22,35,26,.52);
-}
-.hero-content {
-  position: relative;
-  z-index: 3;
-  padding: 25px;
-  color: var(--ivory);
-  max-width: 850px;
-}
-.hero-content .eyebrow { color: var(--champagne); }
-.hero h1 {
-  font-size: clamp(65px, 11vw, 145px);
-  letter-spacing: .08em;
-  margin: 20px 0;
-}
-.hero-tagline {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(22px, 3vw, 35px);
-  font-style: italic;
-}
-.hero-description {
-  font-size: 15px;
-  line-height: 1.9;
-  margin: 16px 0 36px;
-}
-.hero-scroll {
-  position: absolute;
-  z-index: 3;
-  bottom: 30px;
-  color: white;
-  font-size: 10px;
-  letter-spacing: .25em;
-}
+.hero {position:relative;height:92vh;min-height:620px;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--olive);overflow:hidden}
+.hero video,.hero-fallback,.hero-shade {position:absolute;inset:0;width:100%;height:100%}
+.hero-fallback {background:url("https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=1800") center/cover}
+.hero video {object-fit:cover;z-index:1}
+.hero-shade {background:rgba(23,36,27,.5);z-index:2}
+.hero-content {position:relative;z-index:3;color:white;padding:25px}
+.hero h1 {font-size:clamp(65px,11vw,145px);letter-spacing:10px;margin:20px 0}
+.hero .tagline {font:italic clamp(23px,3vw,36px) 'Playfair Display',serif}
+.hero p {line-height:1.8}
+.hero .btn {background:var(--sage);color:var(--olive);border-color:var(--sage);margin-top:22px}
+.hero .btn:hover {background:white}
+.hero-scroll {position:absolute;bottom:30px;color:white;z-index:3;font-size:10px;letter-spacing:3px}
 
 /* BENEFITS */
-
-.promise {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  background: white;
-  padding: 28px 5%;
-  text-align: center;
-  font-size: 12px;
-}
-.promise span { color: #b57c88; }
-
-/* SECTIONS */
-
-.section {
-  max-width: 1500px;
-  margin: auto;
-  padding: 90px 5%;
-}
-.section-heading {
-  text-align: center;
-  max-width: 680px;
-  margin: 0 auto 45px;
-}
-.section-heading .eyebrow { color: #849780; }
-.section-heading p {
-  color: #73776d;
-  font-size: 14px;
-  line-height: 1.9;
-}
+.benefits {display:grid;grid-template-columns:repeat(3,1fr);gap:15px;background:white;padding:26px 5%;text-align:center;font-size:12px}
 
 /* COLLECTIONS */
+.collections {display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.collection {position:relative;height:430px;overflow:hidden}
+.collection img {height:100%;transition:transform .7s}
+.collection:hover img {transform:scale(1.09)}
+.collection-title {position:absolute;bottom:0;left:0;right:0;padding:60px 20px 25px;text-align:center;color:white;background:linear-gradient(transparent,rgba(20,30,20,.75))}
+.collection-title h3 {font-size:29px;margin:0 0 10px}
+.collection-title span {font-size:11px;letter-spacing:2px}
 
-.collections {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-.collection {
-  height: 440px;
-  position: relative;
-  overflow: hidden;
-  background: var(--blush);
-}
-.collection img {
-  height: 100%;
-  transition: transform .5s;
-}
-.collection:hover img { transform: scale(1.05); }
-.collection-label {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 65px 20px 25px;
-  text-align: center;
-  color: white;
-  background: linear-gradient(transparent,rgba(20,30,23,.75));
-}
-.collection-label h3 {
-  font-size: 29px;
-  margin: 0 0 12px;
-}
-.collection-label span {
-  font-size: 11px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-}
+/* PRODUCT CARDS */
+.shop-bg {background:#F5EFEA}
+.filters {display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:35px}
+.filter {background:transparent;border:1px solid #c9c5b9;padding:11px 18px;color:var(--olive)}
+.filter.active,.filter:hover {background:var(--olive);color:white}
+.products {display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.product {background:white;position:relative;transition:transform .35s,box-shadow .35s}
+.product:hover {transform:translateY(-9px);box-shadow:0 16px 35px #35483d1c}
+.product-photo {height:320px;overflow:hidden}
+.product-photo img {height:100%;transition:transform .6s}
+.product:hover img {transform:scale(1.08)}
+.product-info {padding:20px;text-align:center}
+.product h3 {font-size:21px;margin:10px 0}
+.product .price {font-size:14px;margin-bottom:18px}
+.product button,.sale-card button {width:100%;border:0;background:var(--sage);padding:14px;font-size:11px;letter-spacing:1px;color:var(--olive);transition:.3s}
+.product button:hover,.sale-card button:hover {background:var(--olive);color:white}
 
-/* SHOP */
-
-.shop-background { background: #f5efea; }
-.filters {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 35px;
-}
-.filter {
-  padding: 11px 18px;
-  background: transparent;
-  color: var(--olive);
-  border: 1px solid #cfc8bd;
-  font-size: 12px;
-}
-.filter.active,
-.filter:hover {
-  background: var(--olive);
-  color: white;
-}
-.products {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-.product {
-  background: white;
-  padding-bottom: 20px;
-}
-.product-image {
-  height: 330px;
-  overflow: hidden;
-  background: var(--blush);
-}
-.product-image img {
-  height: 100%;
-  transition: transform .5s;
-}
-.product:hover img { transform: scale(1.05); }
-.product-info {
-  text-align: center;
-  padding: 20px 16px 0;
-}
-.product-info .eyebrow {
-  font-size: 9px;
-  color: #849780;
-}
-.product h3 {
-  font-size: 21px;
-  margin: 10px 0;
-}
-.price {
-  color: #73776d;
-  font-size: 14px;
-  margin-bottom: 18px;
-}
-.add-button {
-  width: 100%;
-  padding: 13px;
-  border: 0;
-  background: var(--sage);
-  color: var(--olive);
-  text-transform: uppercase;
-  font-size: 11px;
-  letter-spacing: .13em;
-}
-.add-button:hover {
-  background: var(--olive);
-  color: white;
-}
+/* FINAL SALE */
+.sale-section {background:var(--blush);padding:85px 5%}
+.sale-inner {max-width:1350px;margin:auto}
+.sale-intro {text-align:center;margin-bottom:35px}
+.sale-intro h2 {font-size:clamp(40px,5vw,70px)}
+.sale-intro p {font-size:14px}
+.countdown {display:flex;justify-content:center;gap:13px;margin:30px 0 45px}
+.time-box {min-width:84px;background:white;padding:18px 12px;text-align:center}
+.time-box strong {display:block;font:34px 'Playfair Display',serif}
+.time-box span {font-size:10px;letter-spacing:2px}
+.sale-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.sale-card {position:relative;background:white;overflow:hidden;transition:transform .35s,box-shadow .35s}
+.sale-card:hover {transform:translateY(-10px);box-shadow:0 18px 40px #35483d25}
+.sale-card img {height:330px;transition:transform .6s}
+.sale-card:hover img {transform:scale(1.06)}
+.sale-ribbon {position:absolute;top:15px;left:15px;background:var(--olive);color:white;padding:10px 15px;font-size:10px;letter-spacing:2px;z-index:1}
+.sale-body {padding:24px;text-align:center}
+.sale-body h3 {font-size:24px;margin:10px 0}
+.old-price {text-decoration:line-through;color:#999;margin-right:12px}
+.new-price {color:#b25c69;font-size:21px;font-weight:600}
+.sale-card button {margin-top:18px}
+.sale-card button:disabled {opacity:.5;cursor:not-allowed}
 
 /* STORY */
-
-.story {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: var(--blush);
-}
-.story img {
-  height: 100%;
-  min-height: 570px;
-}
-.story-content {
-  padding: 75px 12%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-.story-content p {
-  color: #5c665d;
-  line-height: 2;
-  font-size: 15px;
-}
-.story-content .btn { margin-top: 20px; }
+.story {display:grid;grid-template-columns:1fr 1fr;background:var(--blush)}
+.story img {height:100%;min-height:540px}
+.story-copy {padding:75px 12%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.story-copy p {line-height:2;color:#566457}
 
 /* OCCASIONS */
+.occasions {display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.occasion {overflow:hidden}
+.occasion img {height:280px;transition:transform .5s}
+.occasion:hover img {transform:scale(1.06)}
+.occasion h3 {text-align:center;font-size:22px}
 
-.occasions {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-.occasion img { height: 280px; }
-.occasion h3 {
-  text-align: center;
-  font-size: 22px;
-}
+/* NEWSLETTER AND FOOTER */
+.newsletter {background:var(--olive);color:white;text-align:center;padding:75px 5%}
+.newsletter form {display:flex;max-width:480px;margin:25px auto}
+.newsletter input {flex:1;min-width:0;padding:15px;border:0}
+.newsletter button {border:0;background:var(--blush);padding:15px 20px}
+footer {background:#f1e8df;padding:60px 5% 30px}
+.footer-grid {max-width:1300px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:35px}
+footer a:not(.logo),footer p {display:block;color:#777;font-size:13px;line-height:2}
+footer h4 {font-size:12px;letter-spacing:2px}
+.copyright {text-align:center;margin-top:45px;padding-top:20px;border-top:1px solid #d8d1c7;font-size:11px}
 
-/* NEWSLETTER */
+/* SHOPPING CART */
+.overlay {display:none;position:fixed;inset:0;background:#0008;z-index:29}
+.overlay.open {display:block}
+.drawer {position:fixed;right:0;top:0;height:100%;width:min(430px,100%);background:var(--ivory);z-index:30;padding:28px;transform:translateX(100%);transition:.3s;display:flex;flex-direction:column}
+.drawer.open {transform:translateX(0)}
+.drawer-head {display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ddd}
+.close {border:0;background:none;font-size:30px}
+.cart-items {flex:1;overflow-y:auto}
+.cart-item {display:grid;grid-template-columns:70px 1fr auto;gap:12px;padding:18px 0;border-bottom:1px solid #ddd}
+.cart-item img {height:75px}
+.cart-item h4 {font-size:13px;margin:0}
+.cart-item p {font-size:12px}
+.qty {display:flex;gap:10px;align-items:center}
+.qty button {border:1px solid #ddd;background:white;padding:4px 9px}
+.cart-bottom {border-top:1px solid #ddd;padding-top:20px}
+.cart-bottom .btn {width:100%;margin-top:18px}
+.demo-note {font-size:11px;color:#888;line-height:1.6}
 
-.newsletter {
-  background: var(--olive);
-  padding: 80px 5%;
-  color: white;
-  text-align: center;
-}
-.newsletter .eyebrow { color: var(--champagne); }
-.newsletter p { color: #e6e8df; }
-.newsletter form {
-  display: flex;
-  max-width: 480px;
-  margin: 25px auto;
-}
-.newsletter input {
-  flex: 1;
-  min-width: 0;
-  border: 0;
-  padding: 16px;
-}
-.newsletter button {
-  background: var(--blush);
-  border: 0;
-  padding: 16px 22px;
-  color: var(--olive);
-  font-size: 11px;
-  text-transform: uppercase;
-}
+/* DEMO CHECKOUT */
+.checkout {display:none;position:fixed;inset:0;z-index:40;background:#0009;align-items:center;justify-content:center;padding:20px}
+.checkout.open {display:flex}
+.checkout-box {position:relative;background:var(--ivory);padding:35px;width:min(540px,100%);max-height:90vh;overflow:auto}
+.checkout-close {position:absolute;right:20px;top:15px}
+.checkout label {display:block;margin:13px 0 5px;font-size:12px}
+.checkout input,.checkout textarea {width:100%;padding:11px;border:1px solid #ddd}
+.checkout .btn {width:100%;margin-top:20px}
+.toast {display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:50;background:var(--olive);color:white;padding:15px 22px;text-align:center}
+.toast.show {display:block}
 
-/* FOOTER */
-
-footer {
-  background: #f1e8df;
-  padding: 65px 5% 30px;
+@media(max-width:1050px){
+.products {grid-template-columns:repeat(2,1fr)}
+nav {gap:12px}
 }
-.footer-grid {
-  max-width: 1300px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 45px;
+@media(max-width:720px){
+.menu {display:block}
+nav {display:none;position:absolute;top:100%;left:0;right:0;background:var(--ivory);padding:25px;flex-direction:column}
+nav.open {display:flex}
+.logo {font-size:25px}
+.hero {height:85svh;min-height:550px}
+.hero h1 {letter-spacing:4px}
+.benefits {grid-template-columns:1fr}
+.section,.sale-section {padding:65px 5%}
+.collections,.sale-grid {grid-template-columns:1fr}
+.collection {height:380px}
+.product-photo {height:230px}
+.story {grid-template-columns:1fr}
+.story img {height:360px;min-height:360px}
+.story-copy {padding:55px 8%}
+.occasions {grid-template-columns:repeat(2,1fr)}
+.occasion img {height:190px}
+.footer-grid {grid-template-columns:1fr 1fr}
+.footer-grid>div:first-child {grid-column:1/-1}
+.time-box {min-width:65px;padding:14px 8px}
+.time-box strong {font-size:27px}
 }
-footer h4 {
-  font-size: 12px;
-  letter-spacing: .15em;
-  text-transform: uppercase;
+@media(max-width:390px){
+.products {grid-template-columns:1fr}
+.product-photo {height:330px}
 }
-footer p,
-footer .footer-links a {
-  display: block;
-  font-size: 13px;
-  color: #73776c;
-  line-height: 2;
-}
-.copyright {
-  text-align: center;
-  border-top: 1px solid #ded4c8;
-  margin-top: 50px;
-  padding-top: 25px;
-  color: #73776c;
-  font-size: 11px;
-}
-
-/* CART */
-
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.5);
-  z-index: 29;
-  display: none;
-}
-.overlay.open { display: block; }
-.drawer {
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: min(430px,100%);
-  height: 100%;
-  background: var(--ivory);
-  z-index: 30;
-  transform: translateX(100%);
-  transition: transform .3s;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-}
-.drawer.open { transform: translateX(0); }
-.drawer-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ddd;
-}
-.drawer-header h2 { font-size: 30px; }
-.close {
-  background: none;
-  border: 0;
-  font-size: 30px;
-}
-.cart-items {
-  flex: 1;
-  overflow-y: auto;
-}
-.cart-item {
-  display: grid;
-  grid-template-columns: 70px 1fr auto;
-  gap: 12px;
-  align-items: center;
-  padding: 18px 0;
-  border-bottom: 1px solid #ddd;
-}
-.cart-item img {
-  width: 70px;
-  height: 75px;
-}
-.cart-item h4 {
-  margin: 0 0 8px;
-  font-size: 13px;
-}
-.cart-item p {
-  font-size: 12px;
-  margin: 0 0 8px;
-}
-.quantity {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.quantity button {
-  background: white;
-  border: 1px solid #ddd;
-  padding: 4px 9px;
-}
-.cart-footer {
-  padding-top: 20px;
-  border-top: 1px solid #ddd;
-}
-.cart-footer .btn {
-  width: 100%;
-  margin-top: 15px;
-}
-.demo-note {
-  font-size: 11px;
-  color: #888;
-  line-height: 1.6;
-}
-
-/* CHECKOUT */
-
-.checkout {
-  position: fixed;
-  inset: 0;
-  z-index: 40;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background: rgba(0,0,0,.6);
-}
-.checkout.open { display: flex; }
-.checkout-box {
-  position: relative;
-  background: var(--ivory);
-  width: min(550px,100%);
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 35px;
-}
-.checkout-box h2 { font-size: 34px; }
-.checkout-box label {
-  display: block;
-  margin: 14px 0 6px;
-  font-size: 12px;
-}
-.checkout-box input,
-.checkout-box textarea {
-  width: 100%;
-  padding: 12px;
-  background: white;
-  border: 1px solid #d9d6cc;
-}
-.checkout-box .btn {
-  width: 100%;
-  margin-top: 20px;
-}
-.checkout-close {
-  position: absolute;
-  right: 22px;
-  top: 18px;
-}
-.toast {
-  display: none;
-  position: fixed;
-  bottom: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 50;
-  background: var(--olive);
-  color: white;
-  padding: 15px 22px;
-  text-align: center;
-  font-size: 13px;
-}
-.toast.show { display: block; }
-
-/* MOBILE */
-
-@media (max-width: 1100px) {
-  .products { grid-template-columns: repeat(2,1fr); }
-  nav { gap: 14px; }
-}
-
-@media (max-width: 720px) {
-  .menu-button { display: block; }
-  .logo { font-size: 25px; }
-  nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    padding: 25px;
-    background: var(--ivory);
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  nav.open { display: flex; }
-  .hero {
-    height: 90svh;
-    min-height: 580px;
-  }
-  .hero h1 { font-size: clamp(50px,13vw,80px); }
-  .promise { grid-template-columns: 1fr; }
-  .section { padding: 65px 5%; }
-  .collections { grid-template-columns: 1fr; }
-  .collection { height: 390px; }
-  .products { gap: 12px; }
-  .product-image { height: 230px; }
-  .product h3 { font-size: 17px; }
-  .story { grid-template-columns: 1fr; }
-  .story img { min-height: 370px; height: 370px; }
-  .story-content { padding: 55px 8%; }
-  .occasions { grid-template-columns: repeat(2,1fr); }
-  .occasion img { height: 200px; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .footer-grid > div:first-child { grid-column: 1/-1; }
-}
-
-@media (max-width: 390px) {
-  .products { grid-template-columns: 1fr; }
-  .product-image { height: 340px; }
-  .newsletter form { flex-direction: column; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
-  }
+@media(prefers-reduced-motion:reduce){
+*,*::before,*::after {animation:none!important;transition:none!important}
 }
 </style>
 </head>
@@ -639,361 +198,223 @@ footer .footer-links a {
 <body>
 
 <div class="announcement">
-  BEAUTIFUL FLOWERS FOR BEAUTIFUL MOMENTS ✦ DISCOVER FLEURÉ
+  FLOWERS FOR LIFE'S BEAUTIFUL MOMENTS ✦ DISCOVER FLEURÉ
 </div>
 
 <header>
   <div class="header-inner">
-    <button class="menu-button" id="menuBtn" aria-label="Open menu">☰</button>
-
-    <a href="#home" class="logo">
-      FLEURÉ
-      <small>FLORAL ATELIER</small>
-    </a>
-
+    <button class="menu" id="menuBtn" aria-label="Open menu">☰</button>
+    <a class="logo" href="#home">FLEURÉ<small>FLORAL ATELIER</small></a>
     <nav id="nav">
       <a href="#home">Home</a>
       <a href="#collections">Collections</a>
-      <a href="#shop">Shop Bouquets</a>
+      <a href="#shop">Bouquets</a>
+      <a href="#sale">Final Sale</a>
       <a href="#story">Our Story</a>
       <a href="#occasions">Occasions</a>
     </nav>
-
-    <button class="bag-button" id="bagBtn">
-      Bag (<span id="count">0</span>)
-    </button>
+    <button class="bag" id="bagBtn">Bag (<span id="count">0</span>)</button>
   </div>
 </header>
 
 <main>
 
-<!-- ORIGINAL VIDEO -->
-
+<!-- VIDEO HERO -->
 <section class="hero" id="home">
   <div class="hero-fallback"></div>
-
-  <video
-    class="hero-video"
-    id="heroVideo"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="metadata">
+  <video id="heroVideo" autoplay muted loop playsinline>
     <source src="fleure-hero.mp4" type="video/mp4">
   </video>
-
-  <div class="hero-overlay"></div>
-
+  <div class="hero-shade"></div>
   <div class="hero-content">
     <div class="eyebrow">FLORAL ATELIER</div>
     <h1>FLEURÉ</h1>
-    <p class="hero-tagline">Flowers, thoughtfully arranged.</p>
-    <p class="hero-description">
-      Timeless blooms for life's most beautiful moments.
-    </p>
-    <a href="#shop" class="btn">Shop Bouquets</a>
+    <p class="tagline">Flowers, thoughtfully arranged.</p>
+    <p>Timeless blooms for life's most beautiful moments.</p>
+    <a class="btn" href="#shop">Shop Bouquets</a>
   </div>
-
   <div class="hero-scroll">SCROLL TO EXPLORE ↓</div>
 </section>
 
-<div class="promise">
-  <div><span>✦</span> Thoughtfully Curated Flowers</div>
-  <div><span>♡</span> Beautifully Wrapped Bouquets</div>
-  <div><span>✿</span> Made for Meaningful Moments</div>
+<div class="benefits">
+  <div>✦ Thoughtfully Curated Flowers</div>
+  <div>♡ Beautifully Wrapped Bouquets</div>
+  <div>✿ Made for Meaningful Moments</div>
 </div>
 
 <!-- COLLECTIONS -->
-
 <section class="section" id="collections">
-  <div class="section-heading">
+  <div class="heading">
     <div class="eyebrow">THE FLEURÉ COLLECTION</div>
     <h2>Flowers for every moment</h2>
-    <p>
-      Discover our romantic collections of roses,
-      signature bouquets, and seasonal blooms.
-    </p>
+    <p>Explore romantic roses, signature arrangements and seasonal flowers.</p>
   </div>
-
   <div class="collections">
-
-    <a href="#shop" class="collection" data-category="roses">
-      <img
-        src="https://images.pexels.com/photos/4022213/pexels-photo-4022213.jpeg?auto=compress&cs=tinysrgb&w=900"
-        alt="Rose bouquet" loading="lazy">
-      <div class="collection-label">
-        <h3>Roses & Romance</h3>
-        <span>Explore Collection →</span>
-      </div>
+    <a class="collection" href="#shop" data-category="roses">
+      <img loading="lazy" src="https://images.pexels.com/photos/4022213/pexels-photo-4022213.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Rose bouquet">
+      <div class="collection-title"><h3>Roses & Romance</h3><span>EXPLORE COLLECTION →</span></div>
     </a>
-
-    <a href="#shop" class="collection" data-category="signature">
-      <img
-        src="https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=900"
-        alt="Signature bouquet" loading="lazy">
-      <div class="collection-label">
-        <h3>Signature Bouquets</h3>
-        <span>Explore Collection →</span>
-      </div>
+    <a class="collection" href="#shop" data-category="signature">
+      <img loading="lazy" src="https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Signature flowers">
+      <div class="collection-title"><h3>Signature Bouquets</h3><span>EXPLORE COLLECTION →</span></div>
     </a>
-
-    <a href="#shop" class="collection" data-category="seasonal">
-      <img
-        src="https://images.pexels.com/photos/29112838/pexels-photo-29112838.jpeg?auto=compress&cs=tinysrgb&w=900"
-        alt="Colorful seasonal flowers" loading="lazy">
-      <div class="collection-label">
-        <h3>Seasonal Blooms</h3>
-        <span>Explore Collection →</span>
-      </div>
+    <a class="collection" href="#shop" data-category="seasonal">
+      <img loading="lazy" src="https://images.pexels.com/photos/29112838/pexels-photo-29112838.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Seasonal bouquet">
+      <div class="collection-title"><h3>Seasonal Blooms</h3><span>EXPLORE COLLECTION →</span></div>
     </a>
-
   </div>
 </section>
 
 <!-- SHOP -->
-
-<div class="shop-background">
-  <section class="section" id="shop">
-
-    <div class="section-heading">
-      <div class="eyebrow">OUR BESTSELLERS</div>
-      <h2>The most loved bouquets</h2>
-      <p>
-        From soft romantic roses to vibrant garden flowers,
-        find a bouquet for every occasion.
-      </p>
-    </div>
-
-    <div class="filters">
-      <button class="filter active" data-filter="all">All Bouquets</button>
-      <button class="filter" data-filter="roses">Roses</button>
-      <button class="filter" data-filter="signature">Signature</button>
-      <button class="filter" data-filter="seasonal">Seasonal</button>
-    </div>
-
-    <div class="products" id="products"></div>
-
-  </section>
+<div class="shop-bg">
+<section class="section" id="shop">
+  <div class="heading">
+    <div class="eyebrow">OUR BESTSELLERS</div>
+    <h2>The most loved bouquets</h2>
+    <p>Pink, white, red, peach and colorful flowers, thoughtfully arranged.</p>
+  </div>
+  <div class="filters">
+    <button class="filter active" data-filter="all">All Bouquets</button>
+    <button class="filter" data-filter="roses">Roses</button>
+    <button class="filter" data-filter="signature">Signature</button>
+    <button class="filter" data-filter="seasonal">Seasonal</button>
+  </div>
+  <div class="products" id="products"></div>
+</section>
 </div>
 
-<!-- STORY -->
+<!-- FINAL SALE -->
+<section class="sale-section" id="sale">
+  <div class="sale-inner">
+    <div class="sale-intro">
+      <div class="eyebrow">A LITTLE SOMETHING SPECIAL</div>
+      <h2>Final Sale</h2>
+      <p>Limited-time demo offers on selected bouquets.</p>
+      <p id="saleStatus">Offer ends October 31, 2026, at 11:59 PM Armenia time.</p>
+    </div>
 
+    <div class="countdown" aria-label="Sale countdown">
+      <div class="time-box"><strong id="days">00</strong><span>DAYS</span></div>
+      <div class="time-box"><strong id="hours">00</strong><span>HOURS</span></div>
+      <div class="time-box"><strong id="minutes">00</strong><span>MINUTES</span></div>
+      <div class="time-box"><strong id="seconds">00</strong><span>SECONDS</span></div>
+    </div>
+
+    <div class="sale-grid" id="saleGrid"></div>
+  </div>
+</section>
+
+<!-- OUR STORY -->
 <section class="story" id="story">
-
-  <img
-    src="https://images.pexels.com/photos/4022210/pexels-photo-4022210.jpeg?auto=compress&cs=tinysrgb&w=1300"
-    alt="Flowers in a floral studio"
-    loading="lazy">
-
-  <div class="story-content">
+  <img loading="lazy" src="https://images.pexels.com/photos/4022210/pexels-photo-4022210.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Floral arrangement">
+  <div class="story-copy">
     <div class="eyebrow">OUR STORY</div>
     <h2>A love letter<br>to flowers.</h2>
-
-    <p>
-      At FLEURÉ, we believe flowers are more than a gift.
-      They are a way to say thank you, I love you,
-      I'm thinking of you — or simply to bring a little
-      beauty into the day.
-    </p>
-
-    <p>
-      Inspired by romantic garden blooms and timeless
-      floral design, our arrangements are created
-      to feel personal, effortless, and unforgettable.
-    </p>
-
-    <a href="#shop" class="btn">Discover Our Flowers</a>
+    <p>At FLEURÉ, we believe flowers are more than a gift. They are a beautiful way to celebrate, express love and create memories.</p>
+    <p>Inspired by romantic garden blooms and timeless floral design, our arrangements are made for life's meaningful moments.</p>
+    <a class="btn" href="#shop">Discover Our Flowers</a>
   </div>
 </section>
 
 <!-- OCCASIONS -->
-
 <section class="section" id="occasions">
-  <div class="section-heading">
+  <div class="heading">
     <div class="eyebrow">THOUGHTFUL GESTURES</div>
     <h2>Flowers for every occasion</h2>
-    <p>
-      Celebrate the moments, big and small,
-      with a bouquet that says it all.
-    </p>
   </div>
-
   <div class="occasions">
-
-    <a href="#shop" class="occasion">
-      <img
-        src="https://images.pexels.com/photos/11245141/pexels-photo-11245141.jpeg?auto=compress&cs=tinysrgb&w=650"
-        alt="Birthday bouquet" loading="lazy">
+    <a class="occasion" href="#shop">
+      <img loading="lazy" src="https://images.pexels.com/photos/11245141/pexels-photo-11245141.jpeg?auto=compress&cs=tinysrgb&w=650" alt="Birthday flowers">
       <h3>Birthdays</h3>
     </a>
-
-    <a href="#shop" class="occasion">
-      <img
-        src="https://images.pexels.com/photos/4022213/pexels-photo-4022213.jpeg?auto=compress&cs=tinysrgb&w=650"
-        alt="Anniversary roses" loading="lazy">
+    <a class="occasion" href="#shop">
+      <img loading="lazy" src="https://images.pexels.com/photos/4022213/pexels-photo-4022213.jpeg?auto=compress&cs=tinysrgb&w=650" alt="Anniversary roses">
       <h3>Anniversaries</h3>
     </a>
-
-    <a href="#shop" class="occasion">
-      <img
-        src="https://images.pexels.com/photos/9765739/pexels-photo-9765739.jpeg?auto=compress&cs=tinysrgb&w=650"
-        alt="Wedding flowers" loading="lazy">
+    <a class="occasion" href="#shop">
+      <img loading="lazy" src="https://images.pexels.com/photos/9765739/pexels-photo-9765739.jpeg?auto=compress&cs=tinysrgb&w=650" alt="Wedding flowers">
       <h3>Weddings</h3>
     </a>
-
-    <a href="#shop" class="occasion">
-      <img
-        src="https://images.pexels.com/photos/5344925/pexels-photo-5344925.jpeg?auto=compress&cs=tinysrgb&w=650"
-        alt="Colorful flowers" loading="lazy">
+    <a class="occasion" href="#shop">
+      <img loading="lazy" src="https://images.pexels.com/photos/5344925/pexels-photo-5344925.jpeg?auto=compress&cs=tinysrgb&w=650" alt="Colorful flowers">
       <h3>Just Because</h3>
     </a>
-
   </div>
 </section>
 
 <!-- NEWSLETTER -->
-
 <section class="newsletter">
   <div class="eyebrow">A LITTLE FLORAL INSPIRATION</div>
   <h2>Stay in bloom</h2>
-  <p>
-    Get inspired by seasonal flowers and
-    the little things that make life lovely.
-  </p>
-
+  <p>Discover seasonal flowers and little moments of beauty.</p>
   <form id="newsletter">
-    <input
-      type="email"
-      placeholder="Your email address"
-      aria-label="Email address"
-      required>
+    <input type="email" placeholder="Your email address" aria-label="Email address" required>
     <button type="submit">Join the List</button>
   </form>
-
-  <p class="demo-note">
-    Demo signup — no email will be stored or sent.
-  </p>
+  <p class="demo-note">Demo form — emails are not collected.</p>
 </section>
 
 </main>
 
-<!-- FOOTER -->
-
 <footer>
   <div class="footer-grid">
-
     <div>
-      <a href="#home" class="logo">
-        FLEURÉ
-        <small>FLORAL ATELIER</small>
-      </a>
-      <p>
-        Flowers, thoughtfully arranged.<br>
-        Timeless blooms for life's most beautiful moments.
-      </p>
+      <a class="logo" href="#home">FLEURÉ<small>FLORAL ATELIER</small></a>
+      <p>Flowers, thoughtfully arranged.<br>Timeless blooms for life's most beautiful moments.</p>
     </div>
-
-    <div class="footer-links">
+    <div>
       <h4>Explore</h4>
       <a href="#shop">Shop Bouquets</a>
       <a href="#collections">Collections</a>
-      <a href="#story">Our Story</a>
+      <a href="#sale">Final Sale</a>
     </div>
-
-    <div class="footer-links">
+    <div>
       <h4>Information</h4>
+      <a href="#story">Our Story</a>
       <a href="#occasions">Occasions</a>
       <p>Demonstration flower shop</p>
-      <p>No real orders or payments.</p>
     </div>
-
   </div>
-
-  <div class="copyright">
-    © 2026 FLEURÉ — Floral Atelier. Demonstration website.
-  </div>
+  <div class="copyright">© 2026 FLEURÉ — Floral Atelier. Demo website.</div>
 </footer>
 
-<!-- SHOPPING BAG -->
-
+<!-- CART -->
 <div class="overlay" id="overlay"></div>
-
-<aside
-  class="drawer"
-  id="drawer"
-  role="dialog"
-  aria-modal="true"
-  aria-label="Shopping bag">
-
-  <div class="drawer-header">
+<aside class="drawer" id="drawer" role="dialog" aria-label="Shopping bag">
+  <div class="drawer-head">
     <h2>Your Bag</h2>
     <button class="close" id="closeBag" aria-label="Close bag">×</button>
   </div>
-
   <div class="cart-items" id="cartItems"></div>
-
-  <div class="cart-footer">
+  <div class="cart-bottom">
     <div style="display:flex;justify-content:space-between">
       <strong>Subtotal</strong>
       <strong id="subtotal">$0.00</strong>
     </div>
-
     <button class="btn" id="checkoutBtn">Demo Checkout</button>
-
-    <p class="demo-note">
-      This is a demonstration website.
-      No payment will be taken.
-    </p>
+    <p class="demo-note">No real payments or orders are processed.</p>
   </div>
-
 </aside>
 
 <!-- CHECKOUT -->
-
 <div class="checkout" id="checkout">
-
-  <div
-    class="checkout-box"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Demo checkout">
-
-    <button
-      class="close checkout-close"
-      id="closeCheckout"
-      aria-label="Close checkout">×</button>
-
+  <div class="checkout-box" role="dialog" aria-label="Demo checkout">
+    <button class="close checkout-close" id="closeCheckout" aria-label="Close checkout">×</button>
     <h2>Delivery details</h2>
-
-    <p class="demo-note">
-      Demonstration checkout only.
-      No information is transmitted.
-    </p>
-
+    <p class="demo-note">Demonstration only. Your details are not sent anywhere.</p>
     <form id="checkoutForm">
-
       <label for="fullName">Full Name</label>
       <input id="fullName" required>
-
       <label for="email">Email</label>
       <input id="email" type="email" required>
-
       <label for="address">Delivery Address</label>
       <input id="address" required>
-
       <label for="date">Preferred Delivery Date</label>
       <input id="date" type="date" required>
-
       <label for="message">Gift Message</label>
       <textarea id="message" rows="3"></textarea>
-
       <p id="checkoutTotal"></p>
-
-      <button class="btn" type="submit">
-        Complete Demo Order
-      </button>
-
+      <button class="btn" type="submit">Complete Demo Order</button>
     </form>
   </div>
 </div>
@@ -1001,125 +422,76 @@ footer .footer-links a {
 <div class="toast" id="toast" role="status"></div>
 
 <script>
-
-/* BOUQUET PRODUCTS */
-
 const products = [
-  {
-    id: 1,
-    name: "Blush Romance",
-    price: 95,
-    category: "roses",
-    image: "https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=700"
-  },
-  {
-    id: 2,
-    name: "The Ivory Edit",
-    price: 85,
-    category: "signature",
-    image: "https://images.pexels.com/photos/3117159/pexels-photo-3117159.jpeg?auto=compress&cs=tinysrgb&w=700"
-  },
-  {
-    id: 3,
-    name: "Garden Poetry",
-    price: 110,
-    category: "seasonal",
-    image: "https://images.pexels.com/photos/29112838/pexels-photo-29112838.jpeg?auto=compress&cs=tinysrgb&w=700"
-  },
-  {
-    id: 4,
-    name: "Champagne Bloom",
-    price: 125,
-    category: "signature",
-    image: "https://images.pexels.com/photos/29557146/pexels-photo-29557146.jpeg?auto=compress&cs=tinysrgb&w=700"
-  },
-  {
-    id: 5,
-    name: "Rose Garden",
-    price: 105,
-    category: "roses",
-    image: "https://images.pexels.com/photos/11245141/pexels-photo-11245141.jpeg?auto=compress&cs=tinysrgb&w=700"
-  },
-  {
-    id: 6,
-    name: "Soft Whisper",
-    price: 75,
-    category: "seasonal",
-    image: "https://images.pexels.com/photos/4022210/pexels-photo-4022210.jpeg?auto=compress&cs=tinysrgb&w=700"
-  },
-  {
-    id: 7,
-    name: "The Signature",
-    price: 150,
-    category: "signature",
-    image: "https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=700"
-  },
-  {
-    id: 8,
-    name: "Sweet Peony",
-    price: 99,
-    category: "seasonal",
-    image: "https://images.pexels.com/photos/3117159/pexels-photo-3117159.jpeg?auto=compress&cs=tinysrgb&w=700"
-  }
+  {id:1,name:"Blush Romance",price:95,category:"roses",image:"https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=700"},
+  {id:2,name:"The Ivory Edit",price:85,salePrice:65,category:"signature",image:"https://images.pexels.com/photos/3117159/pexels-photo-3117159.jpeg?auto=compress&cs=tinysrgb&w=700"},
+  {id:3,name:"Garden Poetry",price:110,category:"seasonal",image:"https://images.pexels.com/photos/29112838/pexels-photo-29112838.jpeg?auto=compress&cs=tinysrgb&w=700"},
+  {id:4,name:"Champagne Bloom",price:125,salePrice:89,category:"signature",image:"https://images.pexels.com/photos/29557146/pexels-photo-29557146.jpeg?auto=compress&cs=tinysrgb&w=700"},
+  {id:5,name:"Rose Garden",price:105,category:"roses",image:"https://images.pexels.com/photos/11245141/pexels-photo-11245141.jpeg?auto=compress&cs=tinysrgb&w=700"},
+  {id:6,name:"Soft Whisper",price:75,salePrice:55,category:"seasonal",image:"https://images.pexels.com/photos/4022210/pexels-photo-4022210.jpeg?auto=compress&cs=tinysrgb&w=700"},
+  {id:7,name:"The Signature",price:150,category:"signature",image:"https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=700"},
+  {id:8,name:"Sweet Peony",price:99,category:"seasonal",image:"https://images.pexels.com/photos/3117159/pexels-photo-3117159.jpeg?auto=compress&cs=tinysrgb&w=700"}
 ];
 
 const $ = id => document.getElementById(id);
-const money = value => "$" + value.toFixed(2);
+const money = n => "$" + n.toFixed(2);
+const saleEnd = new Date("2026-10-31T23:59:59+04:00").getTime();
+const saleActive = () => Date.now() < saleEnd;
+const price = p => p.salePrice && saleActive() ? p.salePrice : p.price;
 
 let cart = {};
-
 try {
   const saved = JSON.parse(localStorage.getItem("fleureCart") || "{}");
-  if (saved && typeof saved === "object" && !Array.isArray(saved)) {
-    cart = saved;
-  }
-} catch (error) {
-  cart = {};
+  if(saved && typeof saved === "object" && !Array.isArray(saved)) cart = saved;
+} catch(e) {}
+
+function toast(message) {
+  $("toast").textContent = message;
+  $("toast").classList.add("show");
+  clearTimeout(window.toastTimer);
+  window.toastTimer = setTimeout(() => $("toast").classList.remove("show"), 2800);
 }
 
-/* PRODUCT DISPLAY */
+function renderProducts(filter = "all") {
+  $("products").innerHTML = products
+    .filter(p => filter === "all" || p.category === filter)
+    .map(p => `
+      <article class="product">
+        <div class="product-photo">
+          <img loading="lazy" src="${p.image}" alt="${p.name} bouquet">
+        </div>
+        <div class="product-info">
+          <div class="eyebrow">FLEURÉ FLORAL ATELIER</div>
+          <h3>${p.name}</h3>
+          <div class="price">${money(price(p))}</div>
+          <button data-add="${p.id}">ADD TO BAG +</button>
+        </div>
+      </article>
+    `).join("");
+}
 
-function renderProducts(category = "all") {
-  const filtered = products.filter(product =>
-    category === "all" || product.category === category
-  );
-
-  $("products").innerHTML = filtered.map(product => `
-    <article class="product">
-      <div class="product-image">
-        <img
-          src="${product.image}"
-          alt="${product.name} bouquet"
-          loading="lazy">
-      </div>
-
-      <div class="product-info">
+function renderSale() {
+  const active = saleActive();
+  $("saleGrid").innerHTML = products.filter(p => p.salePrice).map(p => `
+    <article class="sale-card">
+      <span class="sale-ribbon">${active ? "FINAL SALE" : "SALE ENDED"}</span>
+      <img loading="lazy" src="${p.image}" alt="${p.name} bouquet">
+      <div class="sale-body">
         <div class="eyebrow">FLEURÉ FLORAL ATELIER</div>
-        <h3>${product.name}</h3>
-        <div class="price">${money(product.price)}</div>
-
-        <button class="add-button" data-add="${product.id}">
-          Add to Bag +
+        <h3>${p.name}</h3>
+        <div>
+          ${active
+            ? `<span class="old-price">${money(p.price)}</span>
+               <span class="new-price">${money(p.salePrice)}</span>`
+            : `<span>${money(p.price)}</span>`}
+        </div>
+        <button ${active ? `data-add="${p.id}"` : "disabled"}>
+          ${active ? "ADD SALE BOUQUET TO BAG +" : "PROMOTION ENDED"}
         </button>
       </div>
     </article>
   `).join("");
 }
-
-/* NOTIFICATIONS */
-
-function showToast(message) {
-  $("toast").textContent = message;
-  $("toast").classList.add("show");
-
-  clearTimeout(window.toastTimer);
-
-  window.toastTimer = setTimeout(() => {
-    $("toast").classList.remove("show");
-  }, 3000);
-}
-
-/* CART */
 
 function saveCart() {
   localStorage.setItem("fleureCart", JSON.stringify(cart));
@@ -1129,58 +501,38 @@ function saveCart() {
 function addToCart(id) {
   cart[id] = (cart[id] || 0) + 1;
   saveCart();
-  showToast("Added to your bag ♡");
+  toast("Added to your bag ♡");
 }
 
 function renderCart() {
-  let count = 0;
-  let total = 0;
-  let html = "";
+  let total = 0, count = 0, html = "";
 
-  Object.entries(cart).forEach(([id, quantity]) => {
-    const product = products.find(p => p.id === Number(id));
-
-    if (!product || !Number.isInteger(quantity) || quantity < 1) {
-      return;
-    }
-
-    count += quantity;
-    total += product.price * quantity;
-
+  Object.entries(cart).forEach(([id,qty]) => {
+    const p = products.find(x => x.id === Number(id));
+    if(!p || !Number.isInteger(qty) || qty < 1) return;
+    total += price(p) * qty;
+    count += qty;
     html += `
       <div class="cart-item">
-        <img src="${product.image}" alt="${product.name}">
-
+        <img src="${p.image}" alt="${p.name}">
         <div>
-          <h4>${product.name}</h4>
-          <p>${money(product.price)}</p>
-
-          <div class="quantity">
+          <h4>${p.name}</h4>
+          <p>${money(price(p))}</p>
+          <div class="qty">
             <button data-change="${id}" data-delta="-1">−</button>
-            <span>${quantity}</span>
+            <span>${qty}</span>
             <button data-change="${id}" data-delta="1">+</button>
           </div>
         </div>
-
-        <button
-          data-remove="${id}"
-          aria-label="Remove ${product.name}"
-          style="background:none;border:0;font-size:22px">
-          ×
-        </button>
-      </div>
-    `;
+        <button data-remove="${id}" aria-label="Remove ${p.name}" style="background:none;border:0;font-size:22px">×</button>
+      </div>`;
   });
 
-  $("cartItems").innerHTML =
-    html || "<p>Your bag is waiting for something beautiful.</p>";
-
+  $("cartItems").innerHTML = html || "<p>Your bag is waiting for something beautiful.</p>";
   $("count").textContent = count;
   $("subtotal").textContent = money(total);
   $("checkoutTotal").textContent = "Demo total: " + money(total);
-
   $("checkoutBtn").disabled = count === 0;
-  $("checkoutBtn").style.opacity = count ? "1" : ".5";
 }
 
 function toggleBag(open) {
@@ -1189,166 +541,135 @@ function toggleBag(open) {
   document.body.style.overflow = open ? "hidden" : "";
 }
 
-$("bagBtn").addEventListener("click", () => toggleBag(true));
-$("closeBag").addEventListener("click", () => toggleBag(false));
-$("overlay").addEventListener("click", () => toggleBag(false));
+$("bagBtn").onclick = () => toggleBag(true);
+$("closeBag").onclick = () => toggleBag(false);
+$("overlay").onclick = () => toggleBag(false);
 
-/* CART BUTTONS */
+document.addEventListener("click", e => {
+  const add = e.target.closest("[data-add]");
+  if(add) addToCart(Number(add.dataset.add));
 
-document.addEventListener("click", event => {
-  const addButton = event.target.closest("[data-add]");
-
-  if (addButton) {
-    addToCart(Number(addButton.dataset.add));
-  }
-
-  const removeButton = event.target.closest("[data-remove]");
-
-  if (removeButton) {
-    delete cart[removeButton.dataset.remove];
+  const remove = e.target.closest("[data-remove]");
+  if(remove) {
+    delete cart[remove.dataset.remove];
     saveCart();
   }
 
-  const quantityButton = event.target.closest("[data-change]");
-
-  if (quantityButton) {
-    const id = quantityButton.dataset.change;
-    const delta = Number(quantityButton.dataset.delta);
-
-    cart[id] = (cart[id] || 0) + delta;
-
-    if (cart[id] <= 0) {
-      delete cart[id];
-    }
-
+  const change = e.target.closest("[data-change]");
+  if(change) {
+    const id = change.dataset.change;
+    cart[id] = (cart[id] || 0) + Number(change.dataset.delta);
+    if(cart[id] <= 0) delete cart[id];
     saveCart();
   }
 });
 
-/* FILTERS */
-
-function setFilter(category) {
-  document.querySelectorAll(".filter").forEach(button => {
-    button.classList.toggle(
-      "active",
-      button.dataset.filter === category
-    );
+function setFilter(filter) {
+  document.querySelectorAll(".filter").forEach(b => {
+    b.classList.toggle("active", b.dataset.filter === filter);
   });
-
-  renderProducts(category);
+  renderProducts(filter);
 }
 
-document.querySelectorAll(".filter").forEach(button => {
-  button.addEventListener("click", () => {
-    setFilter(button.dataset.filter);
-  });
+document.querySelectorAll(".filter").forEach(b => {
+  b.onclick = () => setFilter(b.dataset.filter);
 });
 
-document.querySelectorAll("[data-category]").forEach(link => {
-  link.addEventListener("click", () => {
-    setFilter(link.dataset.category);
-  });
+document.querySelectorAll("[data-category]").forEach(a => {
+  a.addEventListener("click", () => setFilter(a.dataset.category));
 });
 
-/* MOBILE MENU */
-
-$("menuBtn").addEventListener("click", () => {
-  $("nav").classList.toggle("open");
+$("menuBtn").onclick = () => $("nav").classList.toggle("open");
+document.querySelectorAll("#nav a").forEach(a => {
+  a.onclick = () => $("nav").classList.remove("open");
 });
 
-document.querySelectorAll("#nav a").forEach(link => {
-  link.addEventListener("click", () => {
-    $("nav").classList.remove("open");
-  });
-});
-
-/* CHECKOUT */
-
-$("checkoutBtn").addEventListener("click", () => {
+$("checkoutBtn").onclick = () => {
   toggleBag(false);
   $("checkout").classList.add("open");
   document.body.style.overflow = "hidden";
-});
+};
 
 function closeCheckout() {
   $("checkout").classList.remove("open");
   document.body.style.overflow = "";
 }
 
-$("closeCheckout").addEventListener("click", closeCheckout);
+$("closeCheckout").onclick = closeCheckout;
+$("checkout").onclick = e => {
+  if(e.target === $("checkout")) closeCheckout();
+};
 
-$("checkout").addEventListener("click", event => {
-  if (event.target === $("checkout")) {
-    closeCheckout();
-  }
-});
-
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape") {
+document.addEventListener("keydown", e => {
+  if(e.key === "Escape") {
     toggleBag(false);
     closeCheckout();
   }
 });
 
-/* DATE */
-
 const now = new Date();
-const localDate = [
+$("date").min = [
   now.getFullYear(),
-  String(now.getMonth() + 1).padStart(2, "0"),
-  String(now.getDate()).padStart(2, "0")
+  String(now.getMonth()+1).padStart(2,"0"),
+  String(now.getDate()).padStart(2,"0")
 ].join("-");
 
-$("date").min = localDate;
-
-/* DEMO ORDER */
-
-$("checkoutForm").addEventListener("submit", event => {
-  event.preventDefault();
-
-  if (Object.keys(cart).length === 0) {
-    showToast("Your bag is empty.");
-    return;
-  }
-
+$("checkoutForm").onsubmit = e => {
+  e.preventDefault();
+  if(!Object.keys(cart).length) return;
   closeCheckout();
   cart = {};
   saveCart();
   $("checkoutForm").reset();
+  toast("Demo order complete! No payment was taken.");
+};
 
-  showToast("Demo order complete! No payment was taken.");
-});
+$("newsletter").onsubmit = e => {
+  e.preventDefault();
+  e.target.reset();
+  toast("Demo signup — no email was sent.");
+};
 
-/* NEWSLETTER */
+/* LIVE FINAL SALE COUNTDOWN */
+let previouslyActive = saleActive();
 
-$("newsletter").addEventListener("submit", event => {
-  event.preventDefault();
-  event.target.reset();
-  showToast("Demo signup — no email was sent.");
-});
+function updateCountdown() {
+  const remaining = Math.max(0, saleEnd - Date.now());
+  const seconds = Math.floor(remaining / 1000);
+  const pad = n => String(n).padStart(2, "0");
 
-/* VIDEO */
+  $("days").textContent = pad(Math.floor(seconds / 86400));
+  $("hours").textContent = pad(Math.floor(seconds % 86400 / 3600));
+  $("minutes").textContent = pad(Math.floor(seconds % 3600 / 60));
+  $("seconds").textContent = pad(seconds % 60);
 
+  if(!remaining) {
+    $("saleStatus").textContent = "This demo promotion has ended.";
+  }
+
+  if(previouslyActive !== saleActive()) {
+    previouslyActive = saleActive();
+    renderSale();
+    renderProducts(document.querySelector(".filter.active")?.dataset.filter || "all");
+    renderCart();
+  }
+}
+
+/* VIDEO FALLBACK */
 const video = $("heroVideo");
+video.addEventListener("error", () => video.style.display = "none");
+video.querySelector("source").addEventListener("error", () => video.style.display = "none");
 
-video.addEventListener("error", () => {
-  video.style.display = "none";
-});
-
-video.querySelector("source").addEventListener("error", () => {
-  video.style.display = "none";
-});
-
-if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   video.pause();
   video.style.display = "none";
 }
 
-/* START */
-
 renderProducts();
+renderSale();
 renderCart();
-
+updateCountdown();
+setInterval(updateCountdown, 1000);
 </script>
 
 </body>
