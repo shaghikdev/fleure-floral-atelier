@@ -3,221 +3,962 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FLEURÉ — Floral Atelier</title>
-<meta name="description" content="Romantic bouquets and thoughtfully arranged flowers at FLEURÉ Floral Atelier.">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --ivory:#FAF7F0;
-  --blush:#EBCFD2;
-  --sage:#A8B7A0;
-  --gold:#D9C3A1;
-  --olive:#35483D;
-  --ink:#30362F;
+:root {
+  --ivory: #FAF7F0;
+  --blush: #EBCFD2;
+  --sage: #A8B7A0;
+  --olive: #35483D;
+  --gold: #D9C3A1;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--ivory);color:var(--ink);font-family:"DM Sans",sans-serif}
-body.locked{overflow:hidden}
-a{color:inherit;text-decoration:none}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
-img{display:block;width:100%;object-fit:cover}
-h1,h2,h3,.logo{font-family:"Playfair Display",serif;font-weight:400}
-h2{font-size:clamp(32px,4vw,55px);line-height:1.2;margin:12px 0 20px}
-p{line-height:1.8}
-.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600}
-.section{max-width:1450px;margin:auto;padding:90px 5%}
-.heading{text-align:center;max-width:700px;margin:0 auto 42px}
-.heading .eyebrow{color:#81917a}
-.heading p{color:#73796f;font-size:14px}
-.btn{display:inline-block;border:1px solid var(--olive);background:var(--olive);color:white;padding:16px 28px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;transition:.3s;text-align:center}
-.btn:hover{background:var(--sage);border-color:var(--sage);color:var(--olive);transform:translateY(-3px)}
-.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
-.announcement{background:var(--olive);color:white;text-align:center;padding:12px;font-size:11px;letter-spacing:.13em}
-header{position:sticky;top:0;z-index:20;background:rgba(250,247,240,.98);border-bottom:1px solid #e7dfd5}
-.header-inner{max-width:1450px;margin:auto;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;gap:20px}
-.logo{font-size:30px;color:var(--olive);letter-spacing:.12em;line-height:1}
-.logo small{display:block;text-align:center;font:9px "DM Sans",sans-serif;letter-spacing:.34em;margin-top:8px}
-nav{display:flex;align-items:center;gap:22px;font-size:11px;letter-spacing:.09em;text-transform:uppercase}
-nav a:hover{color:#aa7783}
-.bag{background:none;border:1px solid var(--olive);padding:11px 15px;color:var(--olive);white-space:nowrap}
-.menu{display:none;background:none;border:0;font-size:25px}
 
-/* HOMEPAGE VIDEO */
-.hero{height:92vh;min-height:600px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--olive);overflow:hidden}
-.hero-fallback,.hero video,.hero-shade{position:absolute;inset:0;width:100%;height:100%}
-.hero-fallback{background:url("https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=1800") center/cover}
-.hero video{z-index:1;object-fit:cover}
-.hero-shade{z-index:2;background:rgba(20,35,25,.52)}
-.hero-content{position:relative;z-index:3;color:white;padding:25px}
-.hero h1{font-size:clamp(65px,11vw,145px);letter-spacing:.09em;margin:20px 0}
-.hero-tagline{font:italic clamp(23px,3vw,36px) "Playfair Display",serif}
-.hero .btn{margin-top:22px;background:var(--sage);border-color:var(--sage);color:var(--olive)}
-.hero .btn:hover{background:white;border-color:white}
-.scroll-hint{position:absolute;bottom:30px;z-index:3;color:white;font-size:10px;letter-spacing:.25em}
-.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:27px 5%;background:white;text-align:center;font-size:12px}
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--olive);
+  font-family: "DM Sans", sans-serif;
+}
+
+body.locked {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+h1, h2, h3, .logo {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: clamp(32px, 4vw, 55px);
+  margin: 12px 0 20px;
+}
+
+p {
+  line-height: 1.8;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.section {
+  max-width: 1450px;
+  margin: auto;
+  padding: 85px 5%;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.heading p {
+  color: #777;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--olive);
+  color: white;
+  border: 1px solid var(--olive);
+  padding: 16px 28px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.btn:hover {
+  background: var(--sage);
+  color: var(--olive);
+  transform: translateY(-3px);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.announcement {
+  background: var(--olive);
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+/* HEADER */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--ivory);
+  border-bottom: 1px solid #e5ded3;
+}
+
+.header-inner {
+  max-width: 1450px;
+  margin: auto;
+  padding: 18px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 30px;
+  letter-spacing: 4px;
+}
+
+.logo small {
+  display: block;
+  font: 9px "DM Sans", sans-serif;
+  letter-spacing: 4px;
+  text-align: center;
+  margin-top: 7px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+nav a:hover {
+  color: #b37b88;
+}
+
+.bag {
+  background: transparent;
+  border: 1px solid var(--olive);
+  padding: 11px 15px;
+  white-space: nowrap;
+}
+
+.menu {
+  display: none;
+  background: none;
+  border: 0;
+  font-size: 25px;
+}
+
+/* NEW PASTEL HOMEPAGE */
+
+.hero {
+  position: relative;
+  height: 90vh;
+  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  background: #ead3ce;
+}
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  background-image: url("fleure-pastel-hero.jpg");
+  background-position: center;
+  background-size: cover;
+  animation: heroZoom 18s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.07); }
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(50, 42, 38, 0.12);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 25px;
+  text-shadow: 0 2px 12px rgba(40, 35, 30, 0.2);
+}
+
+.hero h1 {
+  font-size: clamp(65px, 11vw, 145px);
+  letter-spacing: 9px;
+  margin: 20px 0;
+}
+
+.hero-tagline {
+  font: italic clamp(23px, 3vw, 36px) "Playfair Display", serif;
+}
+
+.hero .btn {
+  margin-top: 22px;
+  background: var(--sage);
+  color: var(--olive);
+  border-color: var(--sage);
+  text-shadow: none;
+}
+
+.hero .btn:hover {
+  background: white;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 28px;
+  z-index: 2;
+  color: white;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+/* BENEFITS */
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: white;
+  padding: 28px 5%;
+  text-align: center;
+  gap: 20px;
+  font-size: 12px;
+}
 
 /* COLLECTIONS */
-.collections{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.collection{height:430px;position:relative;overflow:hidden;background:var(--blush)}
-.collection img{height:100%;transition:transform .6s}
-.collection:hover img{transform:scale(1.09)}
-.collection-caption{position:absolute;bottom:0;left:0;right:0;padding:65px 20px 25px;background:linear-gradient(transparent,rgba(20,30,22,.78));color:white;text-align:center}
-.collection-caption h3{font-size:29px;margin:0 0 12px}
-.collection-caption span{font-size:11px;letter-spacing:.15em}
 
-/* SHOP */
-.shop-bg{background:#F5EFEA}
-.filters{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:35px}
-.filter{background:transparent;border:1px solid #cbc6bc;color:var(--olive);padding:11px 18px;font-size:12px}
-.filter.active,.filter:hover{background:var(--olive);color:white}
-.products{display:grid;grid-template-columns:repeat(4,1fr);gap:23px}
-.product{position:relative;background:white;transition:transform .35s,box-shadow .35s}
-.product:hover{transform:translateY(-8px);box-shadow:0 18px 38px #35483d20}
-.product-photo{position:relative;height:320px;overflow:hidden;background:var(--blush)}
-.product-photo img{height:100%;transition:transform .6s}
-.product:hover .product-photo img{transform:scale(1.08)}
-.quick-btn{position:absolute;left:50%;bottom:18px;transform:translate(-50%,15px);opacity:0;border:0;background:rgba(250,247,240,.96);color:var(--olive);padding:14px 20px;white-space:nowrap;font-size:11px;letter-spacing:.13em;text-transform:uppercase;transition:.3s}
-.product:hover .quick-btn,.quick-btn:focus-visible{opacity:1;transform:translate(-50%,0)}
-.product-info{text-align:center;padding:20px}
-.product-info .eyebrow{font-size:9px;color:#849580}
-.product h3{font-size:21px;margin:10px 0}
-.price{margin:12px 0 18px;font-size:14px}
-.old{text-decoration:line-through;color:#999;margin-right:10px}
-.sale-price{color:#ae6170;font-weight:700}
-.add-btn{width:100%;border:0;background:var(--sage);color:var(--olive);padding:14px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;transition:.3s}
-.add-btn:hover{background:var(--olive);color:white}
-.sale-label{position:absolute;top:15px;left:15px;background:var(--olive);color:white;padding:9px 13px;font-size:10px;letter-spacing:.12em;z-index:1}
+.collections {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.collection {
+  position: relative;
+  height: 430px;
+  overflow: hidden;
+}
+
+.collection img {
+  height: 100%;
+  transition: transform 0.6s;
+}
+
+.collection:hover img {
+  transform: scale(1.09);
+}
+
+.collection-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 60px 20px 25px;
+  background: linear-gradient(transparent, rgba(20,30,20,.75));
+  color: white;
+  text-align: center;
+}
+
+.collection-caption h3 {
+  font-size: 29px;
+  margin: 0 0 12px;
+}
+
+/* PRODUCTS */
+
+.shop-bg {
+  background: #F5EFEA;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+
+.filter {
+  background: transparent;
+  border: 1px solid #ccc5ba;
+  padding: 11px 18px;
+}
+
+.filter.active, .filter:hover {
+  background: var(--olive);
+  color: white;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 23px;
+}
+
+.product, .sale-card {
+  background: white;
+  position: relative;
+  transition: transform .35s, box-shadow .35s;
+}
+
+.product:hover, .sale-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 38px #35483d20;
+}
+
+.product-photo {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+}
+
+.product-photo img {
+  height: 100%;
+  transition: transform .6s;
+}
+
+.product:hover img {
+  transform: scale(1.08);
+}
+
+.quick-btn {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translate(-50%, 15px);
+  opacity: 0;
+  border: 0;
+  background: var(--ivory);
+  color: var(--olive);
+  padding: 14px 20px;
+  white-space: nowrap;
+  transition: .3s;
+}
+
+.product:hover .quick-btn,
+.quick-btn:focus-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.product-info {
+  padding: 22px;
+  text-align: center;
+}
+
+.product-info h3 {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.price {
+  margin: 15px 0;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 10px;
+}
+
+.new-price {
+  color: #b15c6b;
+  font-weight: 600;
+}
+
+.add-btn {
+  width: 100%;
+  border: 0;
+  background: var(--sage);
+  color: var(--olive);
+  padding: 14px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: .3s;
+}
+
+.add-btn:hover {
+  background: var(--olive);
+  color: white;
+}
 
 /* FINAL SALE */
-.sale-section{background:var(--blush);padding:85px 5%}
-.sale-inner{max-width:1350px;margin:auto}
-.countdown{display:flex;justify-content:center;gap:12px;margin:30px 0 42px}
-.time-box{background:white;min-width:88px;padding:18px 12px;text-align:center}
-.time-box strong{display:block;font:35px "Playfair Display",serif}
-.time-box span{font-size:10px;letter-spacing:.12em}
-.sale-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:23px}
-.sale-card{background:white;position:relative;transition:transform .35s,box-shadow .35s}
-.sale-card:hover{transform:translateY(-8px);box-shadow:0 18px 38px #35483d20}
-.sale-card img{height:320px;transition:transform .5s}
-.sale-card .image-wrap{overflow:hidden}
-.sale-card:hover img{transform:scale(1.06)}
-.sale-card .product-info{padding:24px}
+
+.sale-section {
+  background: var(--blush);
+  padding: 85px 5%;
+}
+
+.sale-inner {
+  max-width: 1350px;
+  margin: auto;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 30px 0 45px;
+}
+
+.time-box {
+  background: white;
+  padding: 18px 12px;
+  min-width: 85px;
+  text-align: center;
+}
+
+.time-box strong {
+  display: block;
+  font: 35px "Playfair Display", serif;
+}
+
+.time-box span {
+  font-size: 10px;
+}
+
+.sale-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.sale-card img {
+  height: 320px;
+}
+
+.sale-label {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--olive);
+  color: white;
+  padding: 10px 15px;
+  font-size: 10px;
+  z-index: 1;
+}
 
 /* BOUQUET BUILDER */
-.builder{background:#f3e9e5}
-.builder-layout{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
-.builder-image{height:620px;overflow:hidden;background:var(--blush)}
-.builder-image img{height:100%}
-.builder-form{background:white;padding:35px}
-.builder-form label{display:block;margin:17px 0 8px;font-size:12px;font-weight:600}
-.builder-form select,.builder-form textarea{width:100%;border:1px solid #ddd6cb;background:var(--ivory);padding:13px;color:var(--ink)}
-.builder-total{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #e6dfd5;margin-top:25px;padding-top:22px}
-.builder-total strong{font:32px "Playfair Display",serif}
-.builder-form .btn{width:100%;margin-top:20px}
-.builder-form p{font-size:12px;color:#75796f}
+
+.builder-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.builder-image img {
+  height: 610px;
+}
+
+.builder-form {
+  background: white;
+  padding: 35px;
+}
+
+.builder-form label {
+  display: block;
+  margin: 18px 0 8px;
+  font-size: 12px;
+}
+
+.builder-form select,
+.builder-form textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ddd;
+  background: var(--ivory);
+}
+
+.builder-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ddd;
+  margin-top: 25px;
+  padding-top: 20px;
+}
+
+.builder-total strong {
+  font: 32px "Playfair Display", serif;
+}
+
+.builder-form .btn {
+  width: 100%;
+  margin-top: 20px;
+}
 
 /* STORY */
-.story{display:grid;grid-template-columns:1fr 1fr;background:var(--blush)}
-.story img{height:100%;min-height:550px}
-.story-copy{padding:70px 12%;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
-.story-copy p{color:#566357;font-size:14px}
+
+.story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--blush);
+}
+
+.story img {
+  height: 100%;
+  min-height: 550px;
+}
+
+.story-copy {
+  padding: 70px 12%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.story-copy p {
+  color: #566357;
+}
 
 /* OCCASIONS */
-.occasions{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.occasion{overflow:hidden}
-.occasion img{height:275px;transition:transform .5s}
-.occasion:hover img{transform:scale(1.07)}
-.occasion h3{text-align:center;font-size:22px}
 
-/* NEWSLETTER AND FOOTER */
-.newsletter{background:var(--olive);color:white;text-align:center;padding:80px 5%}
-.newsletter form{display:flex;max-width:490px;margin:25px auto}
-.newsletter input{flex:1;min-width:0;padding:15px;border:0}
-.newsletter button{border:0;background:var(--blush);color:var(--olive);padding:15px 20px}
-footer{background:#f1e8df;padding:65px 5% 30px}
-.footer-grid{max-width:1300px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:35px}
-footer p,footer .footer-links a{display:block;color:#777;font-size:13px;line-height:2}
-footer h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase}
-.copyright{text-align:center;margin-top:45px;padding-top:23px;border-top:1px solid #dcd1c5;font-size:11px}
+.occasions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
 
-/* MODALS AND DRAWER */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:29;display:none}
-.overlay.open{display:block}
-.drawer{position:fixed;top:0;right:0;width:min(440px,100%);height:100%;background:var(--ivory);z-index:30;transform:translateX(100%);transition:.3s;padding:28px;display:flex;flex-direction:column}
-.drawer.open{transform:translateX(0)}
-.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ddd}
-.drawer-head h2{font-size:32px}
-.close{background:none;border:0;font-size:30px}
-.cart-items{flex:1;overflow-y:auto}
-.cart-item{display:grid;grid-template-columns:75px 1fr auto;gap:12px;padding:17px 0;border-bottom:1px solid #ddd}
-.cart-item img{height:80px}
-.cart-item h4{font-size:13px;margin:0 0 6px}
-.cart-item p{font-size:12px;margin:4px 0}
-.qty{display:flex;gap:10px;align-items:center}
-.qty button{background:white;border:1px solid #ddd;padding:4px 9px}
-.cart-bottom{border-top:1px solid #ddd;padding-top:18px}
-.cart-bottom .btn{width:100%;margin-top:18px}
-.delivery-track{height:8px;background:#e1dfd6;border-radius:20px;overflow:hidden;margin:13px 0}
-.delivery-fill{height:100%;width:0;background:var(--sage);transition:width .4s}
-.delivery-text{font-size:12px;color:#59665b}
-.demo-note{font-size:11px;color:#85867e;line-height:1.6}
-.modal{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:20px}
-.modal.open{display:flex}
-.modal-box{position:relative;background:var(--ivory);padding:35px;width:min(570px,100%);max-height:90vh;overflow-y:auto}
-.modal-close{position:absolute;right:18px;top:13px}
-.modal-box label{display:block;font-size:12px;margin:13px 0 5px}
-.modal-box input,.modal-box textarea{width:100%;border:1px solid #ddd;padding:12px}
-.modal-box .btn{width:100%;margin-top:18px}
-.quick-layout{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center}
-.quick-layout img{height:340px}
-.quick-layout h2{font-size:32px}
-.welcome-box{text-align:center;background:var(--blush);max-width:500px}
-.welcome-box h2{font-size:43px}
-.welcome-box .offer{font:58px "Playfair Display",serif;color:var(--olive);margin:15px 0}
-.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--olive);color:white;padding:15px 23px;z-index:60;display:none;text-align:center;font-size:13px}
-.toast.show{display:block}
+.occasion img {
+  height: 270px;
+  transition: .4s;
+}
 
-@media(max-width:1100px){
-  .products{grid-template-columns:repeat(2,1fr)}
-  nav{gap:12px}
+.occasion:hover img {
+  transform: scale(1.04);
 }
-@media(max-width:750px){
-  .menu{display:block}
-  nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--ivory);padding:25px;flex-direction:column;align-items:flex-start}
-  nav.open{display:flex}
-  .logo{font-size:24px}
-  .hero{height:85svh;min-height:550px}
-  .hero h1{letter-spacing:.04em}
-  .benefits{grid-template-columns:1fr}
-  .section,.sale-section{padding:65px 5%}
-  .collections,.sale-grid,.builder-layout,.story{grid-template-columns:1fr}
-  .collection{height:380px}
-  .product-photo{height:240px}
-  .quick-btn{opacity:1;transform:translate(-50%,0)}
-  .builder-image{height:350px}
-  .builder-form{padding:25px}
-  .story img{height:360px;min-height:360px}
-  .story-copy{padding:55px 8%}
-  .occasions{grid-template-columns:repeat(2,1fr)}
-  .occasion img{height:190px}
-  .footer-grid{grid-template-columns:1fr 1fr}
-  .footer-grid>div:first-child{grid-column:1/-1}
-  .quick-layout{grid-template-columns:1fr}
-  .quick-layout img{height:240px}
-  .time-box{min-width:65px;padding:13px 8px}
-  .time-box strong{font-size:27px}
+
+.occasion h3 {
+  text-align: center;
+  font-size: 22px;
 }
-@media(max-width:390px){
-  .products{grid-template-columns:1fr}
-  .product-photo{height:330px}
-  .newsletter form{flex-direction:column}
+
+/* NEWSLETTER */
+
+.newsletter {
+  background: var(--olive);
+  color: white;
+  text-align: center;
+  padding: 80px 5%;
 }
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
+
+.newsletter form {
+  display: flex;
+  max-width: 480px;
+  margin: 25px auto;
+}
+
+.newsletter input {
+  flex: 1;
+  min-width: 0;
+  padding: 15px;
+  border: 0;
+}
+
+.newsletter button {
+  background: var(--blush);
+  border: 0;
+  padding: 15px 20px;
+}
+
+/* FOOTER */
+
+footer {
+  background: #f1e8df;
+  padding: 65px 5% 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 35px;
+  max-width: 1300px;
+  margin: auto;
+}
+
+footer p, footer a:not(.logo) {
+  display: block;
+  color: #777;
+  font-size: 13px;
+  line-height: 2;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 45px;
+  padding-top: 22px;
+  border-top: 1px solid #ddd;
+  font-size: 11px;
+}
+
+/* SHOPPING CART */
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #0008;
+  z-index: 29;
+}
+
+.overlay.open {
+  display: block;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(430px, 100%);
+  background: var(--ivory);
+  z-index: 30;
+  padding: 28px;
+  transform: translateX(100%);
+  transition: .3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer.open {
+  transform: translateX(0);
+}
+
+.drawer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.close {
+  border: 0;
+  background: none;
+  font-size: 30px;
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  gap: 12px;
+  padding: 17px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+  height: 75px;
+}
+
+.cart-item h4 {
+  font-size: 13px;
+  margin: 0;
+}
+
+.cart-item p {
+  font-size: 12px;
+}
+
+.qty {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.qty button {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 4px 9px;
+}
+
+.cart-bottom {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.cart-bottom .btn {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.delivery-track {
+  background: #e0ded5;
+  height: 8px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 13px 0;
+}
+
+.delivery-fill {
+  width: 0;
+  height: 100%;
+  background: var(--sage);
+  transition: width .3s;
+}
+
+/* POPUPS */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #0009;
+  z-index: 40;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-box {
+  position: relative;
+  background: var(--ivory);
+  width: min(550px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 35px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 18px;
+}
+
+.quick-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  align-items: center;
+}
+
+.quick-layout img {
+  height: 300px;
+}
+
+.welcome-box {
+  background: var(--blush);
+  text-align: center;
+}
+
+.welcome-offer {
+  font: 58px "Playfair Display", serif;
+  margin: 15px 0;
+}
+
+.modal-box label {
+  display: block;
+  margin: 13px 0 5px;
+  font-size: 12px;
+}
+
+.modal-box input,
+.modal-box textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.modal-box .btn {
+  width: 100%;
+  margin-top: 18px;
+}
+
+.demo-note {
+  color: #888;
+  font-size: 11px;
+}
+
+.toast {
+  display: none;
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--olive);
+  color: white;
+  padding: 15px 22px;
+  z-index: 60;
+}
+
+.toast.show {
+  display: block;
+}
+
+/* MOBILE */
+
+@media(max-width:1100px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  nav {
+    gap: 10px;
+  }
+}
+
+@media(max-width:750px) {
+  .menu {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--ivory);
+    padding: 25px;
+    flex-direction: column;
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .hero {
+    height: 85svh;
+    min-height: 550px;
+  }
+
+  .hero h1 {
+    letter-spacing: 4px;
+  }
+
+  .benefits,
+  .collections,
+  .sale-grid,
+  .builder-layout,
+  .story {
+    grid-template-columns: 1fr;
+  }
+
+  .section, .sale-section {
+    padding: 65px 5%;
+  }
+
+  .collection {
+    height: 380px;
+  }
+
+  .product-photo {
+    height: 230px;
+  }
+
+  .quick-btn {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  .builder-image img {
+    height: 350px;
+  }
+
+  .story img {
+    min-height: 350px;
+    height: 350px;
+  }
+
+  .story-copy {
+    padding: 55px 8%;
+  }
+
+  .occasions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .occasion img {
+    height: 190px;
+  }
+
+  .quick-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-layout img {
+    height: 220px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .time-box {
+    min-width: 65px;
+    padding: 12px 8px;
+  }
+
+  .time-box strong {
+    font-size: 27px;
+  }
+}
+
+@media(max-width:390px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 </style>
 </head>
@@ -225,13 +966,17 @@ footer h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase}
 <body>
 
 <div class="announcement">
-  FLOWERS FOR LIFE'S MOST BEAUTIFUL MOMENTS ✦ DISCOVER FLEURÉ
+  FLOWERS FOR LIFE'S BEAUTIFUL MOMENTS ✦ DISCOVER FLEURÉ
 </div>
 
 <header>
   <div class="header-inner">
-    <button class="menu" id="menuBtn" aria-label="Open menu">☰</button>
-    <a href="#home" class="logo">FLEURÉ<small>FLORAL ATELIER</small></a>
+    <button class="menu" id="menuBtn">☰</button>
+    <a href="#home" class="logo">
+      FLEURÉ
+      <small>FLORAL ATELIER</small>
+    </a>
+
     <nav id="nav">
       <a href="#home">Home</a>
       <a href="#collections">Collections</a>
@@ -240,26 +985,29 @@ footer h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase}
       <a href="#builder">Create Bouquet</a>
       <a href="#story">Our Story</a>
     </nav>
-    <button class="bag" id="bagBtn">Bag (<span id="count">0</span>)</button>
+
+    <button class="bag" id="bagBtn">
+      Bag (<span id="count">0</span>)
+    </button>
   </div>
 </header>
 
 <main>
 
-<!-- ORIGINAL HOMEPAGE VIDEO -->
+<!-- NEW PASTEL HOMEPAGE -->
+
 <section class="hero" id="home">
-  <div class="hero-fallback"></div>
-  <video id="heroVideo" autoplay muted loop playsinline preload="metadata">
-    <source src="fleure-hero.mp4" type="video/mp4">
-  </video>
-  <div class="hero-shade"></div>
+  <div class="hero-background"></div>
+  <div class="hero-overlay"></div>
+
   <div class="hero-content">
     <div class="eyebrow">FLORAL ATELIER</div>
     <h1>FLEURÉ</h1>
     <p class="hero-tagline">Flowers, thoughtfully arranged.</p>
     <p>Timeless blooms for life's most beautiful moments.</p>
-    <a class="btn" href="#shop">Shop Bouquets</a>
+    <a href="#shop" class="btn">Shop Bouquets</a>
   </div>
+
   <div class="scroll-hint">SCROLL TO EXPLORE ↓</div>
 </section>
 
@@ -270,65 +1018,97 @@ footer h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase}
 </div>
 
 <!-- COLLECTIONS -->
+
 <section class="section" id="collections">
   <div class="heading">
     <div class="eyebrow">THE FLEURÉ COLLECTION</div>
     <h2>Flowers for every moment</h2>
-    <p>Discover romantic roses, signature bouquets and colorful seasonal blooms.</p>
+    <p>Discover romantic roses, signature bouquets and seasonal blooms.</p>
   </div>
+
   <div class="collections">
-    <a class="collection" href="#shop" data-category="roses">
-      <img src="https://images.pexels.com/photos/4022213/pexels-photo-4022213.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Rose bouquet" loading="lazy">
-      <div class="collection-caption"><h3>Roses & Romance</h3><span>EXPLORE COLLECTION →</span></div>
+    <a href="#shop" class="collection" data-category="roses">
+      <img src="https://images.pexels.com/photos/4022213/pexels-photo-4022213.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Roses">
+      <div class="collection-caption">
+        <h3>Roses & Romance</h3>
+        <span>EXPLORE COLLECTION →</span>
+      </div>
     </a>
-    <a class="collection" href="#shop" data-category="signature">
-      <img src="https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Signature bouquet" loading="lazy">
-      <div class="collection-caption"><h3>Signature Bouquets</h3><span>EXPLORE COLLECTION →</span></div>
+
+    <a href="#shop" class="collection" data-category="signature">
+      <img src="https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Signature bouquets">
+      <div class="collection-caption">
+        <h3>Signature Bouquets</h3>
+        <span>EXPLORE COLLECTION →</span>
+      </div>
     </a>
-    <a class="collection" href="#shop" data-category="seasonal">
-      <img src="https://images.pexels.com/photos/29112838/pexels-photo-29112838.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Seasonal flowers" loading="lazy">
-      <div class="collection-caption"><h3>Seasonal Blooms</h3><span>EXPLORE COLLECTION →</span></div>
+
+    <a href="#shop" class="collection" data-category="seasonal">
+      <img src="https://images.pexels.com/photos/29112838/pexels-photo-29112838.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Seasonal flowers">
+      <div class="collection-caption">
+        <h3>Seasonal Blooms</h3>
+        <span>EXPLORE COLLECTION →</span>
+      </div>
     </a>
   </div>
 </section>
 
-<!-- PRODUCTS -->
+<!-- SHOP -->
+
 <div class="shop-bg">
 <section class="section" id="shop">
   <div class="heading">
     <div class="eyebrow">OUR BESTSELLERS</div>
     <h2>The most loved bouquets</h2>
-    <p>Discover flowers selected for life's sweetest occasions.</p>
+    <p>Beautiful arrangements for life's sweetest occasions.</p>
   </div>
+
   <div class="filters">
     <button class="filter active" data-filter="all">All Bouquets</button>
     <button class="filter" data-filter="roses">Roses</button>
     <button class="filter" data-filter="signature">Signature</button>
     <button class="filter" data-filter="seasonal">Seasonal</button>
   </div>
+
   <div class="products" id="products"></div>
 </section>
 </div>
 
 <!-- FINAL SALE -->
+
 <section class="sale-section" id="sale">
   <div class="sale-inner">
     <div class="heading">
       <div class="eyebrow">A LITTLE SOMETHING SPECIAL</div>
       <h2>Final Sale</h2>
-      <p id="saleStatus">Limited-time demo offers, ending October 31, 2026.</p>
+      <p id="saleStatus">Demo offers ending October 31, 2026.</p>
     </div>
+
     <div class="countdown">
-      <div class="time-box"><strong id="days">00</strong><span>DAYS</span></div>
-      <div class="time-box"><strong id="hours">00</strong><span>HOURS</span></div>
-      <div class="time-box"><strong id="minutes">00</strong><span>MINUTES</span></div>
-      <div class="time-box"><strong id="seconds">00</strong><span>SECONDS</span></div>
+      <div class="time-box">
+        <strong id="days">00</strong>
+        <span>DAYS</span>
+      </div>
+      <div class="time-box">
+        <strong id="hours">00</strong>
+        <span>HOURS</span>
+      </div>
+      <div class="time-box">
+        <strong id="minutes">00</strong>
+        <span>MINUTES</span>
+      </div>
+      <div class="time-box">
+        <strong id="seconds">00</strong>
+        <span>SECONDS</span>
+      </div>
     </div>
+
     <div class="sale-grid" id="saleGrid"></div>
   </div>
 </section>
 
 <!-- BUILD YOUR OWN BOUQUET -->
+
 <section class="section" id="builder">
   <div class="heading">
     <div class="eyebrow">MADE JUST FOR YOU</div>
@@ -338,39 +1118,38 @@ footer h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase}
 
   <div class="builder-layout">
     <div class="builder-image">
-      <img src="https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Custom floral bouquet" loading="lazy">
+      <img src="https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Custom bouquet">
     </div>
 
     <div class="builder-form">
-      <div class="eyebrow">YOUR PERSONAL FLORAL CREATION</div>
       <h2>Designed by you.</h2>
 
-      <label for="flowerColor">Choose Your Flower Colors</label>
+      <label for="flowerColor">Flower Colors</label>
       <select id="flowerColor">
-        <option value="Blush Pink">Blush Pink</option>
-        <option value="Ivory White">Ivory White</option>
-        <option value="Romantic Red">Romantic Red</option>
-        <option value="Peach & Champagne">Peach & Champagne</option>
-        <option value="Colorful Garden Mix">Colorful Garden Mix</option>
+        <option>Blush Pink</option>
+        <option>Ivory White</option>
+        <option>Romantic Red</option>
+        <option>Peach & Champagne</option>
+        <option>Colorful Garden Mix</option>
       </select>
 
       <label for="bouquetSize">Bouquet Size</label>
       <select id="bouquetSize">
-        <option value="Small" data-price="65">Small — $65</option>
-        <option value="Medium" data-price="95" selected>Medium — $95</option>
-        <option value="Large" data-price="135">Large — $135</option>
-        <option value="Grand" data-price="180">Grand — $180</option>
+        <option value="65">Small — $65</option>
+        <option value="95" selected>Medium — $95</option>
+        <option value="135">Large — $135</option>
+        <option value="180">Grand — $180</option>
       </select>
 
       <label for="wrapping">Wrapping Style</label>
       <select id="wrapping">
-        <option value="Classic Ivory" data-price="0">Classic Ivory — Included</option>
-        <option value="Blush Pink" data-price="5">Blush Pink — +$5</option>
-        <option value="Sage Green" data-price="5">Sage Green — +$5</option>
-        <option value="Luxury Satin" data-price="12">Luxury Satin — +$12</option>
+        <option value="0">Classic Ivory — Included</option>
+        <option value="5">Blush Pink — +$5</option>
+        <option value="5">Sage Green — +$5</option>
+        <option value="12">Luxury Satin — +$12</option>
       </select>
 
-      <label for="giftMessage">Gift Message (Optional)</label>
+      <label for="giftMessage">Gift Message</label>
       <textarea id="giftMessage" rows="3" maxlength="250" placeholder="Write something lovely..."></textarea>
 
       <div class="builder-total">
@@ -378,100 +1157,135 @@ footer h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase}
         <strong id="builderPrice">$95.00</strong>
       </div>
 
-      <button class="btn" id="addCustom">Add Custom Bouquet to Bag +</button>
-      <p>Demo customization: the photo is illustrative and doesn't change with your selections.</p>
+      <button class="btn" id="addCustom">
+        Add Custom Bouquet to Bag +
+      </button>
+
+      <p class="demo-note">Custom bouquet preview is illustrative.</p>
     </div>
   </div>
 </section>
 
 <!-- OUR STORY -->
+
 <section class="story" id="story">
-  <img src="https://images.pexels.com/photos/4022210/pexels-photo-4022210.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Floral arrangement" loading="lazy">
+  <img src="https://images.pexels.com/photos/4022210/pexels-photo-4022210.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Floral arrangement">
+
   <div class="story-copy">
     <div class="eyebrow">OUR STORY</div>
     <h2>A love letter<br>to flowers.</h2>
-    <p>At FLEURÉ, we believe flowers are more than a gift. They are a beautiful way to celebrate, express love and create memories.</p>
-    <p>Inspired by romantic garden blooms and timeless floral design, our arrangements are made for life's meaningful moments.</p>
+
+    <p>
+      At FLEURÉ, we believe flowers are more than a gift.
+      They are a beautiful way to celebrate, express love
+      and create memories.
+    </p>
+
+    <p>
+      Inspired by romantic garden blooms and timeless floral
+      design, our arrangements are made for life's meaningful moments.
+    </p>
+
     <a href="#shop" class="btn">Discover Our Flowers</a>
   </div>
 </section>
 
 <!-- OCCASIONS -->
+
 <section class="section" id="occasions">
   <div class="heading">
     <div class="eyebrow">THOUGHTFUL GESTURES</div>
     <h2>Flowers for every occasion</h2>
   </div>
+
   <div class="occasions">
     <a href="#shop" class="occasion">
-      <img src="https://images.pexels.com/photos/11245141/pexels-photo-11245141.jpeg?auto=compress&cs=tinysrgb&w=650" alt="Birthday flowers" loading="lazy">
+      <img src="https://images.pexels.com/photos/11245141/pexels-photo-11245141.jpeg?auto=compress&cs=tinysrgb&w=650" alt="Birthday flowers">
       <h3>Birthdays</h3>
     </a>
+
     <a href="#shop" class="occasion">
-      <img src="https://images.pexels.com/photos/4022213/pexels-photo-4022213.jpeg?auto=compress&cs=tinysrgb&w=650" alt="Anniversary flowers" loading="lazy">
+      <img src="https://images.pexels.com/photos/4022213/pexels-photo-4022213.jpeg?auto=compress&cs=tinysrgb&w=650" alt="Anniversary flowers">
       <h3>Anniversaries</h3>
     </a>
+
     <a href="#shop" class="occasion">
-      <img src="https://images.pexels.com/photos/9765739/pexels-photo-9765739.jpeg?auto=compress&cs=tinysrgb&w=650" alt="Wedding flowers" loading="lazy">
+      <img src="https://images.pexels.com/photos/9765739/pexels-photo-9765739.jpeg?auto=compress&cs=tinysrgb&w=650" alt="Wedding flowers">
       <h3>Weddings</h3>
     </a>
+
     <a href="#shop" class="occasion">
-      <img src="https://images.pexels.com/photos/5344925/pexels-photo-5344925.jpeg?auto=compress&cs=tinysrgb&w=650" alt="Colorful flowers" loading="lazy">
+      <img src="https://images.pexels.com/photos/5344925/pexels-photo-5344925.jpeg?auto=compress&cs=tinysrgb&w=650" alt="Colorful flowers">
       <h3>Just Because</h3>
     </a>
   </div>
 </section>
 
 <!-- NEWSLETTER -->
+
 <section class="newsletter">
   <div class="eyebrow">A LITTLE FLORAL INSPIRATION</div>
   <h2>Stay in bloom</h2>
-  <p>Discover seasonal flowers and little moments of beauty.</p>
+  <p>Discover seasonal flowers and moments of beauty.</p>
+
   <form id="newsletter">
-    <input type="email" placeholder="Your email address" aria-label="Email address" required>
+    <input type="email" placeholder="Your email address" required>
     <button type="submit">Join the List</button>
   </form>
+
   <p class="demo-note">Demo signup — no emails are collected.</p>
 </section>
 
 </main>
 
+<!-- FOOTER -->
+
 <footer>
   <div class="footer-grid">
     <div>
-      <a class="logo" href="#home">FLEURÉ<small>FLORAL ATELIER</small></a>
-      <p>Flowers, thoughtfully arranged.<br>Timeless blooms for life's most beautiful moments.</p>
+      <a class="logo" href="#home">
+        FLEURÉ
+        <small>FLORAL ATELIER</small>
+      </a>
+      <p>Flowers, thoughtfully arranged.</p>
     </div>
-    <div class="footer-links">
+
+    <div>
       <h4>Explore</h4>
       <a href="#shop">Shop Bouquets</a>
       <a href="#collections">Collections</a>
       <a href="#sale">Final Sale</a>
       <a href="#builder">Create Bouquet</a>
     </div>
-    <div class="footer-links">
+
+    <div>
       <h4>Information</h4>
       <a href="#story">Our Story</a>
       <a href="#occasions">Occasions</a>
       <p>Demonstration flower shop</p>
     </div>
   </div>
-  <div class="copyright">© 2026 FLEURÉ — Floral Atelier. Demo website.</div>
+
+  <div class="copyright">
+    © 2026 FLEURÉ — Floral Atelier. Demo website.
+  </div>
 </footer>
 
-<!-- CART -->
+<!-- SHOPPING BAG -->
+
 <div class="overlay" id="overlay"></div>
 
 <aside class="drawer" id="drawer" role="dialog" aria-label="Shopping bag">
   <div class="drawer-head">
     <h2>Your Bag</h2>
-    <button class="close" id="closeBag" aria-label="Close bag">×</button>
+    <button class="close" id="closeBag">×</button>
   </div>
 
   <div class="cart-items" id="cartItems"></div>
 
   <div class="cart-bottom">
-    <p class="delivery-text" id="deliveryText">Add flowers to unlock free delivery.</p>
+    <p id="deliveryText">Add flowers to unlock free delivery.</p>
+
     <div class="delivery-track">
       <div class="delivery-fill" id="deliveryFill"></div>
     </div>
@@ -481,23 +1295,27 @@ footer h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase}
       <strong id="subtotal">$0.00</strong>
     </div>
 
-    <p class="demo-note" id="discountInfo"></p>
+    <p id="discountInfo" class="demo-note"></p>
+
     <button class="btn" id="checkoutBtn">Demo Checkout</button>
     <p class="demo-note">No real payments or orders are processed.</p>
   </div>
 </aside>
 
 <!-- QUICK VIEW -->
+
 <div class="modal" id="quickModal">
   <div class="modal-box" role="dialog" aria-modal="true" aria-label="Bouquet quick view">
-    <button class="close modal-close" data-close="quickModal" aria-label="Close">×</button>
+    <button class="close modal-close" data-close="quickModal">×</button>
+
     <div class="quick-layout">
-      <img id="quickImage" src="" alt="Bouquet">
+      <img id="quickImage" alt="Bouquet">
+
       <div>
         <div class="eyebrow">FLEURÉ FLORAL ATELIER</div>
         <h2 id="quickName"></h2>
         <p id="quickDescription"></p>
-        <p class="price" id="quickPrice"></p>
+        <p id="quickPrice"></p>
         <button class="btn" id="quickAdd">Add to Bag +</button>
       </div>
     </div>
@@ -505,25 +1323,37 @@ footer h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase}
 </div>
 
 <!-- WELCOME POPUP -->
+
 <div class="modal" id="welcomeModal">
-  <div class="modal-box welcome-box" role="dialog" aria-modal="true" aria-label="Welcome discount">
-    <button class="close modal-close" data-close="welcomeModal" aria-label="Close">×</button>
+  <div class="modal-box welcome-box" role="dialog" aria-modal="true" aria-label="Welcome offer">
+    <button class="close modal-close" data-close="welcomeModal">×</button>
+
     <div class="eyebrow">WELCOME TO FLEURÉ</div>
     <h2>A little gift for you.</h2>
-    <p>Make your first floral moment even sweeter.</p>
-    <div class="offer">10% OFF</div>
-    <p>Enjoy a demo welcome discount on regular-priced and custom bouquets.</p>
-    <button class="btn" id="claimOffer">Claim My Welcome Gift</button>
-    <p class="demo-note">Demo offer. Does not combine with Final Sale discounts.</p>
+    <p>Make your first floral moment sweeter.</p>
+
+    <div class="welcome-offer">10% OFF</div>
+
+    <p>Enjoy a demo welcome discount on eligible bouquets.</p>
+
+    <button class="btn" id="claimOffer">
+      Claim My Welcome Gift
+    </button>
+
+    <p class="demo-note">
+      Welcome discount doesn't stack with Final Sale prices.
+    </p>
   </div>
 </div>
 
 <!-- CHECKOUT -->
+
 <div class="modal" id="checkoutModal">
   <div class="modal-box" role="dialog" aria-modal="true" aria-label="Demo checkout">
-    <button class="close modal-close" data-close="checkoutModal" aria-label="Close">×</button>
+    <button class="close modal-close" data-close="checkoutModal">×</button>
+
     <h2>Delivery Details</h2>
-    <p class="demo-note">Demonstration only. Your details are not transmitted.</p>
+    <p class="demo-note">Demonstration only. No information is sent.</p>
 
     <form id="checkoutForm">
       <label for="fullName">Full Name</label>
@@ -535,14 +1365,17 @@ footer h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase}
       <label for="address">Delivery Address</label>
       <input id="address" required>
 
-      <label for="date">Preferred Delivery Date</label>
+      <label for="date">Delivery Date</label>
       <input id="date" type="date" required>
 
       <label for="checkoutMessage">Gift Message</label>
       <textarea id="checkoutMessage" rows="3"></textarea>
 
       <p id="checkoutTotal"></p>
-      <button class="btn" type="submit">Complete Demo Order</button>
+
+      <button class="btn" type="submit">
+        Complete Demo Order
+      </button>
     </form>
   </div>
 </div>
@@ -550,76 +1383,95 @@ footer h4{font-size:12px;letter-spacing:.12em;text-transform:uppercase}
 <div class="toast" id="toast" role="status"></div>
 
 <script>
+
 /* PRODUCTS */
+
 const products = [
   {
-    id:1,name:"Blush Romance",price:95,category:"roses",
-    description:"A soft and romantic arrangement inspired by beautiful garden roses.",
+    id:1,
+    name:"Blush Romance",
+    price:95,
+    category:"roses",
     image:"https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
   {
-    id:2,name:"The Ivory Edit",price:85,salePrice:65,category:"signature",
-    description:"An elegant bouquet inspired by timeless ivory blooms.",
+    id:2,
+    name:"The Ivory Edit",
+    price:85,
+    salePrice:65,
+    category:"signature",
     image:"https://images.pexels.com/photos/3117159/pexels-photo-3117159.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
   {
-    id:3,name:"Garden Poetry",price:110,category:"seasonal",
-    description:"A playful celebration of colorful seasonal garden flowers.",
+    id:3,
+    name:"Garden Poetry",
+    price:110,
+    category:"seasonal",
     image:"https://images.pexels.com/photos/29112838/pexels-photo-29112838.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
   {
-    id:4,name:"Champagne Bloom",price:125,salePrice:89,category:"signature",
-    description:"A graceful arrangement inspired by warm champagne tones.",
+    id:4,
+    name:"Champagne Bloom",
+    price:125,
+    salePrice:89,
+    category:"signature",
     image:"https://images.pexels.com/photos/29557146/pexels-photo-29557146.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
   {
-    id:5,name:"Rose Garden",price:105,category:"roses",
-    description:"A classic romantic bouquet for meaningful celebrations.",
+    id:5,
+    name:"Rose Garden",
+    price:105,
+    category:"roses",
     image:"https://images.pexels.com/photos/11245141/pexels-photo-11245141.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
   {
-    id:6,name:"Soft Whisper",price:75,salePrice:55,category:"seasonal",
-    description:"Delicate seasonal blooms with an effortlessly romantic feeling.",
+    id:6,
+    name:"Soft Whisper",
+    price:75,
+    salePrice:55,
+    category:"seasonal",
     image:"https://images.pexels.com/photos/4022210/pexels-photo-4022210.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
   {
-    id:7,name:"The Signature",price:150,category:"signature",
-    description:"A luxurious statement bouquet inspired by our floral atelier.",
+    id:7,
+    name:"The Signature",
+    price:150,
+    category:"signature",
     image:"https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=800"
   },
   {
-    id:8,name:"Sweet Peony",price:99,category:"seasonal",
-    description:"Soft, charming flowers inspired by springtime gardens.",
+    id:8,
+    name:"Sweet Peony",
+    price:99,
+    category:"seasonal",
     image:"https://images.pexels.com/photos/3117159/pexels-photo-3117159.jpeg?auto=compress&cs=tinysrgb&w=800"
   }
 ];
 
 const $ = id => document.getElementById(id);
 const money = n => "$" + n.toFixed(2);
-const SALE_END = new Date("2026-10-31T23:59:59+04:00").getTime();
-const FREE_DELIVERY = 150;
+
+const saleEnd = new Date("2026-10-31T23:59:59+04:00").getTime();
+const freeDelivery = 150;
 
 let cart = [];
-let welcomeClaimed = false;
+let welcomeClaimed = localStorage.getItem("fleureWelcome") === "yes";
 let currentFilter = "all";
-let quickProductId = null;
+let quickId = null;
 
 try {
   const saved = JSON.parse(localStorage.getItem("fleureCartV2") || "[]");
-  if(Array.isArray(saved)) cart = saved;
-  welcomeClaimed = localStorage.getItem("fleureWelcome") === "yes";
-} catch(error) {
+  if (Array.isArray(saved)) cart = saved;
+} catch(e) {
   cart = [];
 }
 
 function saleActive() {
-  return Date.now() < SALE_END;
+  return Date.now() < saleEnd;
 }
 
-function productPrice(product) {
-  return product.salePrice && saleActive()
-    ? product.salePrice
-    : product.price;
+function getPrice(p) {
+  return p.salePrice && saleActive() ? p.salePrice : p.price;
 }
 
 function toast(message) {
@@ -631,36 +1483,8 @@ function toast(message) {
   }, 2800);
 }
 
-/* MODAL HELPERS */
-function openModal(id) {
-  document.querySelectorAll(".modal").forEach(m => {
-    m.classList.remove("open");
-  });
-  $(id).classList.add("open");
-  document.body.classList.add("locked");
-}
+/* PRODUCTS */
 
-function closeModal(id) {
-  $(id).classList.remove("open");
-  if(!document.querySelector(".modal.open") &&
-     !$("drawer").classList.contains("open")) {
-    document.body.classList.remove("locked");
-  }
-}
-
-document.querySelectorAll("[data-close]").forEach(button => {
-  button.addEventListener("click", () => {
-    closeModal(button.dataset.close);
-  });
-});
-
-document.querySelectorAll(".modal").forEach(modal => {
-  modal.addEventListener("click", event => {
-    if(event.target === modal) closeModal(modal.id);
-  });
-});
-
-/* PRODUCT GRID */
 function renderProducts() {
   const visible = products.filter(p =>
     currentFilter === "all" || p.category === currentFilter
@@ -668,22 +1492,20 @@ function renderProducts() {
 
   $("products").innerHTML = visible.map(p => `
     <article class="product">
-      ${p.salePrice && saleActive()
-        ? '<span class="sale-label">ON SALE</span>'
-        : ''}
       <div class="product-photo">
-        <img src="${p.image}" alt="${p.name} bouquet" loading="lazy">
+        <img src="${p.image}" alt="${p.name}" loading="lazy">
         <button class="quick-btn" data-quick="${p.id}">
           Quick View
         </button>
       </div>
+
       <div class="product-info">
         <div class="eyebrow">FLEURÉ FLORAL ATELIER</div>
         <h3>${p.name}</h3>
         <div class="price">
           ${p.salePrice && saleActive()
-            ? `<span class="old">${money(p.price)}</span>
-               <span class="sale-price">${money(p.salePrice)}</span>`
+            ? `<span class="old-price">${money(p.price)}</span>
+               <span class="new-price">${money(p.salePrice)}</span>`
             : money(p.price)}
         </div>
         <button class="add-btn" data-add="${p.id}">
@@ -694,157 +1516,166 @@ function renderProducts() {
   `).join("");
 }
 
-document.querySelectorAll(".filter").forEach(button => {
-  button.addEventListener("click", () => {
-    setFilter(button.dataset.filter);
-  });
-});
-
-document.querySelectorAll("[data-category]").forEach(link => {
-  link.addEventListener("click", () => {
-    setFilter(link.dataset.category);
-  });
-});
-
 function setFilter(category) {
   currentFilter = category;
-  document.querySelectorAll(".filter").forEach(button => {
-    button.classList.toggle("active", button.dataset.filter === category);
+
+  document.querySelectorAll(".filter").forEach(b => {
+    b.classList.toggle("active", b.dataset.filter === category);
   });
+
   renderProducts();
 }
 
-/* QUICK VIEW */
-function openQuickView(id) {
-  const p = products.find(product => product.id === id);
-  if(!p) return;
-
-  quickProductId = id;
-  $("quickImage").src = p.image;
-  $("quickImage").alt = p.name + " bouquet";
-  $("quickName").textContent = p.name;
-  $("quickDescription").textContent = p.description;
-  $("quickPrice").textContent = money(productPrice(p));
-  openModal("quickModal");
-}
-
-$("quickAdd").addEventListener("click", () => {
-  if(quickProductId !== null) {
-    addProduct(quickProductId);
-    closeModal("quickModal");
-  }
+document.querySelectorAll(".filter").forEach(b => {
+  b.onclick = () => setFilter(b.dataset.filter);
 });
 
-/* FINAL SALE */
-function renderSale() {
-  const active = saleActive();
+document.querySelectorAll("[data-category]").forEach(a => {
+  a.onclick = () => setFilter(a.dataset.category);
+});
 
-  $("saleGrid").innerHTML = products
-    .filter(p => p.salePrice)
-    .map(p => `
-      <article class="sale-card">
-        <span class="sale-label">
-          ${active ? "FINAL SALE" : "SALE ENDED"}
-        </span>
-        <div class="image-wrap">
-          <img src="${p.image}" alt="${p.name}" loading="lazy">
+/* SALE */
+
+function renderSale() {
+  $("saleGrid").innerHTML = products.filter(p => p.salePrice).map(p => `
+    <article class="sale-card">
+      <span class="sale-label">
+        ${saleActive() ? "FINAL SALE" : "SALE ENDED"}
+      </span>
+
+      <img src="${p.image}" alt="${p.name}">
+
+      <div class="product-info">
+        <h3>${p.name}</h3>
+
+        <div class="price">
+          ${saleActive()
+            ? `<span class="old-price">${money(p.price)}</span>
+               <span class="new-price">${money(p.salePrice)}</span>`
+            : money(p.price)}
         </div>
-        <div class="product-info">
-          <div class="eyebrow">SPECIAL FLORAL OFFER</div>
-          <h3>${p.name}</h3>
-          <div class="price">
-            ${active
-              ? `<span class="old">${money(p.price)}</span>
-                 <span class="sale-price">${money(p.salePrice)}</span>`
-              : money(p.price)}
-          </div>
-          <button class="add-btn"
-            ${active ? `data-add="${p.id}"` : "disabled"}>
-            ${active ? "Add Sale Bouquet +" : "Promotion Ended"}
-          </button>
-        </div>
-      </article>
-    `).join("");
+
+        <button class="add-btn"
+          ${saleActive() ? `data-add="${p.id}"` : "disabled"}>
+          ${saleActive() ? "Add Sale Bouquet +" : "Sale Ended"}
+        </button>
+      </div>
+    </article>
+  `).join("");
 }
 
-let wasSaleActive = saleActive();
+let previousSaleStatus = saleActive();
 
-function updateCountdown() {
-  const remaining = Math.max(0, SALE_END - Date.now());
-  const seconds = Math.floor(remaining / 1000);
-  const pad = n => String(n).padStart(2,"0");
+function countdown() {
+  const remaining = Math.max(0, saleEnd - Date.now());
+  const totalSeconds = Math.floor(remaining / 1000);
+  const pad = n => String(n).padStart(2, "0");
 
-  $("days").textContent = pad(Math.floor(seconds / 86400));
-  $("hours").textContent = pad(Math.floor(seconds % 86400 / 3600));
-  $("minutes").textContent = pad(Math.floor(seconds % 3600 / 60));
-  $("seconds").textContent = pad(seconds % 60);
+  $("days").textContent = pad(Math.floor(totalSeconds / 86400));
+  $("hours").textContent = pad(Math.floor(totalSeconds % 86400 / 3600));
+  $("minutes").textContent = pad(Math.floor(totalSeconds % 3600 / 60));
+  $("seconds").textContent = pad(totalSeconds % 60);
 
-  if(remaining === 0) {
+  if (remaining === 0) {
     $("saleStatus").textContent = "This demo promotion has ended.";
   }
 
-  if(wasSaleActive !== saleActive()) {
-    wasSaleActive = saleActive();
-    renderSale();
+  if (previousSaleStatus !== saleActive()) {
+    previousSaleStatus = saleActive();
     renderProducts();
+    renderSale();
     renderCart();
   }
 }
 
-/* CUSTOM BOUQUET */
-function customBasePrice() {
-  const size = $("bouquetSize");
-  const wrapping = $("wrapping");
+/* BOUQUET BUILDER */
 
-  const sizePrice = Number(
-    size.selectedOptions[0].dataset.price
-  );
-
-  const wrapPrice = Number(
-    wrapping.selectedOptions[0].dataset.price
-  );
-
-  return sizePrice + wrapPrice;
+function builderPrice() {
+  return Number($("bouquetSize").value) +
+         Number($("wrapping").value);
 }
 
-function updateBuilderPrice() {
-  $("builderPrice").textContent = money(customBasePrice());
+function updateBuilder() {
+  $("builderPrice").textContent = money(builderPrice());
 }
 
-$("bouquetSize").addEventListener("change", updateBuilderPrice);
-$("wrapping").addEventListener("change", updateBuilderPrice);
+$("bouquetSize").onchange = updateBuilder;
+$("wrapping").onchange = updateBuilder;
 
-$("addCustom").addEventListener("click", () => {
-  const color = $("flowerColor").value;
-  const size = $("bouquetSize").value;
-  const wrapping = $("wrapping").value;
-  const message = $("giftMessage").value.trim();
+$("addCustom").onclick = () => {
+  const size = $("bouquetSize").selectedOptions[0].text.split(" — ")[0];
+  const wrap = $("wrapping").selectedOptions[0].text.split(" — ")[0];
 
-  const customItem = {
-    key:"custom-" + Date.now() + "-" + Math.random().toString(36).slice(2,8),
+  cart.push({
+    key:"custom-" + Date.now() + "-" + Math.random(),
     name:"Your Custom Bouquet",
-    price:customBasePrice(),
-    custom:true,
+    price:builderPrice(),
     quantity:1,
+    custom:true,
     image:"https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=500",
-    details:`${color} • ${size} • ${wrapping}`,
-    message
-  };
+    details:$("flowerColor").value + " • " + size + " • " + wrap,
+    message:$("giftMessage").value
+  });
 
-  cart.push(customItem);
   saveCart();
   toast("Your custom bouquet was added ♡");
+};
+
+/* QUICK VIEW */
+
+function openModal(id) {
+  $(id).classList.add("open");
+  document.body.classList.add("locked");
+}
+
+function closeModal(id) {
+  $(id).classList.remove("open");
+
+  if (!document.querySelector(".modal.open") &&
+      !$("drawer").classList.contains("open")) {
+    document.body.classList.remove("locked");
+  }
+}
+
+function quickView(id) {
+  const p = products.find(x => x.id === id);
+  if (!p) return;
+
+  quickId = id;
+  $("quickImage").src = p.image;
+  $("quickName").textContent = p.name;
+  $("quickDescription").textContent =
+    "A beautiful floral arrangement, thoughtfully created for special moments.";
+  $("quickPrice").textContent = money(getPrice(p));
+
+  openModal("quickModal");
+}
+
+$("quickAdd").onclick = () => {
+  if (quickId !== null) addProduct(quickId);
+  closeModal("quickModal");
+};
+
+document.querySelectorAll("[data-close]").forEach(b => {
+  b.onclick = () => closeModal(b.dataset.close);
 });
 
-/* SHOPPING BAG */
+document.querySelectorAll(".modal").forEach(m => {
+  m.onclick = e => {
+    if (e.target === m) closeModal(m.id);
+  };
+});
+
+/* CART */
+
 function addProduct(id) {
-  const p = products.find(item => item.id === id);
-  if(!p) return;
+  const p = products.find(x => x.id === id);
+  if (!p) return;
 
   const key = "product-" + id;
-  const existing = cart.find(item => item.key === key);
+  const existing = cart.find(x => x.key === key);
 
-  if(existing) {
+  if (existing) {
     existing.quantity++;
   } else {
     cart.push({
@@ -862,234 +1693,228 @@ function addProduct(id) {
   toast("Added to your bag ♡");
 }
 
-function saveCart() {
-  localStorage.setItem("fleureCartV2",JSON.stringify(cart));
-  renderCart();
+function itemPrice(item) {
+  if (item.custom) return item.price;
+
+  const p = products.find(x => x.id === item.productId);
+  return p ? getPrice(p) : item.price;
 }
 
-function itemUnitPrice(item) {
-  if(item.custom) return item.price;
-  const p = products.find(p => p.id === item.productId);
-  return p ? productPrice(p) : item.price;
+function hasSale(item) {
+  if (item.custom) return false;
+
+  const p = products.find(x => x.id === item.productId);
+  return !!(p && p.salePrice && saleActive());
 }
 
-function itemHasSalePrice(item) {
-  if(item.custom) return false;
-  const p = products.find(p => p.id === item.productId);
-  return Boolean(p && p.salePrice && saleActive());
-}
-
-function cartTotals() {
+function totals() {
   let subtotal = 0;
   let discount = 0;
   let count = 0;
 
   cart.forEach(item => {
-    const qty = item.quantity;
-    const unit = itemUnitPrice(item);
+    const amount = itemPrice(item) * item.quantity;
 
-    subtotal += unit * qty;
-    count += qty;
+    subtotal += amount;
+    count += item.quantity;
 
-    if(welcomeClaimed && !itemHasSalePrice(item)) {
-      discount += unit * qty * 0.10;
+    if (welcomeClaimed && !hasSale(item)) {
+      discount += amount * 0.10;
     }
   });
 
-  const total = Math.max(0,subtotal - discount);
-  return {subtotal,discount,total,count};
+  return {
+    count,
+    discount,
+    total:Math.max(0, subtotal - discount)
+  };
+}
+
+function saveCart() {
+  localStorage.setItem("fleureCartV2", JSON.stringify(cart));
+  renderCart();
 }
 
 function renderCart() {
-  const totals = cartTotals();
+  const t = totals();
 
-  $("cartItems").innerHTML = cart.map(item => {
-    const index = cart.indexOf(item);
-    const details = item.details
-      ? `<p>${item.details}</p>`
-      : "";
-    const gift = item.message
-      ? `<p>Gift note included</p>`
-      : "";
+  $("cartItems").innerHTML = cart.map((item, index) => `
+    <div class="cart-item">
+      <img src="${item.image}" alt="${item.name}">
 
-    return `
-      <div class="cart-item">
-        <img src="${item.image}" alt="${item.name}">
-        <div>
-          <h4>${item.name}</h4>
-          ${details}
-          ${gift}
-          <p>${money(itemUnitPrice(item))}</p>
-          <div class="qty">
-            <button data-index="${index}" data-delta="-1">−</button>
-            <span>${item.quantity}</span>
-            <button data-index="${index}" data-delta="1">+</button>
-          </div>
+      <div>
+        <h4>${item.name}</h4>
+        <p>${money(itemPrice(item))}</p>
+        ${item.details ? `<p>${item.details}</p>` : ""}
+        ${item.message ? "<p>Gift message included</p>" : ""}
+
+        <div class="qty">
+          <button data-index="${index}" data-delta="-1">−</button>
+          <span>${item.quantity}</span>
+          <button data-index="${index}" data-delta="1">+</button>
         </div>
-        <button class="close" data-remove="${index}"
-          aria-label="Remove ${item.name}">×</button>
       </div>
-    `;
-  }).join("") || "<p>Your bag is waiting for something beautiful.</p>";
 
-  $("count").textContent = totals.count;
-  $("subtotal").textContent = money(totals.total);
+      <button class="close" data-remove="${index}">×</button>
+    </div>
+  `).join("") || "<p>Your bag is waiting for something beautiful.</p>";
 
-  $("discountInfo").textContent = totals.discount > 0
-    ? "Welcome discount applied: −" + money(totals.discount)
-    : welcomeClaimed
-      ? "Welcome discount applies to eligible items."
-      : "";
+  $("count").textContent = t.count;
+  $("subtotal").textContent = money(t.total);
 
-  const remaining = Math.max(0,FREE_DELIVERY - totals.total);
-  const progress = Math.min(100,totals.total / FREE_DELIVERY * 100);
+  $("discountInfo").textContent = t.discount > 0
+    ? "Welcome discount: −" + money(t.discount)
+    : "";
 
-  $("deliveryFill").style.width = progress + "%";
+  const remaining = Math.max(0, freeDelivery - t.total);
+
+  $("deliveryFill").style.width =
+    Math.min(100, t.total / freeDelivery * 100) + "%";
 
   $("deliveryText").textContent = remaining > 0
     ? `You're ${money(remaining)} away from free delivery!`
     : "♡ You've unlocked free delivery!";
 
-  $("checkoutTotal").textContent =
-    "Demo total: " + money(totals.total) +
-    (remaining === 0 ? " — Free delivery" : "");
-
-  $("checkoutBtn").disabled = totals.count === 0;
+  $("checkoutTotal").textContent = "Demo total: " + money(t.total);
+  $("checkoutBtn").disabled = t.count === 0;
 }
 
 function toggleBag(open) {
-  $("drawer").classList.toggle("open",open);
-  $("overlay").classList.toggle("open",open);
-  document.body.classList.toggle("locked",open);
+  $("drawer").classList.toggle("open", open);
+  $("overlay").classList.toggle("open", open);
+  document.body.classList.toggle("locked", open);
 }
 
-$("bagBtn").addEventListener("click",() => toggleBag(true));
-$("closeBag").addEventListener("click",() => toggleBag(false));
-$("overlay").addEventListener("click",() => toggleBag(false));
+$("bagBtn").onclick = () => toggleBag(true);
+$("closeBag").onclick = () => toggleBag(false);
+$("overlay").onclick = () => toggleBag(false);
 
-document.addEventListener("click",event => {
-  const add = event.target.closest("[data-add]");
-  if(add) addProduct(Number(add.dataset.add));
+document.addEventListener("click", e => {
+  const add = e.target.closest("[data-add]");
+  if (add) addProduct(Number(add.dataset.add));
 
-  const quick = event.target.closest("[data-quick]");
-  if(quick) openQuickView(Number(quick.dataset.quick));
+  const quick = e.target.closest("[data-quick]");
+  if (quick) quickView(Number(quick.dataset.quick));
 
-  const remove = event.target.closest("[data-remove]");
-  if(remove) {
-    cart.splice(Number(remove.dataset.remove),1);
+  const remove = e.target.closest("[data-remove]");
+  if (remove) {
+    cart.splice(Number(remove.dataset.remove), 1);
     saveCart();
   }
 
-  const quantity = event.target.closest("[data-index][data-delta]");
-  if(quantity) {
-    const index = Number(quantity.dataset.index);
-    const delta = Number(quantity.dataset.delta);
+  const change = e.target.closest("[data-index][data-delta]");
+  if (change) {
+    const index = Number(change.dataset.index);
 
-    if(cart[index]) {
-      cart[index].quantity += delta;
-      if(cart[index].quantity <= 0) cart.splice(index,1);
+    if (cart[index]) {
+      cart[index].quantity += Number(change.dataset.delta);
+
+      if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+      }
+
       saveCart();
     }
   }
 });
 
-/* WELCOME OFFER */
-$("claimOffer").addEventListener("click",() => {
+/* WELCOME DISCOUNT */
+
+$("claimOffer").onclick = () => {
   welcomeClaimed = true;
-  localStorage.setItem("fleureWelcome","yes");
+  localStorage.setItem("fleureWelcome", "yes");
+
   closeModal("welcomeModal");
   renderCart();
+
   toast("Your 10% welcome gift is ready ♡");
-});
+};
 
 /* CHECKOUT */
-$("checkoutBtn").addEventListener("click",() => {
-  if(!cart.length) return;
+
+$("checkoutBtn").onclick = () => {
+  if (!cart.length) return;
+
   toggleBag(false);
   openModal("checkoutModal");
-});
+};
 
-$("checkoutForm").addEventListener("submit",event => {
-  event.preventDefault();
-  if(!cart.length) return;
+$("checkoutForm").onsubmit = e => {
+  e.preventDefault();
+
+  if (!cart.length) return;
 
   cart = [];
   saveCart();
-  event.target.reset();
+  e.target.reset();
+
   closeModal("checkoutModal");
   toast("Demo order complete! No payment was taken.");
-});
+};
 
 /* NEWSLETTER */
-$("newsletter").addEventListener("submit",event => {
-  event.preventDefault();
-  event.target.reset();
+
+$("newsletter").onsubmit = e => {
+  e.preventDefault();
+  e.target.reset();
   toast("Demo signup — no email was sent.");
-});
+};
 
 /* MOBILE MENU */
-$("menuBtn").addEventListener("click",() => {
-  $("nav").classList.toggle("open");
-});
 
-document.querySelectorAll("#nav a").forEach(link => {
-  link.addEventListener("click",() => {
-    $("nav").classList.remove("open");
-  });
+$("menuBtn").onclick = () => {
+  $("nav").classList.toggle("open");
+};
+
+document.querySelectorAll("#nav a").forEach(a => {
+  a.onclick = () => $("nav").classList.remove("open");
 });
 
 /* KEYBOARD */
-document.addEventListener("keydown",event => {
-  if(event.key === "Escape") {
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
     toggleBag(false);
-    document.querySelectorAll(".modal.open").forEach(modal => {
-      closeModal(modal.id);
+
+    document.querySelectorAll(".modal.open").forEach(m => {
+      closeModal(m.id);
     });
   }
 });
 
 /* DELIVERY DATE */
+
 const today = new Date();
+
 $("date").min = [
   today.getFullYear(),
-  String(today.getMonth()+1).padStart(2,"0"),
-  String(today.getDate()).padStart(2,"0")
+  String(today.getMonth() + 1).padStart(2, "0"),
+  String(today.getDate()).padStart(2, "0")
 ].join("-");
 
-/* VIDEO FALLBACK */
-const video = $("heroVideo");
+/* INITIALIZE */
 
-video.addEventListener("error",() => {
-  video.style.display = "none";
-});
-
-video.querySelector("source").addEventListener("error",() => {
-  video.style.display = "none";
-});
-
-if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  video.pause();
-  video.style.display = "none";
-}
-
-/* START WEBSITE */
 renderProducts();
 renderSale();
 renderCart();
-updateBuilderPrice();
-updateCountdown();
-setInterval(updateCountdown,1000);
+updateBuilder();
+countdown();
 
-/* SHOW WELCOME POPUP ONCE PER SESSION */
-if(!sessionStorage.getItem("fleureWelcomeSeen")) {
-  sessionStorage.setItem("fleureWelcomeSeen","yes");
+setInterval(countdown, 1000);
+
+/* WELCOME POPUP */
+
+if (!sessionStorage.getItem("fleureWelcomeSeen")) {
+  sessionStorage.setItem("fleureWelcomeSeen", "yes");
+
   setTimeout(() => {
-    if(!document.querySelector(".modal.open") &&
-       !$("drawer").classList.contains("open")) {
+    if (!document.querySelector(".modal.open") &&
+        !$("drawer").classList.contains("open")) {
       openModal("welcomeModal");
     }
-  },1800);
+  }, 1800);
 }
+
 </script>
 
 </body>
