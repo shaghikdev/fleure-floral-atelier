@@ -1,1558 +1,981 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FLEURÉ — Floral Atelier</title>
-<meta name="description" content="FLEURÉ Floral Atelier — Flowers, thoughtfully arranged.">
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FLEURÉ — Luxury Garden Roses & Floral Atelier</title>
+<meta name="description" content="FLEURÉ — Luxury garden roses and floral atelier. Handcrafted bouquets of the world's most beautiful roses." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --ivory: #FAF7F0;
-  --blush: #EBCFD2;
-  --sage: #A8B7A0;
-  --champagne: #D9C3A1;
-  --olive: #35483D;
-  --text: #30362F;
-}
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  background: var(--ivory);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-}
-
-button, input, textarea { font: inherit; }
-button { cursor: pointer; }
-a { text-decoration: none; color: inherit; }
-img { display: block; width: 100%; object-fit: cover; }
-
-h1, h2, h3, .brand {
-  font-family: 'Playfair Display', serif;
-  font-weight: 400;
-}
-
-h2 {
-  font-size: clamp(34px, 4vw, 56px);
-  line-height: 1.2;
-  margin: 12px 0 20px;
-}
-
-.eyebrow {
-  font-size: 11px;
-  letter-spacing: .25em;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-/* ANNOUNCEMENT */
-
-.announcement {
-  background: var(--olive);
-  color: white;
-  text-align: center;
-  padding: 11px 15px;
-  font-size: 11px;
-  letter-spacing: .16em;
-}
-
-/* HEADER */
-
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: rgba(250,247,240,.97);
-  border-bottom: 1px solid #e8e0d5;
-}
-
-.head-inner {
-  max-width: 1440px;
-  margin: auto;
-  padding: 18px 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.brand {
-  font-size: 31px;
-  letter-spacing: .12em;
-  color: var(--olive);
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.brand small {
-  display: block;
-  font: 9px 'DM Sans', sans-serif;
-  letter-spacing: .35em;
-  text-align: center;
-  margin-top: 8px;
-}
-
-.navlinks {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  font-size: 11px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-
-.navlinks a:hover { color: #a87883; }
-
-.bag {
-  background: transparent;
-  color: var(--olive);
-  border: 1px solid var(--olive);
-  padding: 11px 16px;
-  white-space: nowrap;
-}
-
-.menu {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 26px;
-}
-
-/* FULL SCREEN VIDEO HERO */
-
-.hero {
-  position: relative;
-  min-height: 680px;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  text-align: center;
-  background: var(--olive);
-}
-
-.hero-fallback,
-.hero-video,
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.hero-fallback {
-  background:
-    url('https://images.pexels.com/photos/1070901/pexels-photo-1070901.jpeg?auto=compress&cs=tinysrgb&w=1800')
-    center / cover no-repeat;
-}
-
-.hero-video {
-  object-fit: cover;
-  z-index: 1;
-}
-
-.hero-overlay {
-  z-index: 2;
-  background: linear-gradient(
-    180deg,
-    rgba(25,35,28,.36),
-    rgba(25,35,28,.58)
-  );
-}
-
-.hero-content {
-  position: relative;
-  z-index: 3;
-  color: var(--ivory);
-  padding: 30px;
-  max-width: 850px;
-  animation: heroFade 1.5s ease both;
-}
-
-.hero-content .eyebrow {
-  color: var(--champagne);
-}
-
-.hero h1 {
-  font-size: clamp(65px, 11vw, 145px);
-  font-weight: 400;
-  letter-spacing: .08em;
-  margin: 22px 0;
-}
-
-.hero-tagline {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(21px, 3vw, 34px);
-  font-style: italic;
-  margin-bottom: 12px;
-}
-
-.hero-description {
-  font-size: 15px;
-  line-height: 1.9;
-  margin-bottom: 38px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 17px 32px;
-  background: var(--sage);
-  border: 1px solid var(--sage);
-  color: var(--olive);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  transition: .3s;
-}
-
-.btn:hover {
-  background: var(--ivory);
-  border-color: var(--ivory);
-}
-
-.hero-scroll {
-  position: absolute;
-  bottom: 32px;
-  z-index: 3;
-  color: white;
-  font-size: 10px;
-  letter-spacing: .3em;
-  text-transform: uppercase;
-}
-
-@keyframes heroFade {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* PROMISE BAR */
-
-.promise {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  text-align: center;
-  padding: 28px 5%;
-  background: white;
-  font-size: 12px;
-  letter-spacing: .08em;
-}
-
-.promise span {
-  color: #a87883;
-  margin-right: 8px;
-}
-
-/* SECTIONS */
-
-.section {
-  padding: 90px 5%;
-  max-width: 1500px;
-  margin: auto;
-}
-
-.section-head {
-  max-width: 650px;
-  margin: 0 auto 45px;
-  text-align: center;
-}
-
-.section-head .eyebrow { color: #849780; }
-
-.section-head p {
-  font-size: 14px;
-  line-height: 1.9;
-  color: #74766e;
-}
-
-/* COLLECTIONS */
-
-.categories {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-}
-
-.category {
-  position: relative;
-  display: block;
-  height: 440px;
-  overflow: hidden;
-  background: var(--blush);
-}
-
-.category img {
-  height: 100%;
-  transition: transform .6s;
-}
-
-.category:hover img { transform: scale(1.06); }
-
-.category-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 65px 20px 28px;
-  background: linear-gradient(transparent, rgba(20,30,23,.75));
-  color: white;
-  text-align: center;
-}
-
-.category-caption h3 {
-  font-size: 29px;
-  margin: 0 0 12px;
-}
-
-.category-caption span {
-  font-size: 11px;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-}
-
-/* PRODUCTS */
-
-.soft { background: #f5efea; }
-
-.filters {
-  display: flex;
-  justify-content: center;
-  gap: 9px;
-  flex-wrap: wrap;
-  margin-bottom: 38px;
-}
-
-.filter {
-  border: 1px solid #d1c8bd;
-  background: transparent;
-  color: var(--olive);
-  padding: 11px 19px;
-  font-size: 12px;
-}
-
-.filter.active,
-.filter:hover {
-  background: var(--olive);
-  color: white;
-}
-
-.products {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-
-.product {
-  background: white;
-  padding-bottom: 20px;
-}
-
-.product-image {
-  height: 330px;
-  overflow: hidden;
-  background: var(--blush);
-}
-
-.product-image img {
-  height: 100%;
-  transition: transform .5s;
-}
-
-.product:hover img { transform: scale(1.05); }
-
-.product-info {
-  padding: 20px 16px 0;
-  text-align: center;
-}
-
-.product-info .eyebrow {
-  color: #849780;
-  font-size: 9px;
-}
-
-.product h3 {
-  font-size: 20px;
-  margin: 9px 0;
-}
-
-.price {
-  font-size: 14px;
-  color: #6e776c;
-  margin-bottom: 18px;
-}
-
-.product button {
-  width: 100%;
-  border: none;
-  background: var(--sage);
-  color: var(--olive);
-  padding: 13px;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: .13em;
-}
-
-.product button:hover {
-  background: var(--olive);
-  color: white;
-}
-
-/* EDITORIAL STORY */
-
-.editorial {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: var(--blush);
-}
-
-.editorial img {
-  height: 100%;
-  min-height: 570px;
-}
-
-.editorial-copy {
-  padding: 80px 12%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.editorial-copy .eyebrow { color: var(--olive); }
-
-.editorial-copy p {
-  max-width: 480px;
-  line-height: 2;
-  font-size: 15px;
-  color: #5c665d;
-}
-
-.editorial-copy .btn { margin-top: 20px; }
-
-/* OCCASIONS */
-
-.occasions {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.occasion img { height: 280px; }
-
-.occasion h3 {
-  text-align: center;
-  font-size: 22px;
-}
-
-/* NEWSLETTER */
-
-.newsletter {
-  background: var(--olive);
-  color: white;
-  text-align: center;
-  padding: 80px 5%;
-}
-
-.newsletter .eyebrow { color: var(--champagne); }
-.newsletter h2 { color: white; }
-
-.newsletter p {
-  color: #e6e8df;
-  font-size: 14px;
-}
-
-.newsletter form {
-  display: flex;
-  max-width: 480px;
-  margin: 28px auto 0;
-}
-
-.newsletter input {
-  flex: 1;
-  min-width: 0;
-  padding: 16px;
-  border: none;
-}
-
-.newsletter button {
-  border: none;
-  background: var(--blush);
-  color: var(--olive);
-  padding: 15px 22px;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-}
-
-/* FOOTER */
-
-.footer {
-  padding: 65px 5% 30px;
-  background: #f1e8df;
-}
-
-.footer-inner {
-  max-width: 1300px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 45px;
-}
-
-.footer h4 {
-  font-size: 12px;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-}
-
-.footer p,
-.footer a:not(.brand) {
-  display: block;
-  font-size: 13px;
-  color: #73776c;
-  line-height: 2;
-}
-
-.copyright {
-  text-align: center;
-  border-top: 1px solid #ded4c8;
-  padding-top: 25px;
-  margin-top: 50px;
-  font-size: 11px;
-  color: #73776c;
-}
-
-/* CART */
-
-.overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.5);
-  z-index: 29;
-}
-
-.overlay.open { display: block; }
-
-.drawer {
-  position: fixed;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: min(430px,100%);
-  z-index: 30;
-  background: var(--ivory);
-  transform: translateX(100%);
-  transition: transform .3s;
-  display: flex;
-  flex-direction: column;
-  padding: 30px;
-}
-
-.drawer.open { transform: translateX(0); }
-
-.drawer-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid #d6d4ca;
-}
-
-.drawer-head h2 { font-size: 30px; }
-
-.close {
-  background: none;
-  border: none;
-  font-size: 30px;
-}
-
-.cart-items {
-  flex: 1;
-  overflow-y: auto;
-}
-
-.cart-item {
-  display: grid;
-  grid-template-columns: 70px 1fr auto;
-  gap: 12px;
-  padding: 18px 0;
-  border-bottom: 1px solid #e2ddd5;
-  align-items: center;
-}
-
-.cart-item img {
-  width: 70px;
-  height: 75px;
-}
-
-.cart-item h4 {
-  font-size: 13px;
-  margin: 0 0 8px;
-}
-
-.cart-item p {
-  font-size: 12px;
-  margin: 0 0 8px;
-}
-
-.qty {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.qty button {
-  border: 1px solid #ddd;
-  background: white;
-  padding: 3px 9px;
-}
-
-.cart-bottom {
-  border-top: 1px solid #ddd;
-  padding-top: 20px;
-}
-
-.cart-bottom .btn {
-  width: 100%;
-  margin-top: 15px;
-}
-
-.demo {
-  font-size: 11px !important;
-  color: #888 !important;
-  line-height: 1.6;
-}
-
-/* CHECKOUT */
-
-.checkout {
-  position: fixed;
-  inset: 0;
-  z-index: 40;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,.6);
-  padding: 20px;
-}
-
-.checkout.open { display: flex; }
-
-.checkout-box {
-  position: relative;
-  background: var(--ivory);
-  width: min(550px,100%);
-  max-height: 90vh;
-  overflow-y: auto;
-  padding: 35px;
-}
-
-.checkout-box h2 { font-size: 34px; }
-
-.checkout-box label {
-  display: block;
-  font-size: 12px;
-  margin: 14px 0 6px;
-}
-
-.checkout-box input,
-.checkout-box textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #d9d6cc;
-  background: white;
-}
-
-.checkout-box .btn {
-  margin-top: 22px;
-  width: 100%;
-}
-
-.checkout-close {
-  position: absolute;
-  right: 25px;
-  top: 20px;
-}
-
-.toast {
-  position: fixed;
-  bottom: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--olive);
-  color: white;
-  padding: 15px 22px;
-  z-index: 50;
-  display: none;
-  font-size: 13px;
-  text-align: center;
-}
-
-.toast.show { display: block; }
-
-/* RESPONSIVE */
-
-@media (max-width: 1100px) {
-  .products { grid-template-columns: repeat(2,1fr); }
-  .navlinks { gap: 14px; }
-}
-
-@media (max-width: 720px) {
-  .head-inner { padding: 15px 5%; }
-  .brand { font-size: 25px; }
-  .menu { display: block; }
-
-  .navlinks {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--ivory);
-    padding: 25px;
-    flex-direction: column;
-    align-items: flex-start;
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Jost',sans-serif;
+    font-weight:300;
+    background:#FDFBF8;
+    color:#3A3A3A;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+  :root{
+    --cream:#FDFBF8;
+    --blush:#F7E8E3;
+    --rose:#E8C9C0;
+    --dusty:#D4A89E;
+    --sage:#B8B89E;
+    --charcoal:#3A3A3A;
+    --muted:#8B7E7A;
+    --warm:#C9A898;
+    --gold:#C9A882;
   }
 
-  .navlinks.open { display: flex; }
+  /* LOADER */
+  .loader{
+    position:fixed;inset:0;background:var(--cream);z-index:9999;
+    display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;
+    transition:opacity 1.2s ease,visibility 1.2s ease;
+  }
+  .loader.hidden{opacity:0;visibility:hidden}
+  .loader-mark{
+    font-family:'Cormorant Garamond',serif;
+    font-size:52px;letter-spacing:.25em;color:var(--charcoal);
+    font-weight:300;
+    animation:fadeUp 1.4s ease forwards;
+  }
+  .loader-sub{
+    font-size:10px;letter-spacing:.5em;text-transform:uppercase;
+    color:var(--muted);
+    animation:fadeUp 1.4s .3s ease forwards;
+    opacity:0;
+  }
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-  .hero {
-    min-height: 620px;
-    height: 90svh;
+  /* NAV */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:32px 56px;display:flex;align-items:center;justify-content:space-between;
+    transition:all .5s ease;
+    background:transparent;
+  }
+  .nav.scrolled{
+    background:rgba(253,251,248,.97);
+    backdrop-filter:blur(20px);
+    padding:22px 56px;
+    box-shadow:0 1px 0 rgba(58,58,58,.05);
+  }
+  .nav-logo{
+    font-family:'Cormorant Garamond',serif;
+    font-size:28px;letter-spacing:.25em;color:var(--cream);
+    font-weight:400;transition:color .4s;
+  }
+  .nav.scrolled .nav-logo{color:var(--charcoal)}
+  .nav-links{display:flex;gap:40px;align-items:center}
+  .nav-links a{
+    font-size:11px;letter-spacing:.25em;text-transform:uppercase;
+    color:var(--cream);font-weight:300;position:relative;
+    transition:color .3s;
+  }
+  .nav.scrolled .nav-links a{color:var(--charcoal)}
+  .nav-links a::after{
+    content:'';position:absolute;left:50%;bottom:-6px;
+    width:0;height:1px;background:currentColor;
+    transition:all .4s ease;transform:translateX(-50%);
+  }
+  .nav-links a:hover::after{width:100%}
+  .menu-toggle{display:none;flex-direction:column;gap:6px;background:none;border:none;padding:8px;z-index:101}
+  .menu-toggle span{width:24px;height:1px;background:var(--cream);transition:all .4s}
+  .nav.scrolled .menu-toggle span{background:var(--charcoal)}
+  .menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .menu-toggle.open span:nth-child(2){opacity:0}
+  .menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;position:relative;
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;
+  }
+  .hero-bg{
+    position:absolute;inset:0;
+  }
+  .hero-bg img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform 2s ease;
+  }
+  .hero-bg::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(58,58,58,.1) 0%,rgba(58,58,58,.35) 100%);
+  }
+  .hero-content{
+    position:relative;z-index:2;text-align:center;
+    padding:0 24px;max-width:900px;
+  }
+  .hero-tag{
+    font-size:11px;letter-spacing:.5em;text-transform:uppercase;
+    color:var(--cream);margin-bottom:32px;font-weight:300;
+    opacity:0;animation:fadeUp 1.2s .5s forwards;
+    display:flex;align-items:center;justify-content:center;gap:16px;
+  }
+  .hero-tag::before,.hero-tag::after{
+    content:'';width:40px;height:1px;background:var(--cream);
+  }
+  .hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(56px,9vw,120px);line-height:1;
+    color:var(--cream);margin-bottom:32px;font-weight:300;
+    opacity:0;animation:fadeUp 1.4s .7s forwards;
+  }
+  .hero h1 em{font-style:italic;font-weight:300}
+  .hero-sub{
+    font-size:16px;line-height:1.9;color:rgba(253,251,248,.92);
+    max-width:520px;margin:0 auto 48px;font-weight:300;
+    opacity:0;animation:fadeUp 1.4s 1s forwards;
+  }
+  .hero-actions{
+    display:flex;gap:20px;justify-content:center;flex-wrap:wrap;
+    opacity:0;animation:fadeUp 1.4s 1.2s forwards;
+  }
+  .btn-primary{
+    padding:20px 48px;background:var(--cream);color:var(--charcoal);
+    font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+    font-weight:400;transition:all .4s;
+  }
+  .btn-primary:hover{background:var(--charcoal);color:var(--cream)}
+  .btn-ghost{
+    padding:20px 48px;background:transparent;color:var(--cream);
+    border:1px solid var(--cream);
+    font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+    font-weight:400;transition:all .4s;
+  }
+  .btn-ghost:hover{background:var(--cream);color:var(--charcoal)}
+  .hero-scroll{
+    position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+    font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--cream);z-index:2;
+    display:flex;flex-direction:column;align-items:center;gap:12px;
+  }
+  .hero-scroll::after{
+    content:'';width:1px;height:40px;background:var(--cream);
+    animation:scrollLine 2s ease-in-out infinite;
+  }
+  @keyframes scrollLine{0%,100%{transform:scaleY(.3);transform-origin:top}50%{transform:scaleY(1)}}
+
+  /* SECTIONS */
+  section{padding:140px 56px;position:relative}
+  .section-head{
+    text-align:center;max-width:700px;margin:0 auto 80px;
+  }
+  .section-label{
+    font-size:11px;letter-spacing:.4em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:24px;font-weight:300;
+    display:inline-block;
+  }
+  .section-label-wrap{text-align:center;margin-bottom:20px}
+  .section-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(42px,5.5vw,68px);color:var(--charcoal);
+    font-weight:300;line-height:1.1;margin-bottom:24px;
+  }
+  .section-title em{font-style:italic;color:var(--muted)}
+  .section-sub{
+    font-size:15px;line-height:1.9;color:var(--muted);
+    max-width:560px;margin:0 auto;
   }
 
-  .hero h1 { font-size: clamp(50px,13vw,78px); }
-
-  .promise {
-    grid-template-columns: 1fr;
-    gap: 18px;
+  /* INTRO */
+  .intro{background:var(--cream)}
+  .intro-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center;
+    max-width:1400px;margin:0 auto;
+  }
+  .intro-img{
+    position:relative;aspect-ratio:4/5;overflow:hidden;
+  }
+  .intro-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s}
+  .intro-img:hover img{transform:scale(1.05)}
+  .intro-text .section-label{margin-bottom:24px;text-align:left;display:block}
+  .intro-text h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(38px,4.5vw,58px);color:var(--charcoal);
+    margin-bottom:32px;font-weight:300;line-height:1.1;
+  }
+  .intro-text h2 em{font-style:italic;color:var(--muted)}
+  .intro-text p{font-size:15px;line-height:1.9;color:var(--muted);margin-bottom:20px}
+  .intro-sig{
+    margin-top:36px;padding-top:28px;border-top:1px solid var(--rose);
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:22px;color:var(--charcoal);
   }
 
-  .section { padding: 65px 5%; }
-
-  .categories { grid-template-columns: 1fr; }
-  .category { height: 390px; }
-
-  .products { gap: 12px; }
-  .product-image { height: 230px; }
-  .product h3 { font-size: 17px; }
-
-  .editorial { grid-template-columns: 1fr; }
-  .editorial img {
-    height: 370px;
-    min-height: 370px;
+  /* ROSES */
+  .roses{background:var(--blush)}
+  .roses-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:36px;
+    max-width:1400px;margin:0 auto;
+  }
+  .rose-card{
+    background:var(--cream);overflow:hidden;cursor:pointer;
+    transition:all .7s;position:relative;
+  }
+  .rose-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 40px 80px rgba(58,58,58,.1);
+  }
+  .rose-img{
+    aspect-ratio:4/5;overflow:hidden;position:relative;
+  }
+  .rose-img img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform 1.4s ease;
+  }
+  .rose-card:hover .rose-img img{transform:scale(1.1)}
+  .rose-scent{
+    position:absolute;top:20px;right:20px;
+    background:rgba(253,251,248,.95);backdrop-filter:blur(10px);
+    padding:8px 14px;font-size:9px;letter-spacing:.25em;
+    text-transform:uppercase;color:var(--charcoal);
+    opacity:0;transform:translateY(-10px);
+    transition:all .4s;
+  }
+  .rose-card:hover .rose-scent{opacity:1;transform:translateY(0)}
+  .rose-body{padding:36px 32px;text-align:center}
+  .rose-body h3{
+    font-family:'Cormorant Garamond',serif;font-size:28px;
+    color:var(--charcoal);margin-bottom:8px;font-weight:400;
+  }
+  .rose-body .variety{
+    font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:14px;
+  }
+  .rose-body p{font-size:14px;color:var(--muted);line-height:1.7}
+  .rose-notes{
+    display:flex;justify-content:center;gap:16px;margin-top:16px;
+    padding-top:16px;border-top:1px solid var(--blush);
+  }
+  .rose-notes span{
+    font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--warm);
   }
 
-  .editorial-copy { padding: 55px 8%; }
-
-  .occasions { grid-template-columns: repeat(2,1fr); }
-  .occasion img { height: 200px; }
-
-  .footer-inner { grid-template-columns: 1fr 1fr; }
-  .footer-inner > div:first-child { grid-column: 1/-1; }
-}
-
-@media (max-width: 390px) {
-  .products { grid-template-columns: 1fr; }
-  .product-image { height: 340px; }
-  .newsletter form { flex-direction: column; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
+  /* SEASONAL BLOOM CALENDAR */
+  .seasonal{background:var(--cream)}
+  .seasonal-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+    max-width:1400px;margin:0 auto;
   }
-}
+  .season-card{
+    padding:48px 32px;text-align:center;
+    border:1px solid var(--blush);
+    transition:all .5s;cursor:pointer;
+    position:relative;overflow:hidden;
+  }
+  .season-card::before{
+    content:'';position:absolute;inset:0;
+    background:var(--blush);
+    transform:translateY(101%);
+    transition:transform .5s;z-index:0;
+  }
+  .season-card:hover::before{transform:translateY(0)}
+  .season-card > *{position:relative;z-index:1;transition:color .5s}
+  .season-card:hover{border-color:var(--rose)}
+  .season-card .month{
+    font-family:'Cormorant Garamond',serif;font-size:48px;
+    color:var(--rose);margin-bottom:16px;font-weight:300;
+    transition:color .5s;
+  }
+  .season-card:hover .month{color:var(--charcoal)}
+  .season-card h3{
+    font-family:'Cormorant Garamond',serif;font-size:22px;
+    margin-bottom:12px;font-weight:400;
+  }
+  .season-card p{font-size:13px;color:var(--muted);line-height:1.6}
+
+  /* GALLERY */
+  .gallery{background:var(--cream);padding:140px 0}
+  .gallery-head{
+    text-align:center;max-width:700px;margin:0 auto 80px;padding:0 56px;
+  }
+  .gallery-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:280px;gap:4px;
+  }
+  .gallery-item{
+    position:relative;overflow:hidden;cursor:pointer;
+  }
+  .gallery-item img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform 1.4s ease;
+  }
+  .gallery-item:hover img{transform:scale(1.1)}
+  .gallery-item::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 50%,rgba(58,58,58,.4) 100%);
+    opacity:0;transition:opacity .5s;
+  }
+  .gallery-item:hover::after{opacity:1}
+  .gallery-item .caption{
+    position:absolute;bottom:24px;left:24px;right:24px;
+    color:var(--cream);font-family:'Cormorant Garamond',serif;
+    font-size:20px;font-style:italic;z-index:2;
+    opacity:0;transform:translateY(10px);transition:all .5s;
+  }
+  .gallery-item:hover .caption{opacity:1;transform:translateY(0)}
+  .gallery-item.tall{grid-row:span 2}
+  .gallery-item.wide{grid-column:span 2}
+
+  /* EXPERIENCE */
+  .experience{background:var(--cream)}
+  .exp-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center;
+    max-width:1400px;margin:0 auto 140px;
+  }
+  .exp-grid:last-child{margin-bottom:0}
+  .exp-grid.reverse{direction:rtl}
+  .exp-grid.reverse > *{direction:ltr}
+  .exp-img{
+    position:relative;aspect-ratio:4/5;overflow:hidden;
+  }
+  .exp-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s}
+  .exp-img:hover img{transform:scale(1.05)}
+  .exp-text .section-label{margin-bottom:24px;text-align:left;display:block}
+  .exp-text h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(38px,4.5vw,54px);color:var(--charcoal);
+    margin-bottom:28px;font-weight:300;line-height:1.1;
+  }
+  .exp-text h2 em{font-style:italic;color:var(--muted)}
+  .exp-text p{font-size:15px;line-height:1.9;color:var(--muted);margin-bottom:20px}
+
+  /* JOURNAL */
+  .journal{background:var(--blush)}
+  .journal-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:36px;
+    max-width:1400px;margin:0 auto;
+  }
+  .journal-card{
+    background:var(--cream);overflow:hidden;cursor:pointer;
+    transition:all .7s;
+  }
+  .journal-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 40px 80px rgba(58,58,58,.08);
+  }
+  .journal-img{aspect-ratio:4/3;overflow:hidden}
+  .journal-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+  .journal-card:hover .journal-img img{transform:scale(1.08)}
+  .journal-body{padding:36px 32px}
+  .journal-body .cat{
+    font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:14px;
+  }
+  .journal-body h3{
+    font-family:'Cormorant Garamond',serif;font-size:26px;
+    color:var(--charcoal);margin-bottom:14px;font-weight:400;line-height:1.2;
+  }
+  .journal-body p{font-size:14px;color:var(--muted);line-height:1.7}
+
+  /* TESTIMONIALS */
+  .testimonials{background:var(--cream)}
+  .test-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:40px;
+    max-width:1300px;margin:0 auto;
+  }
+  .test-card{
+    padding:48px 36px;text-align:center;
+    border:1px solid var(--blush);
+    transition:all .5s;
+  }
+  .test-card:hover{
+    border-color:var(--rose);
+    transform:translateY(-6px);
+  }
+  .test-quote{
+    font-family:'Cormorant Garamond',serif;font-size:56px;
+    color:var(--rose);line-height:1;margin-bottom:20px;font-weight:300;
+  }
+  .test-stars{color:var(--gold);letter-spacing:3px;margin-bottom:20px;font-size:13px}
+  .test-text{
+    font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.5;
+    color:var(--charcoal);margin-bottom:28px;font-style:italic;font-weight:300;
+  }
+  .test-author{
+    font-size:12px;letter-spacing:.25em;text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  /* NEWSLETTER */
+  .newsletter{
+    background:
+      linear-gradient(180deg,rgba(58,58,58,.5),rgba(58,58,58,.65)),
+      url('https://images.unsplash.com/photo-1496062031456-07b8f162a322?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat fixed;
+    color:var(--cream);text-align:center;padding:180px 56px;
+  }
+  .newsletter .section-label{color:var(--rose)}
+  .newsletter h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(40px,5.5vw,68px);color:var(--cream);
+    margin-bottom:24px;font-weight:300;line-height:1.1;
+  }
+  .newsletter h2 em{font-style:italic;color:var(--rose)}
+  .newsletter p{color:rgba(253,251,248,.85);max-width:500px;margin:0 auto 48px;font-size:15px}
+  .newsletter-form{
+    max-width:500px;margin:0 auto;
+    display:flex;border-bottom:1px solid var(--cream);
+  }
+  .newsletter-form input{
+    flex:1;background:transparent;border:none;
+    padding:18px 0;color:var(--cream);font-family:'Jost',sans-serif;font-size:14px;
+  }
+  .newsletter-form input:focus{outline:none}
+  .newsletter-form input::placeholder{color:rgba(253,251,248,.6)}
+  .newsletter-form button{
+    padding:18px 32px;background:transparent;color:var(--cream);
+    font-size:11px;letter-spacing:.3em;text-transform:uppercase;font-weight:300;
+    transition:color .3s;
+  }
+  .newsletter-form button:hover{color:var(--rose)}
+
+  /* FOOTER */
+  footer{
+    background:var(--charcoal);color:rgba(253,251,248,.7);
+    padding:100px 56px 40px;
+  }
+  .footer-grid{
+    display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;
+    max-width:1400px;margin:0 auto 70px;
+  }
+  .footer-brand .footer-logo{
+    font-family:'Cormorant Garamond',serif;
+    font-size:36px;letter-spacing:.25em;color:var(--cream);
+    margin-bottom:20px;font-weight:300;
+  }
+  .footer-brand p{font-size:14px;line-height:1.8;max-width:320px}
+  .footer-col h4{
+    font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--rose);margin-bottom:24px;font-weight:300;
+  }
+  .footer-col ul{list-style:none}
+  .footer-col li{margin-bottom:12px}
+  .footer-col a{font-size:14px;transition:color .3s}
+  .footer-col a:hover{color:var(--rose)}
+  .footer-bottom{
+    max-width:1400px;margin:0 auto;padding-top:30px;
+    border-top:1px solid rgba(253,251,248,.1);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;
+    font-size:12px;letter-spacing:.1em;color:rgba(253,251,248,.5);
+  }
+
+  /* TOAST */
+  .toast{
+    position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);
+    background:var(--charcoal);color:var(--cream);
+    padding:16px 28px;font-size:12px;letter-spacing:.15em;text-transform:uppercase;
+    transition:transform .4s;z-index:400;
+  }
+  .toast.show{transform:translateX(-50%) translateY(0)}
+
+  .back-top{
+    position:fixed;bottom:30px;right:30px;z-index:90;
+    width:44px;height:44px;background:var(--charcoal);color:var(--cream);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;visibility:hidden;transition:all .3s;font-size:16px;
+  }
+  .back-top.show{opacity:1;visibility:visible}
+  .back-top:hover{background:var(--muted)}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(40px);transition:opacity 1s ease,transform 1s ease}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  @media (max-width:1024px){
+    section{padding:100px 32px}
+    .nav{padding:24px 32px}
+    .nav.scrolled{padding:18px 32px}
+    .intro-grid,.exp-grid,.exp-grid.reverse{grid-template-columns:1fr;gap:60px}
+    .roses-grid,.journal-grid,.test-grid{grid-template-columns:repeat(2,1fr);gap:24px}
+    .seasonal-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+    .gallery-grid{grid-template-columns:repeat(3,1fr);grid-auto-rows:220px}
+    .footer-grid{grid-template-columns:1fr 1fr;gap:40px}
+  }
+  @media (max-width:768px){
+    section{padding:80px 24px}
+    .nav{padding:20px 24px}
+    .nav.scrolled{padding:16px 24px}
+    .nav-links{display:none}
+    .menu-toggle{display:flex}
+    .nav-links-mobile{
+      position:fixed;top:0;right:-100%;width:85%;max-width:320px;height:100vh;
+      background:var(--cream);flex-direction:column;justify-content:center;
+      gap:32px;transition:right .4s;padding:40px;z-index:101;
+      display:flex;
+    }
+    .nav-links-mobile.open{right:0}
+    .nav-links-mobile a{font-size:14px;color:var(--charcoal)}
+    .hero h1{font-size:52px}
+    .roses-grid,.journal-grid,.test-grid,.seasonal-grid{grid-template-columns:1fr}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}
+    .gallery-item.tall{grid-row:span 2}
+    .gallery-item.wide{grid-column:span 2}
+    .footer-grid{grid-template-columns:1fr}
+    .newsletter-form{flex-direction:column;border:none;gap:16px}
+    .newsletter-form input{border-bottom:1px solid var(--cream)}
+  }
 </style>
 </head>
-
 <body>
 
-<div class="announcement">
-  A LITTLE BEAUTY, DELIVERED WITH LOVE ✦ EXPLORE OUR SIGNATURE BOUQUETS
+<div class="loader" id="loader">
+  <div class="loader-mark">FLEURÉ</div>
+  <div class="loader-sub">Luxury Garden Roses</div>
 </div>
 
-<header class="header">
-  <div class="head-inner">
-
-    <button class="menu" id="menuBtn" aria-label="Toggle menu">☰</button>
-
-    <a class="brand" href="#home">
-      FLEURÉ
-      <small>FLORAL ATELIER</small>
-    </a>
-
-    <nav class="navlinks" id="nav">
-      <a href="#home">Home</a>
-      <a href="#collections">Collections</a>
-      <a href="#shop">Shop Bouquets</a>
-      <a href="#story">Our Story</a>
-      <a href="#occasions">Occasions</a>
-    </nav>
-
-    <button class="bag" id="bagBtn">
-      Bag (<span id="count">0</span>)
-    </button>
-
+<nav class="nav" id="nav">
+  <a href="#home" class="nav-logo">FLEURÉ</a>
+  <div class="nav-links">
+    <a href="#about">Our Story</a>
+    <a href="#roses">Our Roses</a>
+    <a href="#seasonal">Seasons</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#experience">Visit</a>
+    <a href="#journal">Journal</a>
+    <a href="#contact">Contact</a>
   </div>
-</header>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-<main>
-
-<!-- VIDEO HOMEPAGE -->
+<div class="nav-links-mobile" id="navMobile">
+  <a href="#about">Our Story</a>
+  <a href="#roses">Our Roses</a>
+  <a href="#seasonal">Seasons</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#experience">Visit</a>
+  <a href="#journal">Journal</a>
+  <a href="#contact">Contact</a>
+</div>
 
 <section class="hero" id="home">
-
-  <div class="hero-fallback"></div>
-
-  <video
-    class="hero-video"
-    id="heroVideo"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="metadata">
-    <source src="fleure-hero.mp4" type="video/mp4">
-  </video>
-
-  <div class="hero-overlay"></div>
-
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1496062031456-07b8f162a322?auto=format&fit=crop&w=1600&q=80" alt="Rose field at golden hour"/>
+  </div>
   <div class="hero-content">
-    <div class="eyebrow">FLORAL ATELIER</div>
-
-    <h1>FLEURÉ</h1>
-
-    <p class="hero-tagline">
-      Flowers, thoughtfully arranged.
-    </p>
-
-    <p class="hero-description">
-      Timeless blooms for life's most beautiful moments.
-    </p>
-
-    <a class="btn" href="#shop">Shop Bouquets</a>
+    <div class="hero-tag">Luxury Garden Roses · Est. 2015</div>
+    <h1>Growing the world's<br/><em>most beautiful roses</em></h1>
+    <p class="hero-sub">From our family farm to your most cherished moments. Luxury garden roses, grown with love and care in the English countryside.</p>
+    <div class="hero-actions">
+      <a href="#roses" class="btn-primary">Explore Our Roses</a>
+      <a href="#about" class="btn-ghost">Our Story</a>
+    </div>
   </div>
-
-  <div class="hero-scroll">SCROLL TO EXPLORE ↓</div>
-
+  <div class="hero-scroll">Scroll</div>
 </section>
 
-<!-- PROMISE -->
-
-<div class="promise">
-  <div><span>✦</span> Thoughtfully Curated Flowers</div>
-  <div><span>♡</span> Beautifully Wrapped Bouquets</div>
-  <div><span>✿</span> Made for Meaningful Moments</div>
-</div>
-
-<!-- COLLECTIONS -->
-
-<section class="section" id="collections">
-
-  <div class="section-head">
-    <div class="eyebrow">THE FLEURÉ COLLECTION</div>
-    <h2>Flowers for every moment</h2>
-    <p>
-      Discover our romantic collections of roses,
-      seasonal blooms, and signature arrangements.
-    </p>
+<section class="intro" id="about">
+  <div class="intro-grid">
+    <div class="intro-img reveal">
+      <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1200&q=80" alt="Pink garden roses close-up" loading="lazy"/>
+    </div>
+    <div class="intro-text reveal">
+      <div class="section-label">Our Story</div>
+      <h2>A family farm with a <em>passion for roses</em></h2>
+      <p>FLEURÉ began as a small family plot with a simple dream — to grow the most beautiful garden roses in the world. Today, we cultivate over 40 varieties of luxury roses, each chosen for its fragrance, form, and timeless beauty.</p>
+      <p>Our roses are grown using sustainable, chemical-free methods in the rich English soil. We believe that the most beautiful flowers come from the most careful hands — and that every stem tells a story of patience, craft, and love.</p>
+      <p>From weddings and events to floral designers and private clients, our roses bring a touch of English garden romance to life's most beautiful moments.</p>
+      <div class="intro-sig">— The FLEURÉ Family</div>
+    </div>
   </div>
+</section>
 
-  <div class="categories">
-
-    <a href="#shop" class="category" data-category="roses">
-      <img
-        loading="lazy"
-        src="https://images.pexels.com/photos/994989/pexels-photo-994989.jpeg?auto=compress&cs=tinysrgb&w=900"
-        alt="Romantic roses">
-      <div class="category-caption">
-        <h3>Roses & Romance</h3>
-        <span>Explore Collection →</span>
+<section class="roses" id="roses">
+  <div class="section-head reveal">
+    <div class="section-label">Our Collection</div>
+    <h2 class="section-title">Signature <em>Garden Roses</em></h2>
+    <p class="section-sub">A curated selection of our most beloved varieties, each grown with care on our family farm.</p>
+  </div>
+  <div class="roses-grid">
+    <div class="rose-card reveal">
+      <div class="rose-img">
+        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=80" alt="Constance rose" loading="lazy"/>
+        <div class="rose-scent">Strong Fragrance</div>
       </div>
-    </a>
-
-    <a href="#shop" class="category" data-category="signature">
-      <img
-        loading="lazy"
-        src="https://images.pexels.com/photos/1070901/pexels-photo-1070901.jpeg?auto=compress&cs=tinysrgb&w=900"
-        alt="Signature floral arrangements">
-      <div class="category-caption">
-        <h3>Signature Bouquets</h3>
-        <span>Explore Collection →</span>
+      <div class="rose-body">
+        <div class="variety">Garden Rose</div>
+        <h3>Constance</h3>
+        <p>Soft blush pink with a rich, old-rose fragrance. A timeless classic.</p>
+        <div class="rose-notes">
+          <span>Blush</span><span>Sweet</span><span>Classic</span>
+        </div>
       </div>
-    </a>
-
-    <a href="#shop" class="category" data-category="seasonal">
-      <img
-        loading="lazy"
-        src="https://images.pexels.com/photos/1123262/pexels-photo-1123262.jpeg?auto=compress&cs=tinysrgb&w=900"
-        alt="Seasonal flower arrangements">
-      <div class="category-caption">
-        <h3>Seasonal Blooms</h3>
-        <span>Explore Collection →</span>
+    </div>
+    <div class="rose-card reveal">
+      <div class="rose-img">
+        <img src="https://images.unsplash.com/photo-1518895949257-7621c3d786d7?auto=format&fit=crop&w=800&q=80" alt="Patience rose" loading="lazy"/>
+        <div class="rose-scent">Delicate Scent</div>
       </div>
-    </a>
-
+      <div class="rose-body">
+        <div class="variety">Garden Rose</div>
+        <h3>Patience</h3>
+        <p>Creamy ivory blooms with delicate pink edges. Perfect for weddings.</p>
+        <div class="rose-notes">
+          <span>Ivory</span><span>Soft</span><span>Romantic</span>
+        </div>
+      </div>
+    </div>
+    <div class="rose-card reveal">
+      <div class="rose-img">
+        <img src="https://images.unsplash.com/photo-1455659817273-f9680777d321?auto=format&fit=crop&w=800&q=80" alt="Keira rose" loading="lazy"/>
+        <div class="rose-scent">Honeyed</div>
+      </div>
+      <div class="rose-body">
+        <div class="variety">Garden Rose</div>
+        <h3>Keira</h3>
+        <p>Full, romantic blush blooms with a sweet, honeyed fragrance.</p>
+        <div class="rose-notes">
+          <span>Blush</span><span>Honey</span><span>Lush</span>
+        </div>
+      </div>
+    </div>
+    <div class="rose-card reveal">
+      <div class="rose-img">
+        <img src="https://images.unsplash.com/photo-1548586196-aa5803b77379?auto=format&fit=crop&w=800&q=80" alt="Juliet rose" loading="lazy"/>
+        <div class="rose-scent">Tea Rose</div>
+      </div>
+      <div class="rose-body">
+        <div class="variety">Garden Rose</div>
+        <h3>Juliet</h3>
+        <p>The iconic peach-apricot rose. Elegant, luxurious, unforgettable.</p>
+        <div class="rose-notes">
+          <span>Peach</span><span>Tea</span><span>Luxury</span>
+        </div>
+      </div>
+    </div>
+    <div class="rose-card reveal">
+      <div class="rose-img">
+        <img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?auto=format&fit=crop&w=800&q=80" alt="Eustacia Vye rose" loading="lazy"/>
+        <div class="rose-scent">Fruity</div>
+      </div>
+      <div class="rose-body">
+        <div class="variety">Garden Rose</div>
+        <h3>Eustacia Vye</h3>
+        <p>Deep pink-copper blooms with a strong, fruity fragrance.</p>
+        <div class="rose-notes">
+          <span>Copper</span><span>Fruity</span><span>Bold</span>
+        </div>
+      </div>
+    </div>
+    <div class="rose-card reveal">
+      <div class="rose-img">
+        <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=800&q=80" alt="White O'Hara rose" loading="lazy"/>
+        <div class="rose-scent">Tea Scent</div>
+      </div>
+      <div class="rose-body">
+        <div class="variety">Garden Rose</div>
+        <h3>White O'Hara</h3>
+        <p>Pure white blooms with a delicate, tea-rose scent. Simply stunning.</p>
+        <div class="rose-notes">
+          <span>White</span><span>Tea</span><span>Pure</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- SHOP -->
-
-<div class="soft">
-<section class="section" id="shop">
-
-  <div class="section-head">
-    <div class="eyebrow">OUR BESTSELLERS</div>
-    <h2>The most loved bouquets</h2>
-    <p>
-      Beautifully composed flowers for gifting,
-      celebrating, or simply brightening your day.
-    </p>
+<section class="seasonal" id="seasonal">
+  <div class="section-head reveal">
+    <div class="section-label">In Bloom</div>
+    <h2 class="section-title">The <em>Seasonal</em> Calendar</h2>
+    <p class="section-sub">Discover which roses are at their peak throughout the year.</p>
   </div>
-
-  <div class="filters">
-    <button class="filter active" data-filter="all">All Bouquets</button>
-    <button class="filter" data-filter="roses">Roses</button>
-    <button class="filter" data-filter="signature">Signature</button>
-    <button class="filter" data-filter="seasonal">Seasonal</button>
-  </div>
-
-  <div class="products" id="products"></div>
-
-</section>
-</div>
-
-<!-- OUR STORY -->
-
-<section class="editorial" id="story">
-
-  <img
-    loading="lazy"
-    src="https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?auto=compress&cs=tinysrgb&w=1300"
-    alt="Flowers in a floral studio">
-
-  <div class="editorial-copy">
-
-    <div class="eyebrow">OUR STORY</div>
-
-    <h2>A love letter<br>to flowers.</h2>
-
-    <p>
-      At FLEURÉ, we believe flowers are more than a gift.
-      They are a way to say thank you, I love you,
-      I'm thinking of you — or simply to bring a little
-      beauty into the day.
-    </p>
-
-    <p>
-      Inspired by romantic garden blooms and timeless
-      floral design, our arrangements are created
-      to feel personal, effortless, and unforgettable.
-    </p>
-
-    <a href="#shop" class="btn">Discover Our Flowers</a>
-
+  <div class="seasonal-grid">
+    <div class="season-card reveal">
+      <div class="month">Mar</div>
+      <h3>Spring Awakening</h3>
+      <p>Early blooms of White O'Hara and delicate pastel varieties begin to emerge.</p>
+    </div>
+    <div class="season-card reveal">
+      <div class="month">Jun</div>
+      <h3>Peak Season</h3>
+      <p>The farm is in full bloom. Constance, Keira, and Juliet at their most glorious.</p>
+    </div>
+    <div class="season-card reveal">
+      <div class="month">Sep</div>
+      <h3>Autumn Roses</h3>
+      <p>Rich copper and deep pink varieties shine as the season turns golden.</p>
+    </div>
+    <div class="season-card reveal">
+      <div class="month">Dec</div>
+      <h3>Winter Rest</h3>
+      <p>The farm rests. We prune, plan, and prepare for next year's bloom.</p>
+    </div>
   </div>
 </section>
 
-<!-- OCCASIONS -->
-
-<section class="section" id="occasions">
-
-  <div class="section-head">
-    <div class="eyebrow">THOUGHTFUL GESTURES</div>
-    <h2>Flowers for every occasion</h2>
-    <p>
-      Celebrate the moments, big and small,
-      with a bouquet that says it all.
-    </p>
+<section class="gallery" id="gallery">
+  <div class="gallery-head reveal">
+    <div class="section-label">From The Farm</div>
+    <h2 class="section-title">Moments in <em>Bloom</em></h2>
+    <p class="section-sub">A glimpse into life at FLEURÉ — from dawn harvests to golden hour in the rose fields.</p>
   </div>
-
-  <div class="occasions">
-
-    <a href="#shop" class="occasion">
-      <img loading="lazy"
-        src="https://images.pexels.com/photos/1907228/pexels-photo-1907228.jpeg?auto=compress&cs=tinysrgb&w=650"
-        alt="Birthday flowers">
-      <h3>Birthdays</h3>
-    </a>
-
-    <a href="#shop" class="occasion">
-      <img loading="lazy"
-        src="https://images.pexels.com/photos/994989/pexels-photo-994989.jpeg?auto=compress&cs=tinysrgb&w=650"
-        alt="Anniversary roses">
-      <h3>Anniversaries</h3>
-    </a>
-
-    <a href="#shop" class="occasion">
-      <img loading="lazy"
-        src="https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=650"
-        alt="Wedding flowers">
-      <h3>Weddings</h3>
-    </a>
-
-    <a href="#shop" class="occasion">
-      <img loading="lazy"
-        src="https://images.pexels.com/photos/1123262/pexels-photo-1123262.jpeg?auto=compress&cs=tinysrgb&w=650"
-        alt="Everyday flowers">
-      <h3>Just Because</h3>
-    </a>
-
+  <div class="gallery-grid">
+    <div class="gallery-item tall reveal">
+      <img src="https://images.unsplash.com/photo-1496062031456-07b8f162a322?auto=format&fit=crop&w=800&q=80" alt="Rose field at dawn" loading="lazy"/>
+      <div class="caption">Dawn in the rose fields</div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=80" alt="Pink roses close-up" loading="lazy"/>
+      <div class="caption">Morning dew</div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1518895949257-7621c3d786d7?auto=format&fit=crop&w=800&q=80" alt="Ivory roses bouquet" loading="lazy"/>
+      <div class="caption">The ivory collection</div>
+    </div>
+    <div class="gallery-item wide reveal">
+      <img src="https://images.unsplash.com/photo-1455659817273-f9680777d321?auto=format&fit=crop&w=1200&q=80" alt="Garden roses arrangement" loading="lazy"/>
+      <div class="caption">Hand-tied bouquets</div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1548586196-aa5803b77379?auto=format&fit=crop&w=800&q=80" alt="Peach roses" loading="lazy"/>
+      <div class="caption">Peach perfection</div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1562690868-60bbe7293e94?auto=format&fit=crop&w=800&q=80" alt="Pink garden rose" loading="lazy"/>
+      <div class="caption">Deep garden pink</div>
+    </div>
+    <div class="gallery-item tall reveal">
+      <img src="https://images.unsplash.com/photo-1462275646964-a0e3c11f18a6?auto=format&fit=crop&w=800&q=80" alt="Rose garden path" loading="lazy"/>
+      <div class="caption">The garden path</div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=800&q=80" alt="Rose detail" loading="lazy"/>
+      <div class="caption">Petal detail</div>
+    </div>
+    <div class="gallery-item reveal">
+      <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=800&q=80" alt="White roses" loading="lazy"/>
+      <div class="caption">Pure white</div>
+    </div>
   </div>
 </section>
 
-<!-- NEWSLETTER -->
+<section class="experience" id="experience">
+  <div class="exp-grid">
+    <div class="exp-img reveal">
+      <img src="https://images.unsplash.com/photo-1462275646964-a0e3c11f18a6?auto=format&fit=crop&w=1200&q=80" alt="Visit FLEURÉ rose garden" loading="lazy"/>
+    </div>
+    <div class="exp-text reveal">
+      <div class="section-label">Visit The Farm</div>
+      <h2>Experience the <em>rose fields</em></h2>
+      <p>Join us at FLEURÉ for a truly special experience. Wander through our rose fields in bloom, learn about sustainable rose growing, and discover the varieties that make our roses so beloved by floral designers around the world.</p>
+      <p>We welcome visitors by appointment during our rose season — June through September. Private tours, workshops, and farm visits are available for small groups.</p>
+      <a href="#contact" class="btn-primary" style="display:inline-block;margin-top:24px;background:var(--charcoal);color:var(--cream)">Book a Visit</a>
+    </div>
+  </div>
 
-<section class="newsletter">
+  <div class="exp-grid reverse">
+    <div class="exp-img reveal">
+      <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=1200&q=80" alt="Wedding roses bouquet" loading="lazy"/>
+    </div>
+    <div class="exp-text reveal">
+      <div class="section-label">For Weddings</div>
+      <h2>Roses for your <em>special day</em></h2>
+      <p>Our garden roses are the perfect choice for weddings — romantic, fragrant, and timeless. We work closely with florists and couples to create bespoke rose selections for the most important day of their lives.</p>
+      <p>From bridal bouquets to table arrangements, ceremony arches to petal confetti, our roses bring an English garden elegance to every celebration.</p>
+      <a href="#contact" class="btn-primary" style="display:inline-block;margin-top:24px;background:var(--charcoal);color:var(--cream)">Enquire Now</a>
+    </div>
+  </div>
+</section>
 
-  <div class="eyebrow">A LITTLE FLORAL INSPIRATION</div>
+<section class="testimonials">
+  <div class="section-head reveal">
+    <div class="section-label">Kind Words</div>
+    <h2 class="section-title">From Our <em>Clients</em></h2>
+    <p class="section-sub">Stories from those who've experienced the beauty of FLEURÉ.</p>
+  </div>
+  <div class="test-grid">
+    <div class="test-card reveal">
+      <div class="test-quote">"</div>
+      <div class="test-stars">★ ★ ★ ★ ★</div>
+      <p class="test-text">The most beautiful roses I've ever seen. The fragrance filled our entire wedding venue. Truly magical.</p>
+      <div class="test-author">— Eleanor M., Bride</div>
+    </div>
+    <div class="test-card reveal">
+      <div class="test-quote">"</div>
+      <div class="test-stars">★ ★ ★ ★ ★</div>
+      <p class="test-text">As a floral designer, I've worked with many growers. FLEURÉ's roses are in a class of their own.</p>
+      <div class="test-author">— James R., Florist</div>
+    </div>
+    <div class="test-card reveal">
+      <div class="test-quote">"</div>
+      <div class="test-stars">★ ★ ★ ★ ★</div>
+      <p class="test-text">The farm visit was unforgettable. Walking through the rose fields at golden hour was pure magic.</p>
+      <div class="test-author">— Sophie L., Visitor</div>
+    </div>
+  </div>
+</section>
 
-  <h2>Stay in bloom</h2>
+<section class="journal" id="journal">
+  <div class="section-head reveal">
+    <div class="section-label">From The Journal</div>
+    <h2 class="section-title">Stories from <em>the Farm</em></h2>
+    <p class="section-sub">Notes on rose growing, seasonal blooms, and life at FLEURÉ.</p>
+  </div>
+  <div class="journal-grid">
+    <div class="journal-card reveal">
+      <div class="journal-img">
+        <img src="https://images.unsplash.com/photo-1496062031456-07b8f162a322?auto=format&fit=crop&w=800&q=80" alt="Rose season" loading="lazy"/>
+      </div>
+      <div class="journal-body">
+        <div class="cat">Seasonal</div>
+        <h3>The Magic of Rose Season</h3>
+        <p>Why June and July are the most beautiful months on the farm, and what makes our summer roses so special.</p>
+      </div>
+    </div>
+    <div class="journal-card reveal">
+      <div class="journal-img">
+        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=80" alt="Growing roses" loading="lazy"/>
+      </div>
+      <div class="journal-body">
+        <div class="cat">Growing</div>
+        <h3>Caring for Garden Roses</h3>
+        <p>Our guide to growing healthy, fragrant garden roses — from soil preparation to pruning and beyond.</p>
+      </div>
+    </div>
+    <div class="journal-card reveal">
+      <div class="journal-img">
+        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=800&q=80" alt="Wedding flowers" loading="lazy"/>
+      </div>
+      <div class="journal-body">
+        <div class="cat">Weddings</div>
+        <h3>Choosing Roses for Your Wedding</h3>
+        <p>A guide to selecting the perfect rose varieties for your wedding day, from bridal bouquets to table arrangements.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <p>
-    Get inspired by seasonal flowers and
-    the little things that make life lovely.
-  </p>
-
-  <form id="newsletter">
-    <input
-      type="email"
-      placeholder="Your email address"
-      aria-label="Email address"
-      required>
-    <button type="submit">Join the List</button>
+<section class="newsletter" id="contact">
+  <div class="section-label">Stay in Bloom</div>
+  <h2>Join our <em>rose list</em></h2>
+  <p>Be the first to know about new varieties, seasonal availability, farm events, and exclusive offers.</p>
+  <form class="newsletter-form" id="newsletterForm">
+    <input type="email" placeholder="Your email address" required/>
+    <button type="submit">Subscribe →</button>
   </form>
-
-  <p class="demo">
-    Demonstration signup — no email will be stored or sent.
-  </p>
-
 </section>
 
-</main>
-
-<!-- FOOTER -->
-
-<footer class="footer">
-
-  <div class="footer-inner">
-
-    <div>
-      <a class="brand" href="#home">
-        FLEURÉ
-        <small>FLORAL ATELIER</small>
-      </a>
-      <p>
-        Flowers, thoughtfully arranged.<br>
-        Timeless blooms for life's most beautiful moments.
-      </p>
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">FLEURÉ</div>
+      <p>Growing the world's most beautiful garden roses. A family farm in the English countryside, dedicated to the art of rose growing.</p>
     </div>
-
-    <div>
+    <div class="footer-col">
       <h4>Explore</h4>
-      <a href="#shop">Shop Bouquets</a>
-      <a href="#collections">Collections</a>
-      <a href="#story">Our Story</a>
+      <ul>
+        <li><a href="#about">Our Story</a></li>
+        <li><a href="#roses">Our Roses</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#journal">Journal</a></li>
+      </ul>
     </div>
-
-    <div>
-      <h4>Information</h4>
-      <a href="#occasions">Occasions</a>
-      <p>Demonstration flower shop</p>
-      <p>No real orders or payments.</p>
+    <div class="footer-col">
+      <h4>Visit</h4>
+      <ul>
+        <li><a href="#experience">Farm Tours</a></li>
+        <li><a href="#experience">Weddings</a></li>
+        <li><a href="#experience">Workshops</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
-
+    <div class="footer-col">
+      <h4>Follow</h4>
+      <ul>
+        <li><a href="#" aria-label="Instagram (placeholder)">Instagram</a></li>
+        <li><a href="#" aria-label="Pinterest (placeholder)">Pinterest</a></li>
+        <li><a href="mailto:hello@fleure.demo">hello@fleure.demo</a></li>
+      </ul>
+    </div>
   </div>
-
-  <div class="copyright">
-    © 2026 FLEURÉ — Floral Atelier. Demonstration website.
+  <div class="footer-bottom">
+    <div>© 2026 FLEURÉ. Demonstration website.</div>
+    <div>Growing beauty, one rose at a time.</div>
   </div>
-
 </footer>
 
-<!-- CART -->
-
-<div class="overlay" id="overlay"></div>
-
-<aside
-  class="drawer"
-  id="drawer"
-  role="dialog"
-  aria-modal="true"
-  aria-label="Shopping bag">
-
-  <div class="drawer-head">
-    <h2>Your Bag</h2>
-    <button class="close" id="closeBag" aria-label="Close bag">×</button>
-  </div>
-
-  <div class="cart-items" id="cartItems"></div>
-
-  <div class="cart-bottom">
-
-    <div style="display:flex;justify-content:space-between">
-      <strong>Subtotal</strong>
-      <strong id="subtotal">$0.00</strong>
-    </div>
-
-    <button class="btn" id="checkoutBtn">Demo Checkout</button>
-
-    <p class="demo">
-      This is a portfolio demonstration.
-      No payment will be taken.
-    </p>
-
-  </div>
-</aside>
-
-<!-- CHECKOUT -->
-
-<div class="checkout" id="checkout">
-
-  <div
-    class="checkout-box"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Demo checkout">
-
-    <button
-      class="close checkout-close"
-      id="closeCheckout"
-      aria-label="Close checkout">×</button>
-
-    <h2>Delivery details</h2>
-
-    <p class="demo">
-      Demonstration checkout only.
-      No information is transmitted.
-    </p>
-
-    <form id="checkoutForm">
-
-      <label for="fullName">Full Name</label>
-      <input id="fullName" required>
-
-      <label for="email">Email</label>
-      <input id="email" type="email" required>
-
-      <label for="phone">Phone Number</label>
-      <input id="phone" type="tel" required>
-
-      <label for="address">Delivery Address</label>
-      <input id="address" required>
-
-      <label for="date">Preferred Delivery Date</label>
-      <input id="date" type="date" required>
-
-      <label for="message">Gift Message</label>
-      <textarea id="message" rows="3"></textarea>
-
-      <p id="checkoutTotal"></p>
-
-      <button class="btn" type="submit">
-        Complete Demo Order
-      </button>
-
-    </form>
-  </div>
-</div>
-
-<div class="toast" id="toast" role="status"></div>
+<div class="toast" id="toast"></div>
+<button class="back-top" id="backTop" aria-label="Back to top">↑</button>
 
 <script>
+  window.addEventListener('load',()=>{
+    setTimeout(()=>document.getElementById('loader').classList.add('hidden'),700);
+  });
 
-/* PRODUCTS */
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>{
+    nav.classList.toggle('scrolled',window.scrollY>60);
+    document.getElementById('backTop').classList.toggle('show',window.scrollY>600);
+  });
 
-const items = [
-  {
-    id: 1,
-    name: "Blush Romance",
-    price: 95,
-    category: "roses",
-    image: "https://images.pexels.com/photos/994989/pexels-photo-994989.jpeg?auto=compress&cs=tinysrgb&w=700"
-  },
-  {
-    id: 2,
-    name: "The Ivory Edit",
-    price: 85,
-    category: "signature",
-    image: "https://images.pexels.com/photos/1070901/pexels-photo-1070901.jpeg?auto=compress&cs=tinysrgb&w=700"
-  },
-  {
-    id: 3,
-    name: "Garden Poetry",
-    price: 110,
-    category: "seasonal",
-    image: "https://images.pexels.com/photos/1123262/pexels-photo-1123262.jpeg?auto=compress&cs=tinysrgb&w=700"
-  },
-  {
-    id: 4,
-    name: "Champagne Bloom",
-    price: 125,
-    category: "signature",
-    image: "https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=700"
-  },
-  {
-    id: 5,
-    name: "Rose Garden",
-    price: 105,
-    category: "roses",
-    image: "https://images.pexels.com/photos/1907228/pexels-photo-1907228.jpeg?auto=compress&cs=tinysrgb&w=700"
-  },
-  {
-    id: 6,
-    name: "Soft Whisper",
-    price: 75,
-    category: "seasonal",
-    image: "https://images.pexels.com/photos/1190829/pexels-photo-1190829.jpeg?auto=compress&cs=tinysrgb&w=700"
-  },
-  {
-    id: 7,
-    name: "The Signature",
-    price: 150,
-    category: "signature",
-    image: "https://images.pexels.com/photos/994989/pexels-photo-994989.jpeg?auto=compress&cs=tinysrgb&w=700"
-  },
-  {
-    id: 8,
-    name: "Sweet Peony",
-    price: 99,
-    category: "seasonal",
-    image: "https://images.pexels.com/photos/1070901/pexels-photo-1070901.jpeg?auto=compress&cs=tinysrgb&w=700"
+  const toggle=document.getElementById('menuToggle');
+  const navMobile=document.getElementById('navMobile');
+  toggle.addEventListener('click',()=>{
+    toggle.classList.toggle('open');
+    navMobile.classList.toggle('open');
+  });
+  navMobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    toggle.classList.remove('open');
+    navMobile.classList.remove('open');
+  }));
+
+  // Reveal on scroll
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Fallback: if any image fails, replace with a verified rose image
+  const FALLBACK_ROSE='https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=800&q=80';
+  document.querySelectorAll('img').forEach(img=>{
+    img.addEventListener('error',function(){
+      if(this.dataset.fb)return;
+      this.dataset.fb='1';
+      this.src=FALLBACK_ROSE;
+    },{once:true});
+  });
+
+  document.getElementById('newsletterForm').addEventListener('submit',(e)=>{
+    e.preventDefault();
+    showToast('Thank you for subscribing');
+    e.target.reset();
+  });
+
+  const toast=document.getElementById('toast');
+  function showToast(msg){
+    toast.textContent=msg;toast.classList.add('show');
+    setTimeout(()=>toast.classList.remove('show'),2800);
   }
-];
 
-const $ = id => document.getElementById(id);
-const money = n => "$" + n.toFixed(2);
+  document.getElementById('backTop').addEventListener('click',()=>{
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
 
-let cart = {};
-
-try {
-  cart = JSON.parse(localStorage.getItem("fleureCart") || "{}");
-  if (!cart || typeof cart !== "object" || Array.isArray(cart)) {
-    cart = {};
-  }
-} catch (error) {
-  cart = {};
-}
-
-/* NOTIFICATIONS */
-
-function showToast(message) {
-  $("toast").textContent = message;
-  $("toast").classList.add("show");
-
-  clearTimeout(window.toastTimer);
-
-  window.toastTimer = setTimeout(() => {
-    $("toast").classList.remove("show");
-  }, 2800);
-}
-
-/* PRODUCT DISPLAY */
-
-function renderProducts(filter = "all") {
-
-  const selected = items.filter(product =>
-    filter === "all" || product.category === filter
-  );
-
-  $("products").innerHTML = selected.map(product => `
-    <article class="product">
-
-      <div class="product-image">
-        <img
-          loading="lazy"
-          src="${product.image}"
-          alt="${product.name} flower bouquet">
-      </div>
-
-      <div class="product-info">
-
-        <div class="eyebrow">FLEURÉ FLORAL ATELIER</div>
-
-        <h3>${product.name}</h3>
-
-        <div class="price">${money(product.price)}</div>
-
-        <button data-add="${product.id}">
-          Add to Bag +
-        </button>
-
-      </div>
-
-    </article>
-  `).join("");
-}
-
-/* CART STORAGE */
-
-function saveCart() {
-  localStorage.setItem("fleureCart", JSON.stringify(cart));
-  renderCart();
-}
-
-function addToCart(id) {
-  cart[id] = (cart[id] || 0) + 1;
-  saveCart();
-  showToast("Added to your bag ♡");
-}
-
-/* CART DISPLAY */
-
-function renderCart() {
-
-  let count = 0;
-  let total = 0;
-  let markup = "";
-
-  Object.entries(cart).forEach(([id, quantity]) => {
-
-    const product = items.find(item => item.id === Number(id));
-
-    if (!product || !Number.isInteger(quantity) || quantity < 1) {
-      return;
+  document.addEventListener('keydown',(e)=>{
+    if(e.key==='Escape'){
+      navMobile.classList.remove('open');
+      toggle.classList.remove('open');
     }
-
-    count += quantity;
-    total += product.price * quantity;
-
-    markup += `
-      <div class="cart-item">
-
-        <img src="${product.image}" alt="${product.name}">
-
-        <div>
-          <h4>${product.name}</h4>
-          <p>${money(product.price)}</p>
-
-          <div class="qty">
-            <button
-              data-change="${id}"
-              data-delta="-1"
-              aria-label="Decrease quantity">−</button>
-
-            <span>${quantity}</span>
-
-            <button
-              data-change="${id}"
-              data-delta="1"
-              aria-label="Increase quantity">+</button>
-          </div>
-        </div>
-
-        <button
-          data-remove="${id}"
-          aria-label="Remove ${product.name}"
-          style="background:none;border:0;font-size:22px">×</button>
-
-      </div>
-    `;
   });
-
-  $("cartItems").innerHTML =
-    markup || "<p>Your bag is waiting for something beautiful.</p>";
-
-  $("count").textContent = count;
-  $("subtotal").textContent = money(total);
-  $("checkoutTotal").textContent = "Demo total: " + money(total);
-
-  $("checkoutBtn").disabled = count === 0;
-  $("checkoutBtn").style.opacity = count ? "1" : ".5";
-}
-
-/* OPEN AND CLOSE CART */
-
-function toggleBag(open) {
-  $("drawer").classList.toggle("open", open);
-  $("overlay").classList.toggle("open", open);
-  document.body.style.overflow = open ? "hidden" : "";
-}
-
-$("bagBtn").addEventListener("click", () => toggleBag(true));
-$("closeBag").addEventListener("click", () => toggleBag(false));
-$("overlay").addEventListener("click", () => toggleBag(false));
-
-/* CART BUTTON ACTIONS */
-
-document.addEventListener("click", event => {
-
-  const addButton = event.target.closest("[data-add]");
-
-  if (addButton) {
-    addToCart(Number(addButton.dataset.add));
-  }
-
-  const removeButton = event.target.closest("[data-remove]");
-
-  if (removeButton) {
-    delete cart[removeButton.dataset.remove];
-    saveCart();
-  }
-
-  const changeButton = event.target.closest("[data-change]");
-
-  if (changeButton) {
-    const id = changeButton.dataset.change;
-    const change = Number(changeButton.dataset.delta);
-
-    cart[id] = (cart[id] || 0) + change;
-
-    if (cart[id] <= 0) {
-      delete cart[id];
-    }
-
-    saveCart();
-  }
-});
-
-/* COLLECTION FILTERS */
-
-function setFilter(filter) {
-
-  document.querySelectorAll(".filter").forEach(button => {
-    button.classList.toggle(
-      "active",
-      button.dataset.filter === filter
-    );
-  });
-
-  renderProducts(filter);
-}
-
-document.querySelectorAll(".filter").forEach(button => {
-  button.addEventListener("click", () => {
-    setFilter(button.dataset.filter);
-  });
-});
-
-document.querySelectorAll("[data-category]").forEach(link => {
-  link.addEventListener("click", () => {
-    setFilter(link.dataset.category);
-  });
-});
-
-/* MOBILE MENU */
-
-$("menuBtn").addEventListener("click", () => {
-  $("nav").classList.toggle("open");
-});
-
-document.querySelectorAll("#nav a").forEach(link => {
-  link.addEventListener("click", () => {
-    $("nav").classList.remove("open");
-  });
-});
-
-/* CHECKOUT */
-
-$("checkoutBtn").addEventListener("click", () => {
-  toggleBag(false);
-  $("checkout").classList.add("open");
-  document.body.style.overflow = "hidden";
-});
-
-function closeCheckout() {
-  $("checkout").classList.remove("open");
-  document.body.style.overflow = "";
-}
-
-$("closeCheckout").addEventListener("click", closeCheckout);
-
-$("checkout").addEventListener("click", event => {
-  if (event.target === $("checkout")) {
-    closeCheckout();
-  }
-});
-
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape") {
-    toggleBag(false);
-    closeCheckout();
-  }
-});
-
-/* DELIVERY DATE */
-
-const today = new Date();
-const year = today.getFullYear();
-const month = String(today.getMonth() + 1).padStart(2, "0");
-const day = String(today.getDate()).padStart(2, "0");
-
-$("date").min = `${year}-${month}-${day}`;
-
-/* DEMO ORDER */
-
-$("checkoutForm").addEventListener("submit", event => {
-
-  event.preventDefault();
-
-  if (!Object.keys(cart).length) {
-    showToast("Your bag is empty.");
-    return;
-  }
-
-  closeCheckout();
-
-  cart = {};
-  saveCart();
-
-  $("checkoutForm").reset();
-
-  showToast(
-    "Thank you for choosing FLEURÉ! Demo order complete — no payment taken."
-  );
-});
-
-/* NEWSLETTER */
-
-$("newsletter").addEventListener("submit", event => {
-  event.preventDefault();
-  event.target.reset();
-  showToast("Demo signup — no email was sent.");
-});
-
-/* BACKGROUND VIDEO */
-
-const heroVideo = $("heroVideo");
-
-heroVideo.addEventListener("error", () => {
-  heroVideo.style.display = "none";
-});
-
-const videoSource = heroVideo.querySelector("source");
-
-if (videoSource) {
-  videoSource.addEventListener("error", () => {
-    heroVideo.style.display = "none";
-  });
-}
-
-if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  heroVideo.pause();
-  heroVideo.style.display = "none";
-}
-
-/* INITIALIZE */
-
-renderProducts();
-renderCart();
-
 </script>
-
 </body>
 </html>
