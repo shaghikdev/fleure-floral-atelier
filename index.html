@@ -603,6 +603,69 @@ footer p,footer a:not(.logo){
     transition:none!important;
   }
 }
+  
+/* FLEURÉ — LUXURY FLORAL ATELIER HOMEPAGE */
+
+.hero {
+  background: #faf4ee !important;
+}
+
+.hero-background {
+  background-image: url("https://images.pexels.com/photos/32316797/pexels-photo-32316797.jpeg?auto=compress&cs=tinysrgb&w=2000") !important;
+  background-position: center 45% !important;
+  background-size: cover !important;
+  filter: brightness(1.12) saturate(0.85) !important;
+  animation: heroZoom 20s ease-in-out infinite alternate;
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(250,247,240,0.78),
+    rgba(250,247,240,0.56),
+    rgba(235,207,210,0.45)
+  ) !important;
+}
+
+.hero-content {
+  color: #35483D !important;
+  text-shadow: none !important;
+}
+
+.hero h1 {
+  color: #35483D !important;
+  text-shadow: none !important;
+}
+
+.hero-tagline {
+  color: #6b625d !important;
+}
+
+.hero .btn {
+  background: #35483D !important;
+  color: white !important;
+  border-color: #35483D !important;
+}
+
+.hero .btn:hover {
+  background: #A8B7A0 !important;
+  color: #35483D !important;
+}
+
+.scroll-hint {
+  color: #35483D !important;
+}
+
+@media (max-width: 750px) {
+  .hero-background {
+    background-position: center !important;
+  }
+
+  .hero-overlay {
+    background: rgba(250,247,240,0.60) !important;
+  }
+}
+
 </style>
 </head>
 
