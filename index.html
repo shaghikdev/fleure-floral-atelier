@@ -35,7 +35,6 @@
     --warm:#C9B8A8;
   }
 
-  /* LOADER */
   .loader{
     position:fixed;inset:0;background:var(--cream);z-index:9999;
     display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;
@@ -56,7 +55,6 @@
   }
   @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-  /* NAV */
   .nav{
     position:fixed;top:0;left:0;right:0;z-index:100;
     padding:32px 48px;display:flex;align-items:center;justify-content:space-between;
@@ -104,7 +102,6 @@
   .menu-toggle.open span:nth-child(2){opacity:0}
   .menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-  /* HERO */
   .hero{
     min-height:100vh;position:relative;
     display:grid;grid-template-columns:1fr 1fr;
@@ -172,7 +169,6 @@
   }
   @keyframes scrollLine{0%,100%{transform:scaleY(.3);transform-origin:top}50%{transform:scaleY(1)}}
 
-  /* SECTIONS */
   section{padding:140px 48px;position:relative}
   .section-head{
     text-align:center;max-width:700px;margin:0 auto 80px;
@@ -192,7 +188,6 @@
     max-width:500px;margin:0 auto;
   }
 
-  /* FEATURED */
   .featured{background:var(--cream)}
   .feat-grid{
     display:grid;grid-template-columns:repeat(3,1fr);gap:40px;
@@ -231,7 +226,6 @@
   .feat-overlay .link::after{content:'→';transition:transform .4s}
   .feat-card:hover .link::after{transform:translateX(8px)}
 
-  /* COLLECTIONS */
   .collections{background:var(--blush)}
   .coll-grid{
     display:grid;grid-template-columns:repeat(4,1fr);gap:32px;
@@ -257,7 +251,6 @@
   }
   .coll-card p{font-size:13px;color:var(--muted);line-height:1.6}
 
-  /* PRODUCTS */
   .products{background:var(--cream)}
   .prod-grid{
     display:grid;grid-template-columns:repeat(4,1fr);gap:32px;
@@ -289,7 +282,6 @@
   }
   .prod-price{font-size:15px;color:var(--muted);font-weight:300}
 
-  /* EDITORIAL */
   .editorial{background:var(--cream)}
   .edit-grid{
     display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
@@ -314,7 +306,6 @@
     font-size:20px;color:var(--charcoal);
   }
 
-  /* SALE */
   .sale{
     background:var(--charcoal);color:var(--cream);
     position:relative;overflow:hidden;
@@ -370,7 +361,6 @@
     color:var(--warm);
   }
 
-  /* TESTIMONIALS */
   .testimonials{background:var(--blush)}
   .test-grid{
     display:grid;grid-template-columns:repeat(3,1fr);gap:40px;
@@ -410,7 +400,6 @@
     letter-spacing:.2em;text-transform:uppercase;
   }
 
-  /* NEWSLETTER */
   .newsletter{
     background:var(--cream);text-align:center;padding:140px 48px;
   }
@@ -439,7 +428,6 @@
   }
   .newsletter-form button:hover{color:var(--muted)}
 
-  /* FOOTER */
   footer{
     background:var(--charcoal);color:rgba(253,251,247,.7);
     padding:100px 48px 40px;
@@ -469,7 +457,6 @@
     font-size:12px;letter-spacing:.1em;color:rgba(253,251,247,.5);
   }
 
-  /* CART DRAWER */
   .cart-overlay{
     position:fixed;inset:0;background:rgba(42,42,42,.5);
     z-index:200;opacity:0;visibility:hidden;transition:all .4s;
@@ -863,14 +850,14 @@
   }));
 
   const products=[
-    {id:'ivory',name:'The Ivory Edit',price:95,desc:'White roses, ranunculus, and seasonal ivory blooms.',img:'https://images.pexels.com/photos/1070901/pexels-photo-1070901.jpeg?auto=compress&cs=tinysrgb&w=800',tag:'New'},
-    {id:'blush',name:'Blush Romance',price:110,desc:'Soft pink peonies and garden roses.',img:'https://images.pexels.com/photos/994989/pexels-photo-994989.jpeg?auto=compress&cs=tinysrgb&w=800',tag:'Bestseller'},
-    {id:'whisper',name:'White Whisper',price:75,desc:'Minimalist white tulips and eucalyptus.',img:'https://images.pexels.com/photos/1123262/pexels-photo-1123262.jpeg?auto=compress&cs=tinysrgb&w=800',tag:null},
-    {id:'signature',name:'The Signature',price:165,desc:'Luxurious roses, orchids, and premium seasonal flowers.',img:'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=800',tag:'Premium'},
-    {id:'garden',name:'Garden Poetry',price:120,desc:'Romantic garden roses and pastel blooms.',img:'https://images.pexels.com/photos/1907228/pexels-photo-1907228.jpeg?auto=compress&cs=tinysrgb&w=800',tag:null},
-    {id:'champagne',name:'Champagne Bloom',price:135,desc:'Cream roses and champagne-toned accents.',img:'https://images.pexels.com/photos/1179229/pexels-photo-1179229.jpeg?auto=compress&cs=tinysrgb&w=800',tag:'New'},
-    {id:'meadow',name:'Meadow Wild',price:85,desc:'Wildflower-inspired seasonal mix.',img:'https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg?auto=compress&cs=tinysrgb&w=800',tag:null},
-    {id:'dusk',name:'Dusk Bouquet',price:145,desc:'Deep burgundy and mauve seasonal arrangement.',img:'https://images.pexels.com/photos/919094/pexels-photo-919094.jpeg?auto=compress&cs=tinysrgb&w=800',tag:'Limited'}
+    {id:'ivory',name:'The Ivory Edit',price:95,img:'https://images.pexels.com/photos/1070901/pexels-photo-1070901.jpeg?auto=compress&cs=tinysrgb&w=800',tag:'New'},
+    {id:'blush',name:'Blush Romance',price:110,img:'https://images.pexels.com/photos/994989/pexels-photo-994989.jpeg?auto=compress&cs=tinysrgb&w=800',tag:'Bestseller'},
+    {id:'whisper',name:'White Whisper',price:75,img:'https://images.pexels.com/photos/1123262/pexels-photo-1123262.jpeg?auto=compress&cs=tinysrgb&w=800',tag:null},
+    {id:'signature',name:'The Signature',price:165,img:'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=800',tag:'Premium'},
+    {id:'garden',name:'Garden Poetry',price:120,img:'https://images.pexels.com/photos/1907228/pexels-photo-1907228.jpeg?auto=compress&cs=tinysrgb&w=800',tag:null},
+    {id:'champagne',name:'Champagne Bloom',price:135,img:'https://images.pexels.com/photos/1179229/pexels-photo-1179229.jpeg?auto=compress&cs=tinysrgb&w=800',tag:'New'},
+    {id:'meadow',name:'Meadow Wild',price:85,img:'https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg?auto=compress&cs=tinysrgb&w=800',tag:null},
+    {id:'dusk',name:'Dusk Bouquet',price:145,img:'https://images.pexels.com/photos/919094/pexels-photo-919094.jpeg?auto=compress&cs=tinysrgb&w=800',tag:'Limited'}
   ];
 
   const saleItems=[
