@@ -1,62 +1,1651 @@
 
-/* FLEURÉ — LUXURY FLORAL ATELIER HOMEPAGE */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLEURÉ — Floral Atelier</title>
+<meta name="description" content="FLEURÉ Floral Atelier — romantic flowers and thoughtfully arranged bouquets.">
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #FFF9F4;
+  --blush: #F7E8E8;
+  --pink: #EED8DB;
+  --sage: #B7C9B0;
+  --olive: #697E6C;
+  --deep: #425847;
+  --rose: #BE929C;
+  --text: #526257;
+  --line: #E8DDD9;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+}
+body.no-scroll { overflow: hidden; }
+h1,h2,h3,.logo {
+  font-family: "Playfair Display",serif;
+  font-weight: 400;
+}
+h2 {
+  font-size: clamp(32px,4vw,52px);
+  margin: 12px 0 18px;
+}
+p { line-height: 1.75; }
+a { text-decoration: none; color: inherit; }
+button,input,select,textarea { font: inherit; }
+button { cursor: pointer; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.btn {
+  display: inline-block;
+  padding: 16px 30px;
+  border: 1px solid var(--deep);
+  background: var(--deep);
+  color: white;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+  transition: .3s;
+}
+.btn:hover {
+  background: var(--sage);
+  border-color: var(--sage);
+  color: var(--deep);
+}
+.section {
+  max-width: 1450px;
+  margin: auto;
+  padding: 85px 5%;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 45px;
+}
+.section-title p { color: #888; }
+
+/* PASTEL HEADER */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(247,232,232,.97);
+  border-bottom: 1px solid #EAD6D8;
+  backdrop-filter: blur(10px);
+}
+.header-inner {
+  max-width: 1450px;
+  margin: auto;
+  padding: 16px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.logo {
+  color: var(--olive);
+  font-size: 30px;
+  letter-spacing: 5px;
+  line-height: 1;
+  text-align: center;
+}
+.logo small {
+  display: block;
+  margin-top: 9px;
+  color: #92A48F;
+  font: 9px "DM Sans",sans-serif;
+  letter-spacing: 4px;
+}
+nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+nav a {
+  color: var(--olive);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+nav a:hover { color: var(--rose); }
+.bag-btn {
+  padding: 12px 20px;
+  background: #FDF8F5;
+  border: 1px solid #C7D5C4;
+  color: var(--olive);
+  font-size: 11px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+.menu-btn {
+  display: none;
+  background: none;
+  border: 0;
+  color: var(--olive);
+  font-size: 25px;
+}
+
+/* HERO — PREVIOUS FLORAL PHOTO STYLE */
 
 .hero {
-  background: #faf4ee !important;
+  height: 86vh;
+  min-height: 600px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #E8D2CB;
 }
-
-.hero-background {
-  background-image: url("https://images.pexels.com/photos/32316797/pexels-photo-32316797.jpeg?auto=compress&cs=tinysrgb&w=2000") !important;
-  background-position: center 45% !important;
-  background-size: cover !important;
-  filter: brightness(1.12) saturate(0.85) !important;
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.pexels.com/photos/32316797/pexels-photo-32316797.jpeg?auto=compress&cs=tinysrgb&w=2000");
+  background-size: cover;
+  background-position: center;
   animation: heroZoom 20s ease-in-out infinite alternate;
 }
-
-.hero-overlay {
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.06); }
+}
+.hero-shade {
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(250,247,240,0.78),
-    rgba(250,247,240,0.56),
-    rgba(235,207,210,0.45)
-  ) !important;
+    rgba(133,86,86,.12),
+    rgba(133,86,86,.18),
+    rgba(133,86,86,.12)
+  );
 }
-
 .hero-content {
-  color: #35483D !important;
-  text-shadow: none !important;
+  position: relative;
+  z-index: 2;
+  padding: 25px;
+  color: #FFF9F4;
+  text-shadow: 0 2px 14px rgba(74,49,49,.18);
 }
-
 .hero h1 {
-  color: #35483D !important;
-  text-shadow: none !important;
+  color: #FFF9F4;
+  font-size: clamp(75px,12vw,155px);
+  letter-spacing: 9px;
+  margin: 22px 0 30px;
+  line-height: 1.1;
 }
-
 .hero-tagline {
-  color: #6b625d !important;
+  font: italic clamp(24px,3vw,39px) "Playfair Display",serif;
+  margin: 0;
 }
-
+.hero-description {
+  font-size: 14px;
+  letter-spacing: .5px;
+  margin: 25px 0 32px;
+}
 .hero .btn {
-  background: #35483D !important;
-  color: white !important;
-  border-color: #35483D !important;
+  background: var(--sage);
+  border-color: var(--sage);
+  color: var(--deep);
+  text-shadow: none;
 }
-
 .hero .btn:hover {
-  background: #A8B7A0 !important;
-  color: #35483D !important;
+  background: var(--cream);
+  border-color: var(--cream);
+}
+.scroll-text {
+  position: absolute;
+  bottom: 25px;
+  color: white;
+  font-size: 10px;
+  letter-spacing: 3px;
+  z-index: 2;
 }
 
-.scroll-hint {
-  color: #35483D !important;
+/* BENEFITS */
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+  padding: 25px 5%;
+  background: white;
+  text-align: center;
+  font-size: 12px;
 }
 
-@media (max-width: 750px) {
-  .hero-background {
-    background-position: center !important;
+/* COLLECTIONS */
+
+.collections {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 22px;
+}
+.collection {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+}
+.collection img {
+  height: 100%;
+  transition: transform .6s;
+}
+.collection:hover img { transform: scale(1.07); }
+.collection-info {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 70px 20px 25px;
+  background: linear-gradient(transparent,rgba(25,35,25,.65));
+  color: white;
+  text-align: center;
+}
+.collection-info h3 {
+  font-size: 29px;
+  margin: 0 0 12px;
+}
+.collection-info span {
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+/* PRODUCTS */
+
+.shop-section { background: #F8F0ED; }
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 35px;
+}
+.filter {
+  padding: 12px 20px;
+  background: transparent;
+  border: 1px solid #D8C9C4;
+  color: var(--deep);
+}
+.filter.active,.filter:hover {
+  background: var(--olive);
+  color: white;
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 24px;
+}
+.product-card {
+  background: white;
+  transition: transform .3s,box-shadow .3s;
+}
+.product-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 14px 30px #35483d20;
+}
+.product-image {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+.product-image img {
+  height: 100%;
+  transition: transform .5s;
+}
+.product-card:hover img { transform: scale(1.07); }
+.quick-view {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--cream);
+  color: var(--deep);
+  border: 0;
+  padding: 13px 22px;
+  white-space: nowrap;
+  font-size: 12px;
+}
+.product-info {
+  padding: 22px;
+  text-align: center;
+}
+.product-info h3 {
+  font-size: 23px;
+  margin: 10px 0;
+}
+.price { margin: 15px 0; }
+.old-price {
+  color: #999;
+  text-decoration: line-through;
+  margin-right: 10px;
+}
+.sale-price { color: #B75E70; }
+.add-btn {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: var(--sage);
+  color: var(--deep);
+  padding: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 11px;
+}
+.add-btn:hover {
+  background: var(--deep);
+  color: white;
+}
+
+/* FINAL SALE */
+
+.sale-section {
+  background: var(--pink);
+  padding: 85px 5%;
+}
+.sale-container {
+  max-width: 1300px;
+  margin: auto;
+}
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 30px 0 45px;
+}
+.time-box {
+  background: white;
+  padding: 18px 12px;
+  min-width: 85px;
+  text-align: center;
+}
+.time-box strong {
+  display: block;
+  font: 34px "Playfair Display",serif;
+}
+.time-box span {
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+.sale-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 24px;
+}
+.sale-card {
+  background: white;
+  position: relative;
+}
+.sale-card img { height: 310px; }
+.sale-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 10px 15px;
+  background: var(--deep);
+  color: white;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+/* BOUQUET BUILDER */
+
+.builder {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+.builder img { height: 600px; }
+.builder-form {
+  background: white;
+  padding: 35px;
+}
+.builder-form label,.checkout-form label {
+  display: block;
+  margin: 18px 0 8px;
+  font-size: 12px;
+}
+.builder-form select,
+.builder-form textarea,
+.checkout-form input,
+.checkout-form textarea {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ddd;
+  background: var(--cream);
+}
+.builder-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ddd;
+  margin-top: 25px;
+  padding-top: 20px;
+}
+.builder-total strong {
+  font: 32px "Playfair Display",serif;
+}
+.builder-form .btn {
+  width: 100%;
+  margin-top: 22px;
+}
+
+/* STORY */
+
+.story {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--pink);
+}
+.story img {
+  height: 100%;
+  min-height: 540px;
+}
+.story-text {
+  padding: 70px 12%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* OCCASIONS */
+
+.occasions {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 20px;
+}
+.occasion img { height: 250px; }
+.occasion h3 {
+  text-align: center;
+  font-size: 23px;
+}
+
+/* NEWSLETTER */
+
+.newsletter {
+  background: var(--deep);
+  color: white;
+  padding: 80px 5%;
+  text-align: center;
+}
+.newsletter form {
+  display: flex;
+  max-width: 480px;
+  margin: 25px auto;
+}
+.newsletter input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  padding: 15px;
+}
+.newsletter button {
+  border: 0;
+  padding: 15px 22px;
+  background: var(--pink);
+  color: var(--deep);
+}
+
+/* FOOTER */
+
+footer {
+  background: #F4E9E6;
+  padding: 65px 5% 30px;
+}
+.footer-grid {
+  max-width: 1300px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 35px;
+}
+footer a:not(.logo) {
+  display: block;
+  font-size: 13px;
+  line-height: 2.4;
+}
+footer p {
+  color: #777;
+  font-size: 13px;
+}
+.copyright {
+  text-align: center;
+  border-top: 1px solid #ddd;
+  margin-top: 45px;
+  padding-top: 25px;
+  font-size: 11px;
+}
+
+/* CART */
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 29;
+  background: #0008;
+}
+.overlay.open { display: block; }
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(430px,100%);
+  height: 100%;
+  padding: 28px;
+  background: var(--cream);
+  z-index: 30;
+  transform: translateX(100%);
+  transition: transform .3s;
+  display: flex;
+  flex-direction: column;
+}
+.cart-drawer.open { transform: translateX(0); }
+.drawer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+}
+.close-btn {
+  border: 0;
+  background: transparent;
+  font-size: 30px;
+}
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+}
+.cart-item {
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  gap: 12px;
+  padding: 18px 0;
+  border-bottom: 1px solid #ddd;
+}
+.cart-item img { height: 75px; }
+.cart-item h4 {
+  margin: 0;
+  font-size: 14px;
+}
+.cart-item p {
+  margin: 6px 0;
+  font-size: 12px;
+}
+.quantity {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.quantity button {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 4px 10px;
+}
+.cart-bottom {
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+.progress {
+  height: 8px;
+  background: #E0DED5;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background: var(--sage);
+  transition: width .3s;
+}
+.cart-bottom .btn {
+  width: 100%;
+  margin-top: 18px;
+}
+
+/* MODALS */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #0009;
+  z-index: 40;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal.open { display: flex; }
+.modal-box {
+  position: relative;
+  width: min(550px,100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--cream);
+  padding: 35px;
+}
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+}
+.quick-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: center;
+}
+.quick-layout img { height: 300px; }
+.welcome-box {
+  background: var(--pink);
+  text-align: center;
+}
+.welcome-offer {
+  font: 60px "Playfair Display",serif;
+  margin: 20px 0;
+}
+.modal-box .btn {
+  width: 100%;
+  margin-top: 18px;
+}
+.small-note {
+  font-size: 11px;
+  color: #888;
+}
+.toast {
+  display: none;
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--deep);
+  color: white;
+  padding: 15px 25px;
+  z-index: 60;
+  text-align: center;
+}
+.toast.show { display: block; }
+
+/* MOBILE */
+
+@media(max-width:1100px) {
+  .product-grid { grid-template-columns: repeat(2,1fr); }
+  nav { gap: 12px; }
+}
+@media(max-width:750px) {
+  .menu-btn { display: block; }
+  nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 25px;
+    background: var(--blush);
+    flex-direction: column;
+  }
+  nav.open { display: flex; }
+  .logo { font-size: 24px; }
+  .hero {
+    min-height: 550px;
+    height: 85svh;
+  }
+  .hero h1 {
+    font-size: clamp(64px,14vw,100px);
+    letter-spacing: 4px;
+  }
+  .benefits,.collections,.sale-grid,.builder,.story {
+    grid-template-columns: 1fr;
+  }
+  .section,.sale-section { padding: 65px 5%; }
+  .collection { height: 370px; }
+  .product-image { height: 240px; }
+  .builder img { height: 350px; }
+  .story img {
+    height: 350px;
+    min-height: 350px;
+  }
+  .story-text { padding: 55px 8%; }
+  .occasions { grid-template-columns: repeat(2,1fr); }
+  .occasion img { height: 190px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .quick-layout { grid-template-columns: 1fr; }
+  .quick-layout img { height: 220px; }
+  .time-box {
+    min-width: 65px;
+    padding: 12px 8px;
+  }
+  .time-box strong { font-size: 27px; }
+}
+@media(max-width:390px) {
+  .product-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+
+    <a class="logo" href="#home">
+      FLEURÉ
+      <small>FLORAL ATELIER</small>
+    </a>
+
+    <nav id="nav">
+      <a href="#home">Home</a>
+      <a href="#collections">Collections</a>
+      <a href="#shop">Shop</a>
+      <a href="#sale">Final Sale</a>
+      <a href="#builder">Create Bouquet</a>
+      <a href="#story">Our Story</a>
+      <a href="#occasions">Occasions</a>
+    </nav>
+
+    <button class="bag-btn" id="bagBtn">
+      BAG (<span id="bagCount">0</span>)
+    </button>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-photo"></div>
+  <div class="hero-shade"></div>
+
+  <div class="hero-content">
+    <div class="eyebrow">✧ FLORAL ATELIER ✧</div>
+    <h1>FLEURÉ</h1>
+    <p class="hero-tagline">Flowers, thoughtfully arranged.</p>
+    <p class="hero-description">
+      Timeless blooms for life's most beautiful moments.
+    </p>
+    <a href="#shop" class="btn">SHOP BOUQUETS</a>
+  </div>
+
+  <div class="scroll-text">SCROLL TO EXPLORE ↓</div>
+</section>
+
+<div class="benefits">
+  <div>✦ Thoughtfully Curated Flowers</div>
+  <div>♡ Beautifully Wrapped Bouquets</div>
+  <div>✿ Made for Meaningful Moments</div>
+</div>
+
+<section class="section" id="collections">
+  <div class="section-title">
+    <div class="eyebrow">THE FLEURÉ COLLECTION</div>
+    <h2>Flowers for every moment</h2>
+    <p>Discover the art of giving flowers.</p>
+  </div>
+
+  <div class="collections">
+    <a href="#shop" class="collection" data-category="roses">
+      <img src="https://images.pexels.com/photos/4022213/pexels-photo-4022213.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Roses">
+      <div class="collection-info">
+        <h3>Roses & Romance</h3>
+        <span>EXPLORE COLLECTION →</span>
+      </div>
+    </a>
+
+    <a href="#shop" class="collection" data-category="signature">
+      <img src="https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Signature bouquets">
+      <div class="collection-info">
+        <h3>Signature Bouquets</h3>
+        <span>EXPLORE COLLECTION →</span>
+      </div>
+    </a>
+
+    <a href="#shop" class="collection" data-category="seasonal">
+      <img src="https://images.pexels.com/photos/29112838/pexels-photo-29112838.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Seasonal flowers">
+      <div class="collection-info">
+        <h3>Seasonal Blooms</h3>
+        <span>EXPLORE COLLECTION →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<div class="shop-section">
+<section class="section" id="shop">
+  <div class="section-title">
+    <div class="eyebrow">OUR BESTSELLERS</div>
+    <h2>The most loved bouquets</h2>
+    <p>Beautiful arrangements for life's sweetest occasions.</p>
+  </div>
+
+  <div class="filters">
+    <button class="filter active" data-filter="all">All Bouquets</button>
+    <button class="filter" data-filter="roses">Roses</button>
+    <button class="filter" data-filter="signature">Signature</button>
+    <button class="filter" data-filter="seasonal">Seasonal</button>
+  </div>
+
+  <div class="product-grid" id="productGrid"></div>
+</section>
+</div>
+
+<section class="sale-section" id="sale">
+  <div class="sale-container">
+    <div class="section-title">
+      <div class="eyebrow">A LITTLE SOMETHING SPECIAL</div>
+      <h2>Final Sale</h2>
+      <p id="saleStatus">
+        Special demo prices until October 31, 2026.
+      </p>
+    </div>
+
+    <div class="countdown">
+      <div class="time-box"><strong id="days">00</strong><span>DAYS</span></div>
+      <div class="time-box"><strong id="hours">00</strong><span>HOURS</span></div>
+      <div class="time-box"><strong id="minutes">00</strong><span>MINUTES</span></div>
+      <div class="time-box"><strong id="seconds">00</strong><span>SECONDS</span></div>
+    </div>
+
+    <div class="sale-grid" id="saleGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="builder">
+  <div class="section-title">
+    <div class="eyebrow">MADE JUST FOR YOU</div>
+    <h2>Build Your Own Bouquet</h2>
+    <p>Create something beautiful and uniquely yours.</p>
+  </div>
+
+  <div class="builder">
+    <img src="https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Custom bouquet">
+
+    <div class="builder-form">
+      <h2>Designed by you.</h2>
+
+      <label for="flowerColor">Flower Colors</label>
+      <select id="flowerColor">
+        <option>Blush Pink</option>
+        <option>Ivory White</option>
+        <option>Romantic Red</option>
+        <option>Peach & Champagne</option>
+        <option>Colorful Garden Mix</option>
+      </select>
+
+      <label for="bouquetSize">Bouquet Size</label>
+      <select id="bouquetSize">
+        <option value="65">Small — $65</option>
+        <option value="95" selected>Medium — $95</option>
+        <option value="135">Large — $135</option>
+        <option value="180">Grand — $180</option>
+      </select>
+
+      <label for="wrapping">Wrapping Style</label>
+      <select id="wrapping">
+        <option value="0">Classic Ivory — Included</option>
+        <option value="5">Blush Pink — +$5</option>
+        <option value="5">Sage Green — +$5</option>
+        <option value="12">Luxury Satin — +$12</option>
+      </select>
+
+      <label for="giftMessage">Gift Message</label>
+      <textarea id="giftMessage" rows="3" maxlength="250" placeholder="Write something lovely..."></textarea>
+
+      <div class="builder-total">
+        <span>Your Bouquet</span>
+        <strong id="builderPrice">$95.00</strong>
+      </div>
+
+      <button class="btn" id="addCustom">
+        ADD CUSTOM BOUQUET +
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <img src="https://images.pexels.com/photos/4022210/pexels-photo-4022210.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Flowers">
+
+  <div class="story-text">
+    <div class="eyebrow">OUR STORY</div>
+    <h2>A love letter<br>to flowers.</h2>
+    <p>
+      At FLEURÉ, we believe flowers are more than a gift.
+      They are a beautiful way to celebrate, express love,
+      and create memories.
+    </p>
+    <p>
+      Inspired by romantic garden blooms and timeless floral
+      design, our arrangements are made for life's most
+      meaningful moments.
+    </p>
+    <a href="#shop" class="btn">DISCOVER OUR FLOWERS</a>
+  </div>
+</section>
+
+<section class="section" id="occasions">
+  <div class="section-title">
+    <div class="eyebrow">THOUGHTFUL GESTURES</div>
+    <h2>Flowers for every occasion</h2>
+  </div>
+
+  <div class="occasions">
+    <a href="#shop" class="occasion">
+      <img src="https://images.pexels.com/photos/11245141/pexels-photo-11245141.jpeg?auto=compress&cs=tinysrgb&w=650" alt="Birthday flowers">
+      <h3>Birthdays</h3>
+    </a>
+
+    <a href="#shop" class="occasion">
+      <img src="https://images.pexels.com/photos/4022213/pexels-photo-4022213.jpeg?auto=compress&cs=tinysrgb&w=650" alt="Anniversary flowers">
+      <h3>Anniversaries</h3>
+    </a>
+
+    <a href="#shop" class="occasion">
+      <img src="https://images.pexels.com/photos/9765739/pexels-photo-9765739.jpeg?auto=compress&cs=tinysrgb&w=650" alt="Wedding flowers">
+      <h3>Weddings</h3>
+    </a>
+
+    <a href="#shop" class="occasion">
+      <img src="https://images.pexels.com/photos/5344925/pexels-photo-5344925.jpeg?auto=compress&cs=tinysrgb&w=650" alt="Flowers">
+      <h3>Just Because</h3>
+    </a>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="eyebrow">A LITTLE FLORAL INSPIRATION</div>
+  <h2>Stay in bloom</h2>
+  <p>Discover seasonal flowers and moments of beauty.</p>
+
+  <form id="newsletterForm">
+    <input type="email" placeholder="Your email address" required>
+    <button type="submit">JOIN THE LIST</button>
+  </form>
+
+  <p class="small-note">Demo signup — no emails are collected.</p>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="#home" class="logo">
+        FLEURÉ
+        <small>FLORAL ATELIER</small>
+      </a>
+      <p>Flowers, thoughtfully arranged.</p>
+    </div>
+
+    <div>
+      <h4>Explore</h4>
+      <a href="#shop">Shop Bouquets</a>
+      <a href="#collections">Collections</a>
+      <a href="#sale">Final Sale</a>
+      <a href="#builder">Create Bouquet</a>
+    </div>
+
+    <div>
+      <h4>Information</h4>
+      <a href="#story">Our Story</a>
+      <a href="#occasions">Occasions</a>
+      <p>Demonstration floral boutique</p>
+    </div>
+  </div>
+
+  <div class="copyright">
+    © 2026 FLEURÉ — Floral Atelier. Demo Website.
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+
+<aside class="cart-drawer" id="cartDrawer" role="dialog" aria-label="Shopping bag">
+  <div class="drawer-head">
+    <h2>Your Bag</h2>
+    <button class="close-btn" id="closeCart">×</button>
+  </div>
+
+  <div class="cart-items" id="cartItems"></div>
+
+  <div class="cart-bottom">
+    <p id="deliveryText">Add flowers to unlock free delivery.</p>
+
+    <div class="progress">
+      <div class="progress-fill" id="deliveryProgress"></div>
+    </div>
+
+    <div style="display:flex;justify-content:space-between">
+      <strong>Subtotal</strong>
+      <strong id="subtotal">$0.00</strong>
+    </div>
+
+    <p id="discountText" class="small-note"></p>
+
+    <button class="btn" id="checkoutBtn">DEMO CHECKOUT</button>
+    <p class="small-note">No real payment is processed.</p>
+  </div>
+</aside>
+
+<div class="modal" id="quickModal">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-label="Bouquet details">
+    <button class="close-btn modal-close" data-close="quickModal">×</button>
+
+    <div class="quick-layout">
+      <img id="quickImage" alt="Bouquet">
+
+      <div>
+        <div class="eyebrow">FLEURÉ FLORAL ATELIER</div>
+        <h2 id="quickName"></h2>
+        <p id="quickDescription"></p>
+        <p id="quickPrice"></p>
+        <button class="btn" id="quickAdd">ADD TO BAG +</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="welcomeModal">
+  <div class="modal-box welcome-box" role="dialog" aria-modal="true" aria-label="Welcome offer">
+    <button class="close-btn modal-close" data-close="welcomeModal">×</button>
+
+    <div class="eyebrow">WELCOME TO FLEURÉ</div>
+    <h2>A little gift for you.</h2>
+    <p>Make your first floral moment sweeter.</p>
+
+    <div class="welcome-offer">10% OFF</div>
+
+    <p>Enjoy a welcome discount on eligible bouquets.</p>
+
+    <button class="btn" id="claimOffer">
+      CLAIM MY WELCOME GIFT
+    </button>
+
+    <p class="small-note">
+      Does not combine with Final Sale discounts.
+    </p>
+  </div>
+</div>
+
+<div class="modal" id="checkoutModal">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-label="Demo checkout">
+    <button class="close-btn modal-close" data-close="checkoutModal">×</button>
+
+    <h2>Delivery Details</h2>
+
+    <p class="small-note">
+      Demo checkout only. No order is actually submitted.
+    </p>
+
+    <form id="checkoutForm" class="checkout-form">
+      <label for="customerName">Full Name</label>
+      <input id="customerName" required>
+
+      <label for="customerEmail">Email</label>
+      <input id="customerEmail" type="email" required>
+
+      <label for="customerAddress">Delivery Address</label>
+      <input id="customerAddress" required>
+
+      <label for="deliveryDate">Delivery Date</label>
+      <input id="deliveryDate" type="date" required>
+
+      <label for="orderMessage">Gift Message</label>
+      <textarea id="orderMessage" rows="3"></textarea>
+
+      <p id="checkoutTotal"></p>
+
+      <button class="btn" type="submit">
+        COMPLETE DEMO ORDER
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const products = [
+  {
+    id:1,
+    name:"Blush Romance",
+    price:95,
+    category:"roses",
+    image:"https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=800"
+  },
+  {
+    id:2,
+    name:"The Ivory Edit",
+    price:85,
+    salePrice:65,
+    category:"signature",
+    image:"https://images.pexels.com/photos/3117159/pexels-photo-3117159.jpeg?auto=compress&cs=tinysrgb&w=800"
+  },
+  {
+    id:3,
+    name:"Garden Poetry",
+    price:110,
+    category:"seasonal",
+    image:"https://images.pexels.com/photos/29112838/pexels-photo-29112838.jpeg?auto=compress&cs=tinysrgb&w=800"
+  },
+  {
+    id:4,
+    name:"Champagne Bloom",
+    price:125,
+    salePrice:89,
+    category:"signature",
+    image:"https://images.pexels.com/photos/29557146/pexels-photo-29557146.jpeg?auto=compress&cs=tinysrgb&w=800"
+  },
+  {
+    id:5,
+    name:"Rose Garden",
+    price:105,
+    category:"roses",
+    image:"https://images.pexels.com/photos/11245141/pexels-photo-11245141.jpeg?auto=compress&cs=tinysrgb&w=800"
+  },
+  {
+    id:6,
+    name:"Soft Whisper",
+    price:75,
+    salePrice:55,
+    category:"seasonal",
+    image:"https://images.pexels.com/photos/4022210/pexels-photo-4022210.jpeg?auto=compress&cs=tinysrgb&w=800"
+  },
+  {
+    id:7,
+    name:"The Signature",
+    price:150,
+    category:"signature",
+    image:"https://images.pexels.com/photos/35423452/pexels-photo-35423452.jpeg?auto=compress&cs=tinysrgb&w=800"
+  },
+  {
+    id:8,
+    name:"Sweet Peony",
+    price:99,
+    category:"seasonal",
+    image:"https://images.pexels.com/photos/3117159/pexels-photo-3117159.jpeg?auto=compress&cs=tinysrgb&w=800"
+  }
+];
+
+const $ = id => document.getElementById(id);
+const money = n => "$" + n.toFixed(2);
+const saleEnd = new Date("2026-10-31T23:59:59+04:00").getTime();
+const freeDeliveryThreshold = 150;
+
+let cart = [];
+let activeFilter = "all";
+let quickProductId = null;
+let welcomeClaimed =
+  localStorage.getItem("fleureWelcome") === "yes";
+
+try {
+  const saved = JSON.parse(
+    localStorage.getItem("fleureCart") || "[]"
+  );
+  if (Array.isArray(saved)) cart = saved;
+} catch(error) {
+  cart = [];
+}
+
+function saleActive() {
+  return Date.now() < saleEnd;
+}
+
+function currentPrice(product) {
+  if (product.salePrice && saleActive()) {
+    return product.salePrice;
+  }
+  return product.price;
+}
+
+function showToast(message) {
+  $("toast").textContent = message;
+  $("toast").classList.add("show");
+  clearTimeout(window.fleureToastTimer);
+  window.fleureToastTimer = setTimeout(() => {
+    $("toast").classList.remove("show");
+  },2800);
+}
+
+function renderProducts() {
+  const visible = products.filter(product =>
+    activeFilter === "all" ||
+    product.category === activeFilter
+  );
+
+  $("productGrid").innerHTML = visible.map(product => `
+    <article class="product-card">
+      <div class="product-image">
+        <img src="${product.image}" alt="${product.name}" loading="lazy">
+        <button class="quick-view" data-quick="${product.id}">
+          QUICK VIEW
+        </button>
+      </div>
+      <div class="product-info">
+        <div class="eyebrow">FLEURÉ FLORAL ATELIER</div>
+        <h3>${product.name}</h3>
+        <div class="price">
+          ${
+            product.salePrice && saleActive()
+            ? `<span class="old-price">${money(product.price)}</span>
+               <span class="sale-price">${money(product.salePrice)}</span>`
+            : money(product.price)
+          }
+        </div>
+        <button class="add-btn" data-add="${product.id}">
+          ADD TO BAG +
+        </button>
+      </div>
+    </article>
+  `).join("");
+}
+
+function setFilter(category) {
+  activeFilter = category;
+  document.querySelectorAll(".filter").forEach(button => {
+    button.classList.toggle(
+      "active",
+      button.dataset.filter === category
+    );
+  });
+  renderProducts();
+}
+
+document.querySelectorAll(".filter").forEach(button => {
+  button.addEventListener("click",() => {
+    setFilter(button.dataset.filter);
+  });
+});
+
+document.querySelectorAll("[data-category]").forEach(link => {
+  link.addEventListener("click",() => {
+    setFilter(link.dataset.category);
+  });
+});
+
+function renderSale() {
+  const saleProducts = products.filter(
+    product => product.salePrice
+  );
+
+  $("saleGrid").innerHTML = saleProducts.map(product => `
+    <article class="sale-card">
+      <span class="sale-badge">
+        ${saleActive() ? "FINAL SALE" : "SALE ENDED"}
+      </span>
+      <img src="${product.image}" alt="${product.name}">
+      <div class="product-info">
+        <h3>${product.name}</h3>
+        <div class="price">
+          ${
+            saleActive()
+            ? `<span class="old-price">${money(product.price)}</span>
+               <span class="sale-price">${money(product.salePrice)}</span>`
+            : money(product.price)
+          }
+        </div>
+        <button
+          class="add-btn"
+          ${saleActive()
+            ? `data-add="${product.id}"`
+            : "disabled"}
+        >
+          ${saleActive() ? "ADD SALE BOUQUET +" : "SALE ENDED"}
+        </button>
+      </div>
+    </article>
+  `).join("");
+}
+
+let previousSaleStatus = saleActive();
+
+function updateCountdown() {
+  const remaining = Math.max(0,saleEnd - Date.now());
+  const total = Math.floor(remaining / 1000);
+  const pad = n => String(n).padStart(2,"0");
+
+  $("days").textContent = pad(Math.floor(total / 86400));
+  $("hours").textContent = pad(Math.floor(total % 86400 / 3600));
+  $("minutes").textContent = pad(Math.floor(total % 3600 / 60));
+  $("seconds").textContent = pad(total % 60);
+
+  if (remaining === 0) {
+    $("saleStatus").textContent = "This promotion has ended.";
   }
 
-  .hero-overlay {
-    background: rgba(250,247,240,0.60) !important;
+  if (previousSaleStatus !== saleActive()) {
+    previousSaleStatus = saleActive();
+    renderProducts();
+    renderSale();
+    renderCart();
   }
 }
+
+function customBouquetPrice() {
+  return Number($("bouquetSize").value) +
+         Number($("wrapping").value);
+}
+
+function updateCustomPrice() {
+  $("builderPrice").textContent = money(customBouquetPrice());
+}
+
+$("bouquetSize").addEventListener("change",updateCustomPrice);
+$("wrapping").addEventListener("change",updateCustomPrice);
+
+$("addCustom").addEventListener("click",() => {
+  const size = $("bouquetSize")
+    .selectedOptions[0].text.split(" — ")[0];
+  const wrap = $("wrapping")
+    .selectedOptions[0].text.split(" — ")[0];
+
+  cart.push({
+    key:"custom-" + Date.now() + "-" + Math.random(),
+    name:"Your Custom Bouquet",
+    price:customBouquetPrice(),
+    quantity:1,
+    custom:true,
+    image:products[0].image,
+    details:$("flowerColor").value + " • " + size + " • " + wrap,
+    message:$("giftMessage").value
+  });
+
+  saveCart();
+  showToast("Your custom bouquet was added ♡");
+});
+
+function openModal(id) {
+  $(id).classList.add("open");
+  document.body.classList.add("no-scroll");
+}
+
+function closeModal(id) {
+  $(id).classList.remove("open");
+  if (
+    !document.querySelector(".modal.open") &&
+    !$("cartDrawer").classList.contains("open")
+  ) {
+    document.body.classList.remove("no-scroll");
+  }
+}
+
+function openQuickView(id) {
+  const product = products.find(p => p.id === id);
+  if (!product) return;
+
+  quickProductId = id;
+  $("quickImage").src = product.image;
+  $("quickName").textContent = product.name;
+  $("quickDescription").textContent =
+    "A beautiful floral arrangement, thoughtfully created for special moments.";
+  $("quickPrice").textContent = money(currentPrice(product));
+  openModal("quickModal");
+}
+
+$("quickAdd").addEventListener("click",() => {
+  if (quickProductId !== null) addProduct(quickProductId);
+  closeModal("quickModal");
+});
+
+document.querySelectorAll("[data-close]").forEach(button => {
+  button.addEventListener("click",() => {
+    closeModal(button.dataset.close);
+  });
+});
+
+document.querySelectorAll(".modal").forEach(modal => {
+  modal.addEventListener("click",event => {
+    if (event.target === modal) closeModal(modal.id);
+  });
+});
+
+function addProduct(id) {
+  const product = products.find(p => p.id === id);
+  if (!product) return;
+
+  const key = "product-" + id;
+  const existing = cart.find(item => item.key === key);
+
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    cart.push({
+      key:key,
+      productId:id,
+      name:product.name,
+      price:product.price,
+      image:product.image,
+      quantity:1,
+      custom:false
+    });
+  }
+
+  saveCart();
+  showToast("Added to your bag ♡");
+}
+
+function cartItemPrice(item) {
+  if (item.custom) return item.price;
+  const product = products.find(p => p.id === item.productId);
+  return product ? currentPrice(product) : item.price;
+}
+
+function isSaleItem(item) {
+  if (item.custom) return false;
+  const product = products.find(p => p.id === item.productId);
+  return Boolean(product && product.salePrice && saleActive());
+}
+
+function calculateTotals() {
+  let subtotal = 0;
+  let discount = 0;
+  let count = 0;
+
+  cart.forEach(item => {
+    const amount = cartItemPrice(item) * item.quantity;
+    subtotal += amount;
+    count += item.quantity;
+
+    if (welcomeClaimed && !isSaleItem(item)) {
+      discount += amount * .10;
+    }
+  });
+
+  return {
+    count:count,
+    discount:discount,
+    total:Math.max(0,subtotal - discount)
+  };
+}
+
+function saveCart() {
+  localStorage.setItem("fleureCart",JSON.stringify(cart));
+  renderCart();
+}
+
+function renderCart() {
+  const totals = calculateTotals();
+
+  $("cartItems").innerHTML = cart.map((item,index) => `
+    <div class="cart-item">
+      <img src="${item.image}" alt="${item.name}">
+      <div>
+        <h4>${item.name}</h4>
+        <p>${money(cartItemPrice(item))}</p>
+        ${item.details ? `<p>${item.details}</p>` : ""}
+        ${item.message ? "<p>Gift message included</p>" : ""}
+        <div class="quantity">
+          <button data-index="${index}" data-delta="-1">−</button>
+          <span>${item.quantity}</span>
+          <button data-index="${index}" data-delta="1">+</button>
+        </div>
+      </div>
+      <button class="close-btn" data-remove="${index}">×</button>
+    </div>
+  `).join("") || `
+    <p>Your bag is waiting for something beautiful.</p>
+  `;
+
+  $("bagCount").textContent = totals.count;
+  $("subtotal").textContent = money(totals.total);
+
+  $("discountText").textContent =
+    totals.discount > 0
+    ? "Welcome discount: −" + money(totals.discount)
+    : "";
+
+  const remaining = Math.max(
+    0,
+    freeDeliveryThreshold - totals.total
+  );
+
+  $("deliveryProgress").style.width =
+    Math.min(100,totals.total / freeDeliveryThreshold * 100) + "%";
+
+  $("deliveryText").textContent =
+    remaining > 0
+    ? "You're " + money(remaining) + " away from free delivery!"
+    : "♡ You've unlocked free delivery!";
+
+  $("checkoutTotal").textContent =
+    "Demo total: " + money(totals.total);
+
+  $("checkoutBtn").disabled = totals.count === 0;
+}
+
+function toggleCart(open) {
+  $("cartDrawer").classList.toggle("open",open);
+  $("overlay").classList.toggle("open",open);
+  document.body.classList.toggle("no-scroll",open);
+}
+
+$("bagBtn").addEventListener("click",() => toggleCart(true));
+$("closeCart").addEventListener("click",() => toggleCart(false));
+$("overlay").addEventListener("click",() => toggleCart(false));
+
+document.addEventListener("click",event => {
+  const add = event.target.closest("[data-add]");
+  if (add) addProduct(Number(add.dataset.add));
+
+  const quick = event.target.closest("[data-quick]");
+  if (quick) openQuickView(Number(quick.dataset.quick));
+
+  const remove = event.target.closest("[data-remove]");
+  if (remove) {
+    cart.splice(Number(remove.dataset.remove),1);
+    saveCart();
+  }
+
+  const quantity = event.target.closest("[data-index][data-delta]");
+  if (quantity) {
+    const index = Number(quantity.dataset.index);
+    const delta = Number(quantity.dataset.delta);
+
+    if (cart[index]) {
+      cart[index].quantity += delta;
+      if (cart[index].quantity <= 0) cart.splice(index,1);
+      saveCart();
+    }
+  }
+});
+
+$("claimOffer").addEventListener("click",() => {
+  welcomeClaimed = true;
+  localStorage.setItem("fleureWelcome","yes");
+  closeModal("welcomeModal");
+  renderCart();
+  showToast("Your 10% welcome gift is ready ♡");
+});
+
+$("checkoutBtn").addEventListener("click",() => {
+  if (cart.length === 0) return;
+  toggleCart(false);
+  openModal("checkoutModal");
+});
+
+$("checkoutForm").addEventListener("submit",event => {
+  event.preventDefault();
+  if (cart.length === 0) return;
+
+  cart = [];
+  saveCart();
+  event.target.reset();
+  closeModal("checkoutModal");
+  showToast("Demo order complete! No payment was taken.");
+});
+
+$("newsletterForm").addEventListener("submit",event => {
+  event.preventDefault();
+  event.target.reset();
+  showToast("Demo signup — no email was sent.");
+});
+
+$("menuBtn").addEventListener("click",() => {
+  $("nav").classList.toggle("open");
+});
+
+document.querySelectorAll("#nav a").forEach(link => {
+  link.addEventListener("click",() => {
+    $("nav").classList.remove("open");
+  });
+});
+
+document.addEventListener("keydown",event => {
+  if (event.key === "Escape") {
+    toggleCart(false);
+    document.querySelectorAll(".modal.open").forEach(modal => {
+      closeModal(modal.id);
+    });
+  }
+});
+
+const today = new Date();
+$("deliveryDate").min = [
+  today.getFullYear(),
+  String(today.getMonth()+1).padStart(2,"0"),
+  String(today.getDate()).padStart(2,"0")
+].join("-");
+
+renderProducts();
+renderSale();
+renderCart();
+updateCustomPrice();
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+if (!sessionStorage.getItem("fleureWelcomeSeen")) {
+  sessionStorage.setItem("fleureWelcomeSeen","yes");
+
+  setTimeout(() => {
+    if (
+      !document.querySelector(".modal.open") &&
+      !$("cartDrawer").classList.contains("open")
+    ) {
+      openModal("welcomeModal");
+    }
+  },1800);
+}
+</script>
+
+</body>
+</html>
